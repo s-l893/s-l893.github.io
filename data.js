@@ -1,83 +1,125 @@
-// Project data for your portfolio
-const projectData = {
-    project1: {
-        title: "E-commerce Website",
-        description: "A modern e-commerce platform with cart functionality",
-        longDescription: "A fully responsive e-commerce website built with modern web technologies. This project features a clean, user-friendly interface with advanced functionality including user authentication, product catalog with search and filtering capabilities, shopping cart with local storage persistence, and integrated payment processing. The site is optimized for performance and provides an excellent user experience across all devices.",
-        technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "MongoDB", "Stripe API"],
-        features: [
-            "User registration and authentication system",
-            "Advanced product search and filtering",
-            "Shopping cart with persistent storage",
-            "Responsive design optimized for mobile and desktop",
-            "Secure payment gateway integration",
-            "Order management and tracking system",
-            "Admin dashboard for inventory management",
-            "Customer reviews and ratings system"
-        ],
-        images: [
-            { content: "Homepage Design" },
-            { content: "Product Catalog" },
-            { content: "Shopping Cart Interface" },
-            { content: "Checkout Process" }
-        ],
-        links: [
-            { text: "Live Demo", url: "https://your-ecommerce-demo.com" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/ecommerce-project" }
-        ]
-    },
-    
-    project2: {
-        title: "Task Management App",
-        description: "A productivity app for managing daily tasks",
-        longDescription: "A comprehensive task management application designed to boost productivity and help users organize their daily activities. Built with React and TypeScript, this app features real-time collaboration, advanced filtering and sorting options, and detailed progress tracking. The application supports team workflows with role-based permissions and integrates with popular calendar applications for seamless scheduling.",
-        technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Context API", "React Router"],
-        features: [
-            "Create, edit, and organize tasks with priorities",
-            "Team collaboration with real-time updates",
-            "Advanced filtering and sorting capabilities",
-            "Progress tracking with detailed analytics",
-            "Calendar integration for deadline management",
-            "File attachments and comments on tasks",
-            "Customizable project boards and workflows",
-            "Mobile-responsive Progressive Web App"
-        ],
-        images: [
-            { content: "Dashboard Overview" },
-            { content: "Task Management Board" },
-            { content: "Team Collaboration View" },
-            { content: "Analytics Dashboard" }
-        ],
-        links: [
-            { text: "Live Demo", url: "https://your-taskapp-demo.com" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/task-management-app" }
-        ]
-    },
-    
-    project3: {
-        title: "Weather Dashboard",
-        description: "A beautiful weather app with forecasts and maps",
-        longDescription: "An intuitive weather dashboard application that provides comprehensive weather information with stunning visuals. The app features current weather conditions, detailed 7-day forecasts, interactive weather maps, and severe weather alerts. Built with Vue.js and integrated with multiple weather APIs for accurate and up-to-date information. The application includes location-based services and supports multiple cities with a favorites system.",
-        technologies: ["Vue.js", "Vuex", "Weather API", "Chart.js", "SASS", "Leaflet Maps"],
-        features: [
-            "Real-time current weather conditions",
-            "Detailed 7-day weather forecasts",
-            "Interactive weather maps with radar",
-            "Location-based automatic weather detection",
-            "Multiple city support with favorites",
-            "Weather alerts and severe weather notifications",
-            "Historical weather data and trends",
-            "Beautiful data visualizations with charts"
-        ],
-        images: [
-            { content: "Main Weather Dashboard" },
-            { content: "7-Day Forecast View" },
-            { content: "Interactive Weather Map" },
-            { content: "Weather Alerts Panel" }
-        ],
-        links: [
-            { text: "Live Demo", url: "https://your-weather-demo.com" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/weather-dashboard" }
-        ]
-    }
-};
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="nav-brand">Your Name</h1>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to My Portfolio</h1>
+            <p>I'm a passionate developer creating amazing digital experiences</p>
+            <a href="#projects" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Write a brief description about yourself, your skills, and your passion for development. Talk about your experience, what technologies you love working with, and what drives you as a developer.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card" data-project="project1">
+                    <h3>E-commerce Website</h3>
+                    <p>A modern e-commerce platform with cart functionality</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card" data-project="project2">
+                    <h3>Task Management App</h3>
+                    <p>A productivity app for managing daily tasks</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">Firebase</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card" data-project="project3">
+                    <h3>Weather Dashboard</h3>
+                    <p>A beautiful weather app with forecasts and maps</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Vue.js</span>
+                        <span class="tech-tag">API</span>
+                        <span class="tech-tag">Chart.js</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="fade-in-up">Get In Touch</h2>
+            <p class="fade-in-up">I'm always open to discussing new opportunities and interesting projects.</p>
+            <div class="contact-links fade-in-up">
+                <a href="mailto:your.email@example.com">📧 Email</a>
+                <a href="https://github.com/yourusername">💻 GitHub</a>
+                <a href="https://linkedin.com/in/yourprofile">💼 LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Project Details -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="modal-close">&times;</span>
+            
+            <div class="modal-body">
+                <div class="modal-carousel">
+                    <div id="carouselContainer" class="carousel-container">
+                        <!-- Carousel slides will be generated by JavaScript -->
+                    </div>
+                    <button id="prevSlide" class="carousel-nav prev">&#8249;</button>
+                    <button id="nextSlide" class="carousel-nav next">&#8250;</button>
+                    <div id="carouselIndicators" class="carousel-indicators">
+                        <!-- Carousel dots will be generated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div id="modalInfo" class="modal-info">
+                    <!-- Project details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JavaScript files -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
