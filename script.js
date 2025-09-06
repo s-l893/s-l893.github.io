@@ -120,4 +120,91 @@ function goToSlide(slideIndex) {
     if (slides.length === 0 || dots.length === 0) return;
 
     slides[currentSlide].classList.remove('active');
-    dots[currentSlide].
+    dots[currentSlide].classList.remove('active');
+
+    currentSlide = slideIndex;
+
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+}
+
+function nextSlideFunc() {
+    if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
+    const nextIndex = (currentSlide + 1) % currentProject.images.length;
+    goToSlide(nextIndex);
+}
+
+function prevSlideFunc() {
+    if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
+    const prevIndex = (currentSlide - 1 + currentProject.images.length) % currentProject.images.length;
+    goToSlide(prevIndex);
+}
+
+// Event listeners - Wrap in DOMContentLoaded to ensure DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Start alternating text animation
+    setInterval(updateAlternatingText, 2000);
+    
+    // Initial scroll animation check
+    handleScrollAnimations();
+    
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScrollAnimations);
+    
+    // Add event listeners to project cards
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const projectKey = card.getAttribute('data-project');
+            if (projectKey) {
+                openModal(projectKey);
+            }
+        });
+    });
+
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
+
+    if (nextSlide) {
+        nextSlide.addEventListener('click', nextSlideFunc);
+    }
+
+    if (prevSlide) {
+        prevSlide.addEventListener('click', prevSlideFunc);
+    }
+    
+    // Add keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (modal && modal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowRight') {
+                nextSlideFunc();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlideFunc();
+            }
+        }
+    });
+});
+
+// Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+});
