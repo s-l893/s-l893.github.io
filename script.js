@@ -48,7 +48,8 @@ function initializeNavigation() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const navbar = document.querySelector('.navbar');
+                const navHeight = navbar ? navbar.offsetHeight : 0;
                 const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
                 
                 window.scrollTo({
@@ -66,7 +67,8 @@ function initializeNavigation() {
 function updateActiveNavigation() {
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-menu a');
-    const navHeight = document.querySelector('.navbar').offsetHeight;
+    const navbar = document.querySelector('.navbar');
+    const navHeight = navbar ? navbar.offsetHeight : 0;
     
     let current = '';
     
@@ -94,6 +96,27 @@ function initializeGreetingAnimation() {
     
     // Set interval to change greeting every 3 seconds
     setInterval(updateAlternatingText, 3000);
+}
+
+// Missing function: updateAlternatingText
+function updateAlternatingText() {
+    const alternatingText = document.getElementById('alternatingText');
+    if (!alternatingText) return;
+    
+    const greetings = [
+        'Hello World',
+        'Hi there',
+        'Welcome',
+        'Greetings',
+        'Hey!'
+    ];
+    
+    // Get current text or start with first greeting
+    const currentText = alternatingText.textContent;
+    const currentIndex = greetings.indexOf(currentText);
+    const nextIndex = (currentIndex + 1) % greetings.length;
+    
+    alternatingText.textContent = greetings[nextIndex];
 }
 
 // Project modal functionality
@@ -320,10 +343,6 @@ function throttle(func, limit) {
         }
     }
 }
-
-// Performance optimizations
-const optimizedScrollHandler = throttle(handleScrollAnimations, 16); // ~60fps
-window.addEventListener('scroll', optimizedScrollHandler);
 
 // Preload critical resources
 function preloadResources() {
