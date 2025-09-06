@@ -1,575 +1,83 @@
-/* Projects Grid */
-.projects {
-    background: #0a0a0a;
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.project-card {
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 30/* Reset and base styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    scroll-behavior: smooth;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: 1rem 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.nav-brand {
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-menu a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    transition: color 0.3s;
-    position: relative;
-}
-
-.nav-menu a:hover {
-    color: #667eea;
-}
-
-.nav-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transition: width 0.3s;
-}
-
-.nav-menu a:hover::after {
-    width: 100%;
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff08" points="0,1000 1000,0 1000,1000"/></svg>');
-    background-size: cover;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    animation: fadeInUp 1s ease-out;
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-    animation: fadeInUp 1s ease-out 0.3s both;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 15px 35px;
-    background: white;
-    color: #333;
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-    animation: fadeInUp 1s ease-out 0.6s both;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Sections */
-section {
-    padding: 100px 0;
-}
-
-.about {
-    background: #f8f9fa;
-}
-
-.about h2, .projects h2, .contact h2 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 3rem;
-    color: #2c3e50;
-    position: relative;
-}
-
-.about h2::after, .projects h2::after, .contact h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 2px;
-}
-
-.about p {
-    font-size: 1.2rem;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    color: #666;
-    line-height: 1.8;
-}
-
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
-    margin-top: 4rem;
-}
-
-.project-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    transform: scaleX(0);
-    transition: transform 0.3s;
-}
-
-.project-card:hover::before {
-    transform: scaleX(1);
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.project-card h3 {
-    font-size: 1.6rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-.project-card p {
-    margin-bottom: 1.5rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.project-tech {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-}
-
-.tech-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 25px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-/* Contact */
-.contact {
-    background: #2c3e50;
-    color: white;
-}
-
-.contact h2 {
-    color: white;
-}
-
-.contact p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-top: 3rem;
-}
-
-.contact-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.3rem;
-    transition: all 0.3s;
-    padding: 1rem 2rem;
-    border: 2px solid transparent;
-    border-radius: 10px;
-}
-
-.contact-links a:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-}
-
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
-    opacity: 0;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(5px);
-}
-
-.modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 1;
-}
-
-.modal-content {
-    background: white;
-    max-width: 95vw;
-    max-height: 90vh;
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 3000;
-    color: #666;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.9);
-    transition: all 0.3s;
-}
-
-.modal-close:hover {
-    background: #f0f0f0;
-    color: #333;
-}
-
-.modal-body {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    padding: 3rem;
-    min-height: 600px;
-}
-
-.modal-carousel {
-    position: relative;
-}
-
-.carousel-container {
-    width: 100%;
-    height: 450px;
-    position: relative;
-    background: #f8f9fa;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.carousel-slide.active {
-    opacity: 1;
-}
-
-.carousel-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    font-size: 1.3rem;
-    font-weight: 500;
-}
-
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 15px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    z-index: 100;
-    transition: all 0.3s;
-}
-
-.carousel-nav:hover {
-    background: rgba(0, 0, 0, 0.9);
-}
-
-.carousel-nav.prev {
-    left: 15px;
-}
-
-.carousel-nav.next {
-    right: 15px;
-}
-
-.carousel-indicators {
-    display: flex;
-    justify-content: center;
-    gap: 0.8rem;
-    margin-top: 1.5rem;
-}
-
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #ccc;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-
-.carousel-dot.active {
-    background: #667eea;
-    transform: scale(1.2);
-}
-
-.modal-info {
-    overflow-y: auto;
-}
-
-.modal-project-title {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
-}
-
-.modal-project-description {
-    margin-bottom: 2rem;
-}
-
-.modal-project-description p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: #666;
-}
-
-.modal-tech-title, .modal-features-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #2c3e50;
-}
-
-.modal-tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-}
-
-.modal-tech-tag {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.modal-features-list {
-    margin-bottom: 2.5rem;
-    padding-left: 1.5rem;
-}
-
-.modal-features-list li {
-    margin-bottom: 0.8rem;
-    color: #666;
-    line-height: 1.6;
-}
-
-.modal-links {
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.modal-link {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
-    transition: all 0.3s;
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-}
-
-.modal-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
+// Project data for your portfolio
+const projectData = {
+    project1: {
+        title: "E-commerce Website",
+        description: "A modern e-commerce platform with cart functionality",
+        longDescription: "A fully responsive e-commerce website built with modern web technologies. This project features a clean, user-friendly interface with advanced functionality including user authentication, product catalog with search and filtering capabilities, shopping cart with local storage persistence, and integrated payment processing. The site is optimized for performance and provides an excellent user experience across all devices.",
+        technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "MongoDB", "Stripe API"],
+        features: [
+            "User registration and authentication system",
+            "Advanced product search and filtering",
+            "Shopping cart with persistent storage",
+            "Responsive design optimized for mobile and desktop",
+            "Secure payment gateway integration",
+            "Order management and tracking system",
+            "Admin dashboard for inventory management",
+            "Customer reviews and ratings system"
+        ],
+        images: [
+            { content: "Homepage Design" },
+            { content: "Product Catalog" },
+            { content: "Shopping Cart Interface" },
+            { content: "Checkout Process" }
+        ],
+        links: [
+            { text: "Live Demo", url: "https://your-ecommerce-demo.com" },
+            { text: "GitHub Repository", url: "https://github.com/yourusername/ecommerce-project" }
+        ]
+    },
     
-    .modal-body {
-        grid-template-columns: 1fr;
-        padding: 2rem;
-        gap: 2rem;
-    }
+    project2: {
+        title: "Task Management App",
+        description: "A productivity app for managing daily tasks",
+        longDescription: "A comprehensive task management application designed to boost productivity and help users organize their daily activities. Built with React and TypeScript, this app features real-time collaboration, advanced filtering and sorting options, and detailed progress tracking. The application supports team workflows with role-based permissions and integrates with popular calendar applications for seamless scheduling.",
+        technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Context API", "React Router"],
+        features: [
+            "Create, edit, and organize tasks with priorities",
+            "Team collaboration with real-time updates",
+            "Advanced filtering and sorting capabilities",
+            "Progress tracking with detailed analytics",
+            "Calendar integration for deadline management",
+            "File attachments and comments on tasks",
+            "Customizable project boards and workflows",
+            "Mobile-responsive Progressive Web App"
+        ],
+        images: [
+            { content: "Dashboard Overview" },
+            { content: "Task Management Board" },
+            { content: "Team Collaboration View" },
+            { content: "Analytics Dashboard" }
+        ],
+        links: [
+            { text: "Live Demo", url: "https://your-taskapp-demo.com" },
+            { text: "GitHub Repository", url: "https://github.com/yourusername/task-management-app" }
+        ]
+    },
     
-    .nav-menu {
-        display: none;
+    project3: {
+        title: "Weather Dashboard",
+        description: "A beautiful weather app with forecasts and maps",
+        longDescription: "An intuitive weather dashboard application that provides comprehensive weather information with stunning visuals. The app features current weather conditions, detailed 7-day forecasts, interactive weather maps, and severe weather alerts. Built with Vue.js and integrated with multiple weather APIs for accurate and up-to-date information. The application includes location-based services and supports multiple cities with a favorites system.",
+        technologies: ["Vue.js", "Vuex", "Weather API", "Chart.js", "SASS", "Leaflet Maps"],
+        features: [
+            "Real-time current weather conditions",
+            "Detailed 7-day weather forecasts",
+            "Interactive weather maps with radar",
+            "Location-based automatic weather detection",
+            "Multiple city support with favorites",
+            "Weather alerts and severe weather notifications",
+            "Historical weather data and trends",
+            "Beautiful data visualizations with charts"
+        ],
+        images: [
+            { content: "Main Weather Dashboard" },
+            { content: "7-Day Forecast View" },
+            { content: "Interactive Weather Map" },
+            { content: "Weather Alerts Panel" }
+        ],
+        links: [
+            { text: "Live Demo", url: "https://your-weather-demo.com" },
+            { text: "GitHub Repository", url: "https://github.com/yourusername/weather-dashboard" }
+        ]
     }
-    
-    .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .contact-links {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
-    }
-    
-    .carousel-container {
-        height: 300px;
-    }
-}
+};
