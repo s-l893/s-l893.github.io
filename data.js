@@ -1,83 +1,141 @@
-// Project data for your portfolio
+// Project data for modal display
 const projectData = {
     project1: {
         title: "E-commerce Website",
-        description: "A modern e-commerce platform with cart functionality",
-        longDescription: "A fully responsive e-commerce website built with modern web technologies. This project features a clean, user-friendly interface with advanced functionality including user authentication, product catalog with search and filtering capabilities, shopping cart with local storage persistence, and integrated payment processing. The site is optimized for performance and provides an excellent user experience across all devices.",
+        longDescription: "A modern, responsive e-commerce platform built with Node.js and featuring a clean, intuitive interface. The platform includes comprehensive cart functionality, secure payment processing, and an admin dashboard for inventory management. Users can browse products, add items to cart, and complete purchases seamlessly.",
         technologies: ["HTML5", "CSS3", "JavaScript", "Node.js", "Express", "MongoDB", "Stripe API"],
         features: [
-            "User registration and authentication system",
-            "Advanced product search and filtering",
+            "Responsive design that works on all devices",
             "Shopping cart with persistent storage",
-            "Responsive design optimized for mobile and desktop",
-            "Secure payment gateway integration",
-            "Order management and tracking system",
-            "Admin dashboard for inventory management",
-            "Customer reviews and ratings system"
+            "Secure payment processing with Stripe",
+            "User authentication and profiles",
+            "Admin dashboard for product management",
+            "Search and filtering functionality",
+            "Order tracking and history"
         ],
         images: [
-            { content: "Homepage Design" },
+            { content: "Homepage Preview" },
             { content: "Product Catalog" },
-            { content: "Shopping Cart Interface" },
-            { content: "Checkout Process" }
+            { content: "Shopping Cart" },
+            { content: "Admin Dashboard" }
         ],
         links: [
-            { text: "Live Demo", url: "https://your-ecommerce-demo.com" },
+            { text: "View Live Demo", url: "https://demo-ecommerce.example.com" },
             { text: "GitHub Repository", url: "https://github.com/yourusername/ecommerce-project" }
         ]
     },
-    
     project2: {
         title: "Task Management App",
-        description: "A productivity app for managing daily tasks",
-        longDescription: "A comprehensive task management application designed to boost productivity and help users organize their daily activities. Built with React and TypeScript, this app features real-time collaboration, advanced filtering and sorting options, and detailed progress tracking. The application supports team workflows with role-based permissions and integrates with popular calendar applications for seamless scheduling.",
-        technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Context API", "React Router"],
+        longDescription: "A productivity-focused task management application built with React and TypeScript. Features include drag-and-drop task organization, project categorization, and real-time collaboration. The app uses Firebase for backend services, providing seamless synchronization across devices and team members.",
+        technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Redux"],
         features: [
-            "Create, edit, and organize tasks with priorities",
-            "Team collaboration with real-time updates",
-            "Advanced filtering and sorting capabilities",
-            "Progress tracking with detailed analytics",
-            "Calendar integration for deadline management",
-            "File attachments and comments on tasks",
-            "Customizable project boards and workflows",
-            "Mobile-responsive Progressive Web App"
+            "Drag-and-drop task organization",
+            "Project and category management",
+            "Real-time collaboration with team members",
+            "Due date reminders and notifications",
+            "Progress tracking and analytics",
+            "Cross-device synchronization",
+            "Offline functionality with sync"
         ],
         images: [
             { content: "Dashboard Overview" },
-            { content: "Task Management Board" },
-            { content: "Team Collaboration View" },
-            { content: "Analytics Dashboard" }
+            { content: "Task Board View" },
+            { content: "Project Analytics" },
+            { content: "Team Collaboration" }
         ],
         links: [
-            { text: "Live Demo", url: "https://your-taskapp-demo.com" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/task-management-app" }
+            { text: "Try the App", url: "https://taskmanager.example.com" },
+            { text: "Source Code", url: "https://github.com/yourusername/task-manager" }
         ]
     },
-    
     project3: {
         title: "Weather Dashboard",
-        description: "A beautiful weather app with forecasts and maps",
-        longDescription: "An intuitive weather dashboard application that provides comprehensive weather information with stunning visuals. The app features current weather conditions, detailed 7-day forecasts, interactive weather maps, and severe weather alerts. Built with Vue.js and integrated with multiple weather APIs for accurate and up-to-date information. The application includes location-based services and supports multiple cities with a favorites system.",
-        technologies: ["Vue.js", "Vuex", "Weather API", "Chart.js", "SASS", "Leaflet Maps"],
+        longDescription: "A comprehensive weather dashboard that provides current conditions, forecasts, and interactive maps. Built with Vue.js and integrated with multiple weather APIs to ensure accurate and up-to-date information. Features include location-based weather, severe weather alerts, and historical data visualization.",
+        technologies: ["Vue.js", "Chart.js", "OpenWeather API", "Mapbox", "Sass"],
         features: [
-            "Real-time current weather conditions",
-            "Detailed 7-day weather forecasts",
+            "Real-time weather data from multiple sources",
+            "7-day forecast with hourly breakdowns",
             "Interactive weather maps with radar",
-            "Location-based automatic weather detection",
-            "Multiple city support with favorites",
-            "Weather alerts and severe weather notifications",
+            "Severe weather alerts and notifications",
             "Historical weather data and trends",
-            "Beautiful data visualizations with charts"
+            "Location-based automatic updates",
+            "Customizable dashboard widgets"
         ],
         images: [
-            { content: "Main Weather Dashboard" },
-            { content: "7-Day Forecast View" },
-            { content: "Interactive Weather Map" },
-            { content: "Weather Alerts Panel" }
+            { content: "Current Weather View" },
+            { content: "7-Day Forecast" },
+            { content: "Weather Maps" },
+            { content: "Historical Data Charts" }
         ],
         links: [
-            { text: "Live Demo", url: "https://your-weather-demo.com" },
-            { text: "GitHub Repository", url: "https://github.com/yourusername/weather-dashboard" }
+            { text: "View Dashboard", url: "https://weather-app.example.com" },
+            { text: "GitHub", url: "https://github.com/yourusername/weather-dashboard" }
         ]
     }
 };
+
+// Multilingual greetings for the hero section
+const greetings = [
+    "World", // English
+    "世界", // Chinese (Simplified)
+    "Mundo", // Spanish
+    "Monde", // French
+    "世界", // Japanese
+    "Welt", // German
+    "दुनिया", // Hindi
+    "Mundo", // Portuguese
+    "Мир", // Russian
+    "العالم", // Arabic
+    "세계", // Korean
+    "Mondo", // Italian
+    "Wereld", // Dutch
+    "Dünya", // Turkish
+    "Świat", // Polish
+    "Κόσμος", // Greek
+    "עולם", // Hebrew
+    "โลก", // Thai
+    "Thế giới", // Vietnamese
+    "Dunia" // Indonesian/Malay
+];
+
+// Function to get a random greeting
+function getRandomGreeting() {
+    const randomIndex = Math.floor(Math.random() * greetings.length);
+    return greetings[randomIndex];
+}
+
+// Variables for alternating text animation
+let currentGreetingIndex = 0;
+let greetingInterval;
+
+// Function to update alternating text
+function updateAlternatingText() {
+    const alternatingElement = document.getElementById('alternatingText');
+    if (alternatingElement) {
+        // Fade out
+        alternatingElement.style.opacity = '0';
+        
+        setTimeout(() => {
+            // Change text
+            alternatingElement.textContent = greetings[currentGreetingIndex];
+            currentGreetingIndex = (currentGreetingIndex + 1) % greetings.length;
+            
+            // Fade in
+            alternatingElement.style.opacity = '1';
+        }, 300);
+    }
+}
+
+// Scroll animation functionality
+function handleScrollAnimations() {
+    const elements = document.querySelectorAll('.fade-in-up');
+    
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+            element.classList.add('visible');
+        }
+    });
+}
