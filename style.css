@@ -291,12 +291,12 @@ body {
 }
 
 /* Resume Section */
-.resume-section {
-    background: var(--gradient-bg);
-    color: var(--white);
-    text-align: center;
+.resume-section .section-title {
+    color: var(--white) !important;
+    background: none !important;
+    -webkit-text-fill-color: var(--white) !important;
+    background-clip: initial !important;
 }
-
 .resume-content {
     max-width: 600px;
     margin: 0 auto;
