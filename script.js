@@ -1,6 +1,105 @@
+// Project data for modal display - Updated to match HTML data-project attributes
+const projectData = {
+    taskmanager: {
+        title: "Task Management App",
+        longDescription: "A productivity-focused task management application built with React and TypeScript. Features include drag-and-drop task organization, project categorization, and real-time collaboration. The app uses Firebase for backend services, providing seamless synchronization across devices and team members.",
+        technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Redux"],
+        features: [
+            "Drag-and-drop task organization",
+            "Project and category management",
+            "Real-time collaboration with team members",
+            "Due date reminders and notifications",
+            "Progress tracking and analytics",
+            "Cross-device synchronization",
+            "Offline functionality with sync"
+        ],
+        images: [
+            { content: "Dashboard Overview" },
+            { content: "Task Board View" },
+            { content: "Analytics Dashboard" },
+            { content: "Mobile Interface" }
+        ],
+        links: [
+            { text: "Try the App", url: "#" },
+            { text: "Source Code", url: "#" }
+        ]
+    },
+    ecommerce: {
+        title: "E-commerce Platform",
+        longDescription: "Full-stack e-commerce solution featuring secure payment processing, comprehensive inventory management, and an intuitive admin dashboard. Built with modern web technologies to provide a seamless shopping experience for customers and powerful management tools for administrators.",
+        technologies: ["Node.js", "Express", "MongoDB", "React", "Stripe", "JWT"],
+        features: [
+            "Secure payment processing with Stripe",
+            "Real-time inventory tracking",
+            "Admin dashboard for order management",
+            "Customer authentication and profiles",
+            "Product catalog with search and filters",
+            "Order tracking and notifications",
+            "Responsive design for all devices"
+        ],
+        images: [
+            { content: "Store Homepage" },
+            { content: "Product Details" },
+            { content: "Shopping Cart" },
+            { content: "Admin Panel" }
+        ],
+        links: [
+            { text: "Live Demo", url: "#" },
+            { text: "GitHub Repository", url: "#" }
+        ]
+    },
+    aimodel: {
+        title: "AI Image Classifier",
+        longDescription: "Advanced machine learning model for image classification with real-time predictions and comprehensive accuracy visualization. Developed using PyTorch and OpenCV, this application demonstrates the power of deep learning in computer vision tasks.",
+        technologies: ["Python", "PyTorch", "OpenCV", "Flask", "NumPy", "Matplotlib"],
+        features: [
+            "Real-time image classification",
+            "Multiple pre-trained model options",
+            "Accuracy and confidence visualization",
+            "Batch processing capabilities",
+            "Model performance analytics",
+            "Custom dataset training support",
+            "REST API for integration"
+        ],
+        images: [
+            { content: "Model Interface" },
+            { content: "Prediction Results" },
+            { content: "Training Metrics" },
+            { content: "Performance Charts" }
+        ],
+        links: [
+            { text: "Demo Application", url: "#" },
+            { text: "Research Paper", url: "#" }
+        ]
+    }
+};
+
+// Multilingual greetings for the hero section - matching HTML expectation
+const greetings = [
+    'Hello',      // English
+    'Hola',       // Spanish
+    'Bonjour',    // French
+    'Hallo',      // German
+    'Ciao',       // Italian
+    'Olá',        // Portuguese
+    'こんにちは',    // Japanese
+    '안녕하세요',     // Korean
+    '你好',        // Chinese
+    'Привет',     // Russian
+    'مرحبا',       // Arabic
+    'नमस्ते',       // Hindi
+    'Γεια σας',   // Greek
+    'שלום',       // Hebrew
+    'Hej',        // Swedish
+    'Hei',        // Norwegian
+    'Merhaba',    // Turkish
+    'Saluton',    // Esperanto
+    'Sawubona',   // Zulu
+    'Jambo'       // Swahili
+];
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all functionality
     initializeScrollAnimations();
     initializeNavigation();
     initializeProjectModals();
@@ -10,10 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Scroll animations
 function initializeScrollAnimations() {
-    // Initial check for elements already in view
     handleScrollAnimations();
     
-    // Add scroll event listener with throttling for performance
     let ticking = false;
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -32,7 +129,7 @@ function handleScrollAnimations() {
     
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 100; // Trigger animation when element is 100px from viewport
+        const elementVisible = 100;
         
         if (elementTop < windowHeight - elementVisible) {
             element.classList.add('visible');
@@ -42,7 +139,6 @@ function handleScrollAnimations() {
 
 // Navigation functionality
 function initializeNavigation() {
-    // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -60,7 +156,6 @@ function initializeNavigation() {
         });
     });
 
-    // Add active navigation highlighting
     window.addEventListener('scroll', updateActiveNavigation);
 }
 
@@ -89,47 +184,24 @@ function updateActiveNavigation() {
     });
 }
 
-// Greeting animation functionality - Updated for HTML structure
+// Greeting animation functionality
 function initializeGreetingAnimation() {
-    // Start the alternating text animation immediately
     updateAlternatingText();
-    
-    // Set interval to change greeting every 3 seconds
     setInterval(updateAlternatingText, 3000);
 }
 
-// Fixed updateAlternatingText to work with HTML structure and multilingual greetings
 function updateAlternatingText() {
     const alternatingText = document.getElementById('alternatingText');
     if (!alternatingText) return;
     
-    // Use the greetings array from projectData.js
-    if (typeof greetings === 'undefined') {
-        // Fallback if greetings not loaded
-        const fallbackGreetings = ['Hello', 'Hi', 'Hey', 'Greetings', 'Welcome'];
-        const currentText = alternatingText.textContent;
-        const currentIndex = fallbackGreetings.indexOf(currentText);
-        const nextIndex = (currentIndex + 1) % fallbackGreetings.length;
-        alternatingText.textContent = fallbackGreetings[nextIndex];
-        return;
-    }
-    
-    // Get current text and find next greeting
     const currentText = alternatingText.textContent;
     const currentIndex = greetings.indexOf(currentText);
     const nextIndex = (currentIndex + 1) % greetings.length;
     
-    // Add fade transition effect
-    alternatingText.style.transition = 'opacity 0.3s ease';
-    alternatingText.style.opacity = '0';
-    
-    setTimeout(() => {
-        alternatingText.textContent = greetings[nextIndex];
-        alternatingText.style.opacity = '1';
-    }, 300);
+    alternatingText.textContent = greetings[nextIndex];
 }
 
-// Project modal functionality - Fixed to work with HTML structure
+// Project modal functionality
 function initializeProjectModals() {
     const modal = document.getElementById('projectModal');
     const modalClose = document.getElementById('modalClose');
@@ -139,7 +211,6 @@ function initializeProjectModals() {
     const prevSlide = document.getElementById('prevSlide');
     const nextSlide = document.getElementById('nextSlide');
 
-    // Modal state variables
     let currentProject = null;
     let currentSlide = 0;
 
@@ -147,7 +218,7 @@ function initializeProjectModals() {
     document.querySelectorAll('.project-card').forEach(card => {
         card.addEventListener('click', () => {
             const projectKey = card.getAttribute('data-project');
-            if (projectKey && typeof projectData !== 'undefined' && projectData[projectKey]) {
+            if (projectKey && projectData[projectKey]) {
                 openModal(projectKey);
             }
         });
@@ -190,7 +261,7 @@ function initializeProjectModals() {
     function openModal(projectKey) {
         if (!modal || !modalInfo || !carouselContainer || !carouselIndicators) return;
         
-        if (typeof projectData === 'undefined' || !projectData[projectKey]) {
+        if (!projectData[projectKey]) {
             console.error(`Project '${projectKey}' not found in projectData`);
             return;
         }
@@ -252,7 +323,7 @@ function initializeProjectModals() {
             carouselIndicators.appendChild(dot);
         });
 
-        // Populate project info - Updated to match HTML modal structure
+        // Populate project info
         modalInfo.innerHTML = `
             <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
             <div class="modal-project-description">
@@ -318,85 +389,20 @@ function initializeProjectModals() {
     }
 }
 
-// Tech stack animations - Enhanced to work with HTML structure
 function initializeTechStackAnimations() {
     const techItems = document.querySelectorAll('.tech-item');
     
-    // Add staggered animation delay
     techItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.05}s`;
-        item.style.transition = 'all 0.3s ease';
+        item.style.animationDelay = `${index * 0.1}s`;
     });
 
-    // Enhanced hover effects matching HTML expectations
     techItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            item.style.transform = 'translateX(8px) scale(1.02)';
-            item.style.backgroundColor = 'rgba(90, 104, 152, 0.1)';
+            item.style.transform = 'translateX(8px) scale(1.05)';
         });
         
         item.addEventListener('mouseleave', () => {
             item.style.transform = 'translateX(0) scale(1)';
-            item.style.backgroundColor = '';
         });
     });
 }
-
-// Utility functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-}
-
-// Add loading state management
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-    
-    // Trigger initial animations after page load
-    setTimeout(() => {
-        handleScrollAnimations();
-    }, 100);
-});
-
-// Error handling for missing elements
-function handleMissingElements() {
-    const requiredElements = [
-        'projectModal',
-        'modalClose', 
-        'carouselContainer',
-        'modalInfo',
-        'carouselIndicators',
-        'prevSlide',
-        'nextSlide',
-        'alternatingText'
-    ];
-    
-    requiredElements.forEach(id => {
-        if (!document.getElementById(id)) {
-            console.warn(`Required element with id '${id}' not found`);
-        }
-    });
-}
-
-// Call error handling on DOM ready
-document.addEventListener('DOMContentLoaded', handleMissingElements);
