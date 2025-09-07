@@ -3,21 +3,830 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
-    <meta name="description" content="Portfolio of [Your Name] - Full Stack Developer specializing in modern web technologies">
-    <meta name="keywords" content="web developer, full stack, portfolio, React, Node.js, Python">
-    <link rel="stylesheet" href="style.css">
+    <title>Sunny Lin - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Updated color palette using your hex codes */
+            --color-1: #d69ea3;
+            --color-2: #5a6898;
+            --color-3: #a0869e;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --white: #ffffff;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --gradient-bg: linear-gradient(135deg, #d69ea3 0%, #5a6898 50%, #a0869e 100%);
+            --gradient-text: linear-gradient(135deg, #d69ea3, #5a6898, #a0869e);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(90, 104, 152, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--color-2);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-bg);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:rgba(255,255,255,0.1)"/><stop offset="100%" style="stop-color:rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23grad)"/><circle cx="800" cy="200" r="150" fill="url(%23grad)"/><circle cx="600" cy="700" r="120" fill="url(%23grad)"/></svg>') no-repeat;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .greeting-container {
+            margin-bottom: 1rem;
+        }
+
+        .greeting-text {
+            font-size: 4rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .name-text {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--color-2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about {
+            background: #faf7f8;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        /* Tech Stack - Dark theme like your image */
+        .tech-stack-section {
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .tech-stack-section .section-title {
+            color: #888;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            text-align: left;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+        }
+
+        .tech-category {
+            text-align: left;
+        }
+
+        .tech-category h3 {
+            color: #ccc;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #ccc;
+            font-size: 1rem;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .tech-item:hover {
+            color: var(--white);
+            transform: translateX(8px);
+        }
+
+        .tech-icon {
+            width: 24px;
+            height: 24px;
+            background: var(--color-1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        /* Education Section */
+        .education {
+            background: var(--darker-bg);
+            color: var(--white);
+        }
+
+        .education .section-title {
+            color: #888;
+            text-transform: uppercase;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 3rem;
+            text-align: left;
+            background: none;
+            -webkit-text-fill-color: initial;
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+
+        .education-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--color-1);
+        }
+
+        .education-degree {
+            color: var(--color-1);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-school {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Projects Section */
+        .projects {
+            background: var(--white);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(90, 104, 152, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(90, 104, 152, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .project-tech-tag {
+            background: #faf7f8;
+            color: var(--color-2);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Project Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--darker-bg);
+            color: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10;
+            padding: 5px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-carousel {
+            background: var(--gradient-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 400px;
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .carousel-slide.active {
+            display: flex;
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .carousel-prev {
+            left: 10px;
+        }
+
+        .carousel-next {
+            right: 10px;
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: var(--white);
+        }
+
+        .modal-info {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-project-title {
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .modal-project-description {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .modal-tech-stack {
+            margin-bottom: 2rem;
+        }
+
+        .modal-tech-title {
+            color: var(--color-1);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .modal-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-tech-tag {
+            background: var(--color-1);
+            color: var(--white);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .modal-features {
+            margin-bottom: 2rem;
+        }
+
+        .modal-features-title {
+            color: var(--color-1);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .modal-features-list {
+            color: #ccc;
+            padding-left: 1.5rem;
+        }
+
+        .modal-features-list li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .modal-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .modal-link {
+            background: var(--gradient-bg);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Resume Section */
+        .resume-section {
+            background: var(--gradient-bg);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .resume-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .resume-text {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .resume-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .resume-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .resume-link:hover {
+            background: var(--white);
+            color: var(--color-2);
+            transform: translateY(-2px);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #faf7f8;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 25px;
+            background: var(--white);
+            color: var(--color-2);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(90, 104, 152, 0.1);
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(90, 104, 152, 0.2);
+        }
+
+        /* Animations */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+
+            .greeting-text {
+                font-size: 2.5rem;
+            }
+
+            .name-text {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links,
+            .resume-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .modal-content {
+                grid-template-columns: 1fr;
+                margin: 20px;
+            }
+
+            .modal-carousel {
+                min-height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <h1 class="nav-brand">Your Name</h1>
+            <div class="logo">Sunny Lin</div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#tech-stack">Tech Stack</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -25,192 +834,227 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-greeting">
-                <span class="greeting-text">Hello </span>
-                <span class="greeting-alternating" id="alternatingText">World</span>
+        <div class="hero-content fade-in-up">
+            <div class="greeting-container">
+                <div id="alternatingText" class="greeting-text">Hello</div>
+                <div class="name-text">I'm Sunny Lin</div>
             </div>
-            <h1>I'm a passionate developer</h1>
-            <p>Creating amazing digital experiences with modern technologies</p>
-            <a href="#projects" class="cta-button">View My Work</a>
+            <p class="hero-description">
+                Creating amazing digital experiences with modern technologies
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="fade-in-up">About Me</h2>
-            <p class="fade-in-up">I'm a passionate software developer with expertise in multiple programming languages and modern frameworks. I love creating innovative solutions and building applications that make a difference. My journey in technology has led me to work with cutting-edge tools and collaborate on exciting projects that push the boundaries of what's possible.</p>
+            <h2 class="section-title fade-in-up">About Me</h2>
+            <div class="about-content fade-in-up">
+                <p class="about-text">
+                    I'm a passionate software developer with expertise in multiple programming languages and modern frameworks. 
+                    I love creating innovative solutions and building applications that make a difference. My journey in technology 
+                    has led me to work with cutting-edge tools and collaborate on exciting projects that push the boundaries of what's possible.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Tech Stack Section -->
-    <section id="tech-stack" class="tech-stack">
+    <section id="tech-stack" class="tech-stack-section">
         <div class="container">
-            <h2 class="fade-in-up">Tech Stack</h2>
-            
-            <div class="tech-categories">
+            <h2 class="section-title fade-in-up">Tech Stack</h2>
+            <div class="tech-grid">
                 <div class="tech-category fade-in-up">
                     <h3>Languages</h3>
-                    <div class="tech-items">
+                    <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon python-icon"></div>
+                            <div class="tech-icon">Py</div>
                             <span>Python</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon cpp-icon"></div>
+                            <div class="tech-icon">C+</div>
                             <span>C++</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon c-icon"></div>
+                            <div class="tech-icon">C</div>
                             <span>C</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon swift-icon"></div>
+                            <div class="tech-icon">Sw</div>
                             <span>Swift</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon java-icon"></div>
+                            <div class="tech-icon">Ja</div>
                             <span>Java</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon js-icon"></div>
+                            <div class="tech-icon">JS</div>
                             <span>JavaScript</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon ts-icon"></div>
+                            <div class="tech-icon">TS</div>
                             <span>TypeScript</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon vb-icon"></div>
+                            <div class="tech-icon">VB</div>
                             <span>Visual Basic</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="tech-category fade-in-up">
                     <h3>Frameworks / Libraries</h3>
-                    <div class="tech-items">
+                    <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon pytorch-icon"></div>
+                            <div class="tech-icon">PT</div>
                             <span>PyTorch</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon opencv-icon"></div>
+                            <div class="tech-icon">CV</div>
                             <span>OpenCV</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon react-icon"></div>
+                            <div class="tech-icon">Re</div>
                             <span>React</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon flask-icon"></div>
+                            <div class="tech-icon">Fl</div>
                             <span>Flask</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon nodejs-icon"></div>
+                            <div class="tech-icon">No</div>
                             <span>Node.JS</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon express-icon"></div>
+                            <div class="tech-icon">Ex</div>
                             <span>Express</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon spring-icon"></div>
+                            <div class="tech-icon">Sp</div>
                             <span>Spring</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon dotnet-icon"></div>
+                            <div class="tech-icon">.N</div>
                             <span>.NET</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon numpy-icon"></div>
+                            <div class="tech-icon">Np</div>
                             <span>NumPy</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon pandas-icon"></div>
+                            <div class="tech-icon">Pd</div>
                             <span>Pandas</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="tech-category fade-in-up">
                     <h3>Technologies</h3>
-                    <div class="tech-items">
+                    <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon mongodb-icon"></div>
+                            <div class="tech-icon">Mo</div>
                             <span>MongoDB</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon postgresql-icon"></div>
+                            <div class="tech-icon">PS</div>
                             <span>PostgreSQL</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon mysql-icon"></div>
+                            <div class="tech-icon">My</div>
                             <span>MySQL</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon aws-icon"></div>
+                            <div class="tech-icon">AW</div>
                             <span>AWS</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon gcp-icon"></div>
+                            <div class="tech-icon">GC</div>
                             <span>Google Cloud Platform</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon docker-icon"></div>
+                            <div class="tech-icon">Do</div>
                             <span>Docker</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon nginx-icon"></div>
+                            <div class="tech-icon">Ng</div>
                             <span>NGINX</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon linux-icon"></div>
+                            <div class="tech-icon">Li</div>
                             <span>Linux</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon redis-icon"></div>
+                            <div class="tech-icon">Re</div>
                             <span>Redis</span>
                         </div>
                     </div>
                 </div>
-
                 <div class="tech-category fade-in-up">
                     <h3>Developer Tools</h3>
-                    <div class="tech-items">
+                    <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon git-icon"></div>
+                            <div class="tech-icon">Gi</div>
                             <span>Git</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon github-icon"></div>
+                            <div class="tech-icon">GH</div>
                             <span>GitHub</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon gitlab-icon"></div>
+                            <div class="tech-icon">GL</div>
                             <span>GitLab</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon jira-icon"></div>
+                            <div class="tech-icon">Jr</div>
                             <span>Jira</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon vscode-icon"></div>
+                            <div class="tech-icon">VS</div>
                             <span>VSCode</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon visual-studio-icon"></div>
+                            <div class="tech-icon">Vi</div>
                             <span>Visual Studio</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon jetbrains-icon"></div>
+                            <div class="tech-icon">JB</div>
                             <span>JetBrains Suite</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon figma-icon"></div>
+                            <div class="tech-icon">Fi</div>
                             <span>Figma</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Education</h2>
+            <div class="education-grid">
+                <div class="education-item fade-in-up">
+                    <div class="education-degree">Bachelor of Science in Computer Science</div>
+                    <div class="education-school">University of Technology</div>
+                    <div class="education-date">2020 - 2024</div>
+                    <div class="education-details">
+                        Focused on software engineering, data structures, algorithms, and machine learning. 
+                        Graduated magna cum laude with a GPA of 3.8/4.0. Active member of the Computer Science Society 
+                        and participated in multiple hackathons.
+                    </div>
+                </div>
+                <div class="education-item fade-in-up">
+                    <div class="education-degree">Advanced Diploma in Software Development</div>
+                    <div class="education-school">Tech Institute</div>
+                    <div class="education-date">2018 - 2020</div>
+                    <div class="education-details">
+                        Comprehensive program covering web development, mobile app development, and database design. 
+                        Completed capstone project developing a full-stack e-commerce application. Dean's List recognition 
+                        for academic excellence.
                     </div>
                 </div>
             </div>
@@ -220,46 +1064,87 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="fade-in-up">My Projects</h2>
+            <h2 class="section-title fade-in-up">Projects</h2>
             <div class="projects-grid">
-                
-                <!-- Project Card 1 -->
-                <div class="project-card fade-in-up" data-project="project1">
-                    <h3>E-commerce Website</h3>
-                    <p>A modern e-commerce platform with comprehensive cart functionality, secure payments, and admin dashboard for complete store management.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">HTML5</span>
-                        <span class="tech-tag">CSS3</span>
-                        <span class="tech-tag">JavaScript</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
+                <div class="project-card fade-in-up" data-project="taskmanager">
+                    <div class="project-image">Task Management Dashboard</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">A productivity-focused task management application with drag-and-drop functionality and real-time collaboration.</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">React</span>
+                            <span class="project-tech-tag">TypeScript</span>
+                            <span class="project-tech-tag">Firebase</span>
+                            <span class="project-tech-tag">Material-UI</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card fade-in-up" data-project="project2">
-                    <h3>Task Management App</h3>
-                    <p>A productivity app with drag-and-drop functionality, real-time collaboration, and cross-device synchronization for teams.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">TypeScript</span>
-                        <span class="tech-tag">Firebase</span>
-                        <span class="tech-tag">Material-UI</span>
+                <div class="project-card fade-in-up" data-project="ecommerce">
+                    <div class="project-image">E-commerce Platform</div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-description">Full-stack e-commerce solution with payment processing, inventory management, and admin dashboard.</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Node.js</span>
+                            <span class="project-tech-tag">Express</span>
+                            <span class="project-tech-tag">MongoDB</span>
+                            <span class="project-tech-tag">React</span>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card fade-in-up" data-project="project3">
-                    <h3>Weather Dashboard</h3>
-                    <p>A comprehensive weather application with interactive maps, forecasts, severe weather alerts, and historical data visualization.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Vue.js</span>
-                        <span class="tech-tag">Chart.js</span>
-                        <span class="tech-tag">API</span>
-                        <span class="tech-tag">Sass</span>
+                <div class="project-card fade-in-up" data-project="aimodel">
+                    <div class="project-image">AI Model Visualization</div>
+                    <div class="project-content">
+                        <h3 class="project-title">AI Image Classifier</h3>
+                        <p class="project-description">Machine learning model for image classification with real-time predictions and accuracy visualization.</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">Python</span>
+                            <span class="project-tech-tag">PyTorch</span>
+                            <span class="project-tech-tag">OpenCV</span>
+                            <span class="project-tech-tag">Flask</span>
+                        </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button id="modalClose" class="modal-close">×</button>
+            <div class="modal-carousel">
+                <div id="carouselContainer" class="carousel-container">
+                    <!-- Carousel slides will be inserted here -->
+                </div>
+                <button id="prevSlide" class="carousel-nav carousel-prev">❮</button>
+                <button id="nextSlide" class="carousel-nav carousel-next">❯</button>
+                <div id="carouselIndicators" class="carousel-indicators">
+                    <!-- Indicators will be inserted here -->
+                </div>
+            </div>
+            <div id="modalInfo" class="modal-info">
+                <!-- Project info will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <section id="resume" class="resume-section">
+        <div class="container">
+            <h2 class="section-title fade-in-up">Resume</h2>
+            <div class="resume-content fade-in-up">
+                <p class="resume-text">
+                    Download my resume to learn more about my experience, skills, and achievements.
+                </p>
+                <div class="resume-links">
+                    <a href="#" class="resume-link">
+                        📄 Download Resume (PDF)
+                    </a>
+                    <a href="#" class="resume-link">
+                        📋 View Online Resume
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -267,42 +1152,421 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="fade-in-up">Get In Touch</h2>
-            <p class="fade-in-up">I'm always open to discussing new opportunities, interesting projects, and potential collaborations. Let's create something amazing together!</p>
+            <h2 class="section-title fade-in-up">Get In Touch</h2>
             <div class="contact-links fade-in-up">
-                <a href="mailto:your.email@example.com">📧 Email</a>
-                <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">💼 LinkedIn</a>
+                <a href="mailto:your.email@example.com" class="contact-link">
+                    📧 Email
+                </a>
+                <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+                    🐙 GitHub
+                </a>
+                <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank">
+                    💼 LinkedIn
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Modal for Project Details -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <span id="modalClose" class="modal-close">&times;</span>
-            
-            <div class="modal-body">
-                <div class="modal-carousel">
-                    <div id="carouselContainer" class="carousel-container">
-                        <!-- Carousel slides will be generated by JavaScript -->
-                    </div>
-                    <button id="prevSlide" class="carousel-nav prev" aria-label="Previous slide">&#8249;</button>
-                    <button id="nextSlide" class="carousel-nav next" aria-label="Next slide">&#8250;</button>
-                    <div id="carouselIndicators" class="carousel-indicators">
-                        <!-- Carousel dots will be generated by JavaScript -->
-                    </div>
-                </div>
-                
-                <div id="modalInfo" class="modal-info">
-                    <!-- Project details will be populated by JavaScript -->
-                </div>
-            </div>
-        </div>
-    </div>
+    <script>
+        // Project data for modals
+        const projectData = {
+            taskmanager: {
+                title: "Task Management App",
+                longDescription: "A productivity-focused task management application built with React and TypeScript. Features include drag-and-drop task organization, project categorization, and real-time collaboration. The app uses Firebase for backend services, providing seamless synchronization across devices and team members.",
+                technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Redux"],
+                features: [
+                    "Drag-and-drop task organization",
+                    "Project and category management", 
+                    "Real-time collaboration with team members",
+                    "Due date reminders and notifications",
+                    "Progress tracking and analytics",
+                    "Cross-device synchronization",
+                    "Offline functionality with sync"
+                ],
+                links: [
+                    { text: "Try the App", url: "#" },
+                    { text: "Source Code", url: "#" }
+                ],
+                images: [
+                    { content: "Dashboard Overview" },
+                    { content: "Task Board View" },
+                    { content: "Analytics Dashboard" },
+                    { content: "Mobile Interface" }
+                ]
+            },
+            ecommerce: {
+                title: "E-commerce Platform",
+                longDescription: "Full-stack e-commerce solution featuring secure payment processing, comprehensive inventory management, and an intuitive admin dashboard. Built with modern web technologies to provide a seamless shopping experience for customers and powerful management tools for administrators.",
+                technologies: ["Node.js", "Express", "MongoDB", "React", "Stripe", "JWT"],
+                features: [
+                    "Secure payment processing with Stripe",
+                    "Real-time inventory tracking",
+                    "Admin dashboard for order management",
+                    "Customer authentication and profiles",
+                    "Product catalog with search and filters",
+                    "Order tracking and notifications",
+                    "Responsive design for all devices"
+                ],
+                links: [
+                    { text: "Live Demo", url: "#" },
+                    { text: "GitHub Repository", url: "#" }
+                ],
+                images: [
+                    { content: "Store Homepage" },
+                    { content: "Product Details" },
+                    { content: "Shopping Cart" },
+                    { content: "Admin Panel" }
+                ]
+            },
+            aimodel: {
+                title: "AI Image Classifier",
+                longDescription: "Advanced machine learning model for image classification with real-time predictions and comprehensive accuracy visualization. Developed using PyTorch and OpenCV, this application demonstrates the power of deep learning in computer vision tasks.",
+                technologies: ["Python", "PyTorch", "OpenCV", "Flask", "NumPy", "Matplotlib"],
+                features: [
+                    "Real-time image classification",
+                    "Multiple pre-trained model options",
+                    "Accuracy and confidence visualization",
+                    "Batch processing capabilities",
+                    "Model performance analytics",
+                    "Custom dataset training support",
+                    "REST API for integration"
+                ],
+                links: [
+                    { text: "Demo Application", url: "#" },
+                    { text: "Research Paper", url: "#" }
+                ],
+                images: [
+                    { content: "Model Interface" },
+                    { content: "Prediction Results" },
+                    { content: "Training Metrics" },
+                    { content: "Performance Charts" }
+                ]
+            }
+        };
 
-    <!-- Load JavaScript files -->
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScrollAnimations();
+            initializeNavigation();
+            initializeProjectModals();
+            initializeGreetingAnimation();
+            initializeTechStackAnimations();
+        });
+
+        // Scroll animations
+        function initializeScrollAnimations() {
+            handleScrollAnimations();
+            
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        handleScrollAnimations();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            const windowHeight = window.innerHeight;
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Navigation functionality
+        function initializeNavigation() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const navbar = document.querySelector('.navbar');
+                        const navHeight = navbar ? navbar.offsetHeight : 0;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            window.addEventListener('scroll', updateActiveNavigation);
+        }
+
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            const navbar = document.querySelector('.navbar');
+            const navHeight = navbar ? navbar.offsetHeight : 0;
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - navHeight - 100;
+                const sectionHeight = section.offsetHeight;
+                
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Greeting animation functionality
+        function initializeGreetingAnimation() {
+            updateAlternatingText();
+            setInterval(updateAlternatingText, 3000);
+        }
+
+        function updateAlternatingText() {
+            const alternatingText = document.getElementById('alternatingText');
+            if (!alternatingText) return;
+            
+            const greetings = [
+                'Hello',      // English
+                'Hola',       // Spanish
+                'Bonjour',    // French
+                'Hallo',      // German
+                'Ciao',       // Italian
+                'Olá',        // Portuguese
+                'こんにちは',    // Japanese
+                '안녕하세요',     // Korean
+                '你好',        // Chinese
+                'Привет',     // Russian
+                'مرحبا',       // Arabic
+                'नमस्ते'       // Hindi
+            ];
+            
+            const currentText = alternatingText.textContent;
+            const currentIndex = greetings.indexOf(currentText);
+            const nextIndex = (currentIndex + 1) % greetings.length;
+            
+            alternatingText.textContent = greetings[nextIndex];
+        }
+
+        // Project modal functionality
+        function initializeProjectModals() {
+            const modal = document.getElementById('projectModal');
+            const modalClose = document.getElementById('modalClose');
+            const carouselContainer = document.getElementById('carouselContainer');
+            const modalInfo = document.getElementById('modalInfo');
+            const carouselIndicators = document.getElementById('carouselIndicators');
+            const prevSlide = document.getElementById('prevSlide');
+            const nextSlide = document.getElementById('nextSlide');
+
+            let currentProject = null;
+            let currentSlide = 0;
+
+            // Add click listeners to project cards
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectKey = card.getAttribute('data-project');
+                    if (projectKey && projectData[projectKey]) {
+                        openModal(projectKey);
+                    }
+                });
+            });
+
+            // Close modal event listeners
+            if (modalClose) {
+                modalClose.addEventListener('click', closeModal);
+            }
+
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) closeModal();
+                });
+            }
+
+            // Carousel navigation
+            if (nextSlide) {
+                nextSlide.addEventListener('click', () => nextSlideFunc());
+            }
+
+            if (prevSlide) {
+                prevSlide.addEventListener('click', () => prevSlideFunc());
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (modal && modal.classList.contains('active')) {
+                    if (e.key === 'Escape') {
+                        closeModal();
+                    } else if (e.key === 'ArrowRight') {
+                        nextSlideFunc();
+                    } else if (e.key === 'ArrowLeft') {
+                        prevSlideFunc();
+                    }
+                }
+            });
+
+            // Modal functions
+            function openModal(projectKey) {
+                if (!modal || !modalInfo || !carouselContainer || !carouselIndicators) return;
+                
+                if (!projectData[projectKey]) {
+                    console.error(`Project '${projectKey}' not found in projectData`);
+                    return;
+                }
+                
+                currentProject = projectData[projectKey];
+                currentSlide = 0;
+
+                populateModal();
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                if (!modal) return;
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                currentProject = null;
+                currentSlide = 0;
+            }
+
+            function populateModal() {
+                if (!carouselContainer || !carouselIndicators || !modalInfo || !currentProject) return;
+                
+                // Create carousel slides
+                carouselContainer.innerHTML = '';
+                carouselIndicators.innerHTML = '';
+
+                if (!currentProject.images || !Array.isArray(currentProject.images)) {
+                    console.error('Project images not found or not an array');
+                    return;
+                }
+
+                currentProject.images.forEach((image, index) => {
+                    const slide = document.createElement('div');
+                    slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+                    
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'carousel-placeholder';
+                    placeholder.textContent = image.content || `Image ${index + 1}`;
+                    placeholder.style.cssText = `
+                        width: 90%;
+                        height: 200px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 1.2rem;
+                        border: 2px dashed rgba(255, 255, 255, 0.3);
+                    `;
+                    
+                    slide.appendChild(placeholder);
+                    carouselContainer.appendChild(slide);
+
+                    // Create indicator
+                    const dot = document.createElement('div');
+                    dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+                    dot.addEventListener('click', () => goToSlide(index));
+                    carouselIndicators.appendChild(dot);
+                });
+
+                // Populate project info
+                modalInfo.innerHTML = `
+                    <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
+                    <div class="modal-project-description">
+                        <p>${currentProject.longDescription || 'No description available.'}</p>
+                    </div>
+                    
+                    <div class="modal-tech-stack">
+                        <h3 class="modal-tech-title">Technologies Used</h3>
+                        <div class="modal-tech-tags">
+                            ${(currentProject.technologies || []).map(tech => 
+                                `<span class="modal-tech-tag">${tech}</span>`
+                            ).join('')}
+                        </div>
+                    </div>
+
+                    <div class="modal-features">
+                        <h3 class="modal-features-title">Key Features</h3>
+                        <ul class="modal-features-list">
+                            ${(currentProject.features || []).map(feature => 
+                                `<li>${feature}</li>`
+                            ).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="modal-links">
+                        ${(currentProject.links || []).map(link => 
+                            `<a href="${link.url || '#'}" class="modal-link" target="_blank" rel="noopener noreferrer">${link.text || 'Link'}</a>`
+                        ).join('')}
+                    </div>
+                `;
+            }
+
+            function goToSlide(slideIndex) {
+                if (!currentProject || !carouselContainer || !carouselIndicators) return;
+
+                const slides = carouselContainer.querySelectorAll('.carousel-slide');
+                const dots = carouselIndicators.querySelectorAll('.carousel-dot');
+
+                if (slides.length === 0 || dots.length === 0) return;
+
+                // Remove active class from current slide and dot
+                if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
+                if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
+
+                // Update current slide index
+                currentSlide = slideIndex;
+
+                // Add active class to new slide and dot
+                if (slides[currentSlide]) slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) dots[currentSlide].classList.add('active');
+            }
+
+            function nextSlideFunc() {
+                if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
+                const nextIndex = (currentSlide + 1) % currentProject.images.length;
+                goToSlide(nextIndex);
+            }
+
+            function prevSlideFunc() {
+                if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
+                const prevIndex = (currentSlide - 1 + currentProject.images.length) % currentProject.images.length;
+                goToSlide(prevIndex);
+            }
+        }
+
+        function initializeTechStackAnimations() {
+            const techItems = document.querySelectorAll('.tech-item');
+            
+            techItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.1}s`;
+            });
+
+            techItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.transform = 'translateX(8px) scale(1.05)';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+        }
+    </script>
 </body>
 </html>
