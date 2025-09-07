@@ -1,6 +1,3 @@
-/* Updated CSS to match HTML color palette and structure exactly */
-
-/* Reset and base styles */
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +5,7 @@
 }
 
 :root {
-    /* Using the exact color palette from HTML */
+    /* Exact color palette from HTML */
     --color-1: #d69ea3;
     --color-2: #5a6898;
     --color-3: #a0869e;
@@ -26,11 +23,9 @@ body {
     line-height: 1.6;
     color: var(--text-dark);
     background: var(--white);
-    scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
-/* Navigation - Updated to match HTML structure */
+/* Navigation */
 .navbar {
     position: fixed;
     top: 0;
@@ -95,7 +90,7 @@ body {
     width: 100%;
 }
 
-/* Hero Section - Matching HTML exactly */
+/* Hero Section */
 .hero {
     min-height: 100vh;
     background: var(--gradient-bg);
@@ -164,7 +159,278 @@ body {
 .btn {
     padding: 12px 30px;
     border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--white);
+}
+
+.modal-info {
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.modal-project-title {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.modal-project-description {
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.modal-tech-stack {
+    margin-bottom: 2rem;
+}
+
+.modal-tech-title {
+    color: var(--color-1);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.modal-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.modal-tech-tag {
+    background: var(--color-1);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.modal-features {
+    margin-bottom: 2rem;
+}
+
+.modal-features-title {
+    color: var(--color-1);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.modal-features-list {
+    color: #ccc;
+    padding-left: 1.5rem;
+}
+
+.modal-features-list li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.modal-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-link {
+    background: var(--gradient-bg);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Resume Section */
+.resume-section {
+    background: var(--gradient-bg);
+    color: var(--white);
+    text-align: center;
+}
+
+.resume-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.resume-text {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.resume-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    text-decoration: none;
     border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.resume-link:hover {
+    background: var(--white);
+    color: var(--color-2);
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+.contact {
+    background: #faf7f8;
+    text-align: center;
+}
+
+.contact-links {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px 25px;
+    background: var(--white);
+    color: var(--color-2);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(90, 104, 152, 0.1);
+}
+
+.contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(90, 104, 152, 0.2);
+}
+
+/* Animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .greeting-text {
+        font-size: 2.5rem;
+    }
+
+    .name-text {
+        font-size: 2rem;
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links,
+    .resume-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .modal-content {
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+
+    .modal-carousel {
+        min-height: 300px;
+    }
+}0px;
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -236,7 +502,7 @@ section {
     margin-bottom: 2rem;
 }
 
-/* Tech Stack - Matching HTML dark theme */
+/* Tech Stack - Dark theme like HTML */
 .tech-stack-section {
     background: var(--dark-bg);
     color: var(--white);
@@ -436,7 +702,7 @@ section {
     font-weight: 500;
 }
 
-/* Project Modal - Updated to match HTML structure */
+/* Project Modal */
 .modal {
     display: none;
     position: fixed;
@@ -539,311 +805,4 @@ section {
     font-size: 1.5rem;
     padding: 15px 20px;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.carousel-nav:hover {
-    background: rgba(0, 0, 0, 0.7);
-}
-
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-.carousel-indicators {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-
-.carousel-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.carousel-dot.active {
-    background: var(--white);
-}
-
-.modal-info {
-    padding: 2rem;
-    overflow-y: auto;
-}
-
-.modal-project-title {
-    background: var(--gradient-text);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
-.modal-project-description {
-    color: #ccc;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.modal-tech-stack {
-    margin-bottom: 2rem;
-}
-
-.modal-tech-title {
-    color: var(--color-1);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.modal-tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-}
-
-.modal-tech-tag {
-    background: var(--color-1);
-    color: var(--white);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.modal-features {
-    margin-bottom: 2rem;
-}
-
-.modal-features-title {
-    color: var(--color-1);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.modal-features-list {
-    color: #ccc;
-    padding-left: 1.5rem;
-}
-
-.modal-features-list li {
-    margin-bottom: 0.5rem;
-    line-height: 1.5;
-}
-
-.modal-links {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.modal-link {
-    background: var(--gradient-bg);
-    color: var(--white);
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.modal-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-/* Resume Section */
-.resume-section {
-    background: var(--gradient-bg);
-    color: var(--white);
-    text-align: center;
-}
-
-.resume-section .section-title {
-    color: var(--white);
-    background: none;
-    -webkit-text-fill-color: initial;
-}
-
-.resume-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.resume-text {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.resume-links {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.resume-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 25px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 50px;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.resume-link:hover {
-    background: var(--white);
-    color: var(--color-2);
-    transform: translateY(-2px);
-}
-
-/* Contact Section */
-.contact {
-    background: #faf7f8;
-    text-align: center;
-}
-
-.contact-links {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
-
-.contact-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 15px 25px;
-    background: var(--white);
-    color: var(--color-2);
-    text-decoration: none;
-    border-radius: 50px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(90, 104, 152, 0.1);
-}
-
-.contact-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(90, 104, 152, 0.2);
-}
-
-/* Scroll Animations */
-.fade-in-up {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease;
-}
-
-.fade-in-up.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Loading states */
-.loaded .fade-in-up {
-    transition-delay: 0.1s;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .nav-menu {
-        gap: 1rem;
-    }
-
-    .greeting-text {
-        font-size: 2.5rem;
-    }
-
-    .name-text {
-        font-size: 2rem;
-    }
-
-    .hero-description {
-        font-size: 1.1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .tech-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-links,
-    .resume-links {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .modal-content {
-        grid-template-columns: 1fr;
-        margin: 20px;
-    }
-
-    .modal-carousel {
-        min-height: 300px;
-    }
-
-    .projects-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-info {
-        padding: 1.5rem;
-    }
-
-    .carousel-nav {
-        padding: 10px 15px;
-        font-size: 1.2rem;
-    }
-}
+    border-radius: 5
