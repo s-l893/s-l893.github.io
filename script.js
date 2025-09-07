@@ -89,7 +89,7 @@ function updateActiveNavigation() {
     });
 }
 
-// Greeting animation functionality
+// Greeting animation functionality - Updated for HTML structure
 function initializeGreetingAnimation() {
     // Start the alternating text animation immediately
     updateAlternatingText();
@@ -98,28 +98,38 @@ function initializeGreetingAnimation() {
     setInterval(updateAlternatingText, 3000);
 }
 
-// Missing function: updateAlternatingText
+// Fixed updateAlternatingText to work with HTML structure and multilingual greetings
 function updateAlternatingText() {
     const alternatingText = document.getElementById('alternatingText');
     if (!alternatingText) return;
     
-    const greetings = [
-        'Hello World',
-        'Hi there',
-        'Welcome',
-        'Greetings',
-        'Hey!'
-    ];
+    // Use the greetings array from projectData.js
+    if (typeof greetings === 'undefined') {
+        // Fallback if greetings not loaded
+        const fallbackGreetings = ['Hello', 'Hi', 'Hey', 'Greetings', 'Welcome'];
+        const currentText = alternatingText.textContent;
+        const currentIndex = fallbackGreetings.indexOf(currentText);
+        const nextIndex = (currentIndex + 1) % fallbackGreetings.length;
+        alternatingText.textContent = fallbackGreetings[nextIndex];
+        return;
+    }
     
-    // Get current text or start with first greeting
+    // Get current text and find next greeting
     const currentText = alternatingText.textContent;
     const currentIndex = greetings.indexOf(currentText);
     const nextIndex = (currentIndex + 1) % greetings.length;
     
-    alternatingText.textContent = greetings[nextIndex];
+    // Add fade transition effect
+    alternatingText.style.transition = 'opacity 0.3s ease';
+    alternatingText.style.opacity = '0';
+    
+    setTimeout(() => {
+        alternatingText.textContent = greetings[nextIndex];
+        alternatingText.style.opacity = '1';
+    }, 300);
 }
 
-// Project modal functionality
+// Project modal functionality - Fixed to work with HTML structure
 function initializeProjectModals() {
     const modal = document.getElementById('projectModal');
     const modalClose = document.getElementById('modalClose');
@@ -220,6 +230,17 @@ function initializeProjectModals() {
             const placeholder = document.createElement('div');
             placeholder.className = 'carousel-placeholder';
             placeholder.textContent = image.content || `Image ${index + 1}`;
+            placeholder.style.cssText = `
+                width: 90%;
+                height: 200px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.2rem;
+                border: 2px dashed rgba(255, 255, 255, 0.3);
+            `;
             
             slide.appendChild(placeholder);
             carouselContainer.appendChild(slide);
@@ -231,7 +252,7 @@ function initializeProjectModals() {
             carouselIndicators.appendChild(dot);
         });
 
-        // Populate project info
+        // Populate project info - Updated to match HTML modal structure
         modalInfo.innerHTML = `
             <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
             <div class="modal-project-description">
@@ -297,23 +318,26 @@ function initializeProjectModals() {
     }
 }
 
-// Tech stack animations
+// Tech stack animations - Enhanced to work with HTML structure
 function initializeTechStackAnimations() {
     const techItems = document.querySelectorAll('.tech-item');
     
     // Add staggered animation delay
     techItems.forEach((item, index) => {
-        item.style.animationDelay = `${index * 0.1}s`;
+        item.style.animationDelay = `${index * 0.05}s`;
+        item.style.transition = 'all 0.3s ease';
     });
 
-    // Add hover sound effect simulation (visual feedback)
+    // Enhanced hover effects matching HTML expectations
     techItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
             item.style.transform = 'translateX(8px) scale(1.02)';
+            item.style.backgroundColor = 'rgba(90, 104, 152, 0.1)';
         });
         
         item.addEventListener('mouseleave', () => {
             item.style.transform = 'translateX(0) scale(1)';
+            item.style.backgroundColor = '';
         });
     });
 }
@@ -343,25 +367,6 @@ function throttle(func, limit) {
         }
     }
 }
-
-// Preload critical resources
-function preloadResources() {
-    // Preload any critical images or resources
-    const criticalResources = [
-        // Add any critical image URLs here
-    ];
-    
-    criticalResources.forEach(url => {
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.href = url;
-        link.as = 'image';
-        document.head.appendChild(link);
-    });
-}
-
-// Initialize performance optimizations
-preloadResources();
 
 // Add loading state management
 window.addEventListener('load', () => {
