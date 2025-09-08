@@ -1120,7 +1120,7 @@
         <div class="container">
             <h2 class="section-title fade-in-up">Projects</h2>
             <div class="projects-grid">
-                <div class="project-card fade-in-up" data-project="Macropad">
+                <div class="project-card fade-in-up" data-project="macropad">
                     <div class="project-image">Macropad</div>
                     <div class="project-content">
                         <h3 class="project-title">Macropad</h3>
@@ -1226,18 +1226,19 @@
     <script>
         // Project data for modals
         const projectData = {
-            taskmanager: {
-                title: "Task Management App",
+            macropad: {
+                title: "Macropad",
                 longDescription: "A productivity-focused task management application built with React and TypeScript. Features include drag-and-drop task organization, project categorization, and real-time collaboration. The app uses Firebase for backend services, providing seamless synchronization across devices and team members.",
-                technologies: ["React", "TypeScript", "Firebase", "Material-UI", "Redux"],
+                technologies: ["Python", "C", "Arduino", "SolidWorks", "Kicad", "QMK"],
                 features: [
-                    "Drag-and-drop task organization",
-                    "Project and category management", 
-                    "Real-time collaboration with team members",
-                    "Due date reminders and notifications",
-                    "Progress tracking and analytics",
-                    "Cross-device synchronization",
-                    "Offline functionality with sync"
+                    "3D printed 3x3 Macropad casing designed using SolidWorks",
+                    "Two versions using ESP32-S3 and Pro Micro microcontrollers", 
+                    "Created a software interface with HTML which allows the user to program their desired macros",
+                    "Created an alternative macro configuration tool with CircuitPython for our trial run",
+                    "Windows batch file for automatic macro updates after downloaded from the HTML frontend",
+                    "Custom designed COL2ROW style PCB using Kicad",
+                    "On-board memory to store macros between devices",
+                    "Pro Micro flashable with QMK MSYS for further customization",
                 ],
                 links: [
                     { text: "Try the App", url: "#" },
@@ -1250,18 +1251,16 @@
                     { content: "Mobile Interface" }
                 ]
             },
-            ecommerce: {
-                title: "E-commerce Platform",
+            kineticefromhail: {
+                title: "KineticE From Hail",
                 longDescription: "Full-stack e-commerce solution featuring secure payment processing, comprehensive inventory management, and an intuitive admin dashboard. Built with modern web technologies to provide a seamless shopping experience for customers and powerful management tools for administrators.",
-                technologies: ["Node.js", "Express", "MongoDB", "React", "Stripe", "JWT"],
+                technologies: ["OnShape", "Python", "C++", "Arduino", "PrusaSlicer"],
                 features: [
-                    "Secure payment processing with Stripe",
-                    "Real-time inventory tracking",
-                    "Admin dashboard for order management",
-                    "Customer authentication and profiles",
-                    "Product catalog with search and filters",
-                    "Order tracking and notifications",
-                    "Responsive design for all devices"
+                    "1st place for overall project quality out of 50+ teams",
+                    "PoC (Proof of Concept) design",
+                    "Self adjusting impact platform",
+                    "Graph generated from live data",
+                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
                 ],
                 links: [
                     { text: "Live Demo", url: "#" },
@@ -1279,13 +1278,11 @@
                 longDescription: "Advanced machine learning model for image classification with real-time predictions and comprehensive accuracy visualization. Developed using PyTorch and OpenCV, this application demonstrates the power of deep learning in computer vision tasks.",
                 technologies: ["Python", "PyTorch", "OpenCV", "Flask", "NumPy", "Matplotlib"],
                 features: [
-                    "Real-time image classification",
-                    "Multiple pre-trained model options",
-                    "Accuracy and confidence visualization",
-                    "Batch processing capabilities",
-                    "Model performance analytics",
-                    "Custom dataset training support",
-                    "REST API for integration"
+                    "1st place for overall project quality out of 50+ teams",
+                    "PoC (Proof of Concept) design",
+                    "Self adjusting impact platform",
+                    "Graph generated from live data",
+                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
                 ],
                 links: [
                     { text: "Demo Application", url: "#" },
@@ -1302,8 +1299,8 @@
 
         // Multilingual greetings for the hero section
         const greetings = [
-            'Hello',      // English
-            'Hola',       // Spanish
+            'Hola',      // English
+            'Hello',       // Spanish
             'Bonjour',    // French
             'Hallo',      // German
             'Ciao',       // Italian
