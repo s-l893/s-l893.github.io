@@ -443,7 +443,7 @@
 
         .project-image {
             height: 200px;
-            background: var(--gradient-bg;
+            background: var(--https://i.imgur.com/pOeHWiV.jpeg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1122,7 +1122,7 @@
             <h2 class="section-title fade-in-up">Projects</h2>
             <div class="projects-grid">
                 <div class="project-card fade-in-up" data-project="macropad">
-                    <div class="project-image" style="background-image: url('https://i.imgur.com/0soKU93.jpeg'); background-size: cover; background-position: center;"></div>
+                    <div class="project-image" style="background-image: url('https://i.imgur.com/pOeHWiV.jpeg'); background-size: cover; background-position: center;"></div>
                     <div class="project-content">
                         <h3 class="project-title">3x3 Macropad</h3>
                         <p class="project-description">A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At it's core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to...</p>
@@ -1247,9 +1247,11 @@
                 ],
                 images: [
                     { content: "https://i.imgur.com/pOeHWiV.jpeg" },
-                    { content: "Task Board View" },
-                    { content: "Analytics Dashboard" },
-                    { content: "Mobile Interface" }
+                    { content: "https://i.imgur.com/42CK7uJ.jpeg" },
+                    { content: "https://i.imgur.com/0XICNZC.jpeg" },
+                    { content: "https://i.imgur.com/iWnHFjl.jpeg" },
+                    { content: "https://i.imgur.com/patKgf3.png"  },
+                    { content: "https://i.imgur.com/rfehLPc.png"  }
                 ]
             },
             kineticefromhail: {
@@ -1268,10 +1270,11 @@
                     { text: "GitHub Repository", url: "#" }
                 ],
                 images: [
-                    { content: "Store Homepage" },
-                    { content: "Product Details" },
-                    { content: "Shopping Cart" },
-                    { content: "Admin Panel" }
+                    { content: "https://i.imgur.com/Y9HPklx.jpeg" },
+                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
+                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
+                    { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
+                    { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
             },
             aimodel: {
@@ -1514,63 +1517,110 @@
                     const slide = document.createElement('div');
                     slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
                     
-                    const placeholder = document.createElement('div');
-                    placeholder.className = 'carousel-placeholder';
-                    placeholder.textContent = image.content || `Image ${index + 1}`;
-                    placeholder.style.cssText = `
-                        width: 90%;
-                        height: 200px;
-                        background: rgba(255, 255, 255, 0.1);
-                        border-radius: 10px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 1.2rem;
-                        border: 2px dashed rgba(255, 255, 255, 0.3);
-                    `;
+                    // Check if the content is a URL (contains http or is a file path)
+                    const isImageUrl = image.content.includes('http') || 
+                                    image.content.includes('.jpg') || 
+                                    image.content.includes('.jpeg') || 
+                                    image.content.includes('.png') || 
+                                    image.content.includes('.gif');
                     
-                    slide.appendChild(placeholder);
-                    carouselContainer.appendChild(slide);
+                    if (isImageUrl) {
+                        // Create actual image element
+                        const img = document.createElement('img');
+                        img.src = image.content;
+                        img.alt = `${currentProject.title} - Image ${index + 1}`;
+                        img.style.cssText = `
+                            width: 90%;
+                            max-height: 350px;
+                            object-fit: cover;
+                            border-radius: 10px;
+                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+                        `;
+                        
+                        // Add loading error handler
+                        img.onerror = function() {
+                            this.style.display = 'none';
+                            const errorDiv = document.createElement('div');
+                            errorDiv.textContent = `Failed to load image`;
+                            errorDiv.style.cssText = `
+                                width: 90%;
+                                height: 200px;
+                                background: rgba(255, 255, 255, 0.1);
+                                border-radius: 10px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                font-size: 1.1rem;
+                                border: 2px dashed rgba(255, 255, 255, 0.3);
+                                color: rgba(255, 255, 255, 0.7);
+                            `;
+                            slide.appendChild(errorDiv);
+                        };
+                        
+                        slide.appendChild(img);
+                    } else {
+                        // Create placeholder for text content
+                        const placeholder = document.createElement('div');
+                        placeholder.textContent = image.content || `Image ${index + 1}`;
+                        placeholder.style.cssText = `
+                            width: 90%;
+                            height: 200px;
+                            background: rgba(255, 255, 255, 0.1);
+                            border-radius: 10px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            border: 2px dashed rgba(255, 255, 255, 0.3);
+                            color: white;
+                            text-align: center;
+                            padding: 20px;
+                        `;
+                        
+                        slide.appendChild(placeholder);
+                    }
+        
+        carouselContainer.appendChild(slide);
 
-                    // Create indicator
-                    const dot = document.createElement('div');
-                    dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-                    dot.addEventListener('click', () => goToSlide(index));
-                    carouselIndicators.appendChild(dot);
-                });
+        // Create indicator
+        const dot = document.createElement('div');
+        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+        dot.addEventListener('click', () => goToSlide(index));
+        carouselIndicators.appendChild(dot);
+    });
 
-                // Populate project info
-                modalInfo.innerHTML = `
-                    <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
-                    <div class="modal-project-description">
-                        <p>${currentProject.longDescription || 'No description available.'}</p>
-                    </div>
-                    
-                    <div class="modal-tech-stack">
-                        <h3 class="modal-tech-title">Technologies Used</h3>
-                        <div class="modal-tech-tags">
-                            ${(currentProject.technologies || []).map(tech => 
-                                `<span class="modal-tech-tag">${tech}</span>`
-                            ).join('')}
-                        </div>
-                    </div>
+    // Populate project info (rest of your existing code stays the same)
+    modalInfo.innerHTML = `
+        <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
+        <div class="modal-project-description">
+            <p>${currentProject.longDescription || 'No description available.'}</p>
+        </div>
+        
+        <div class="modal-tech-stack">
+            <h3 class="modal-tech-title">Technologies Used</h3>
+            <div class="modal-tech-tags">
+                ${(currentProject.technologies || []).map(tech => 
+                    `<span class="modal-tech-tag">${tech}</span>`
+                ).join('')}
+            </div>
+        </div>
 
-                    <div class="modal-features">
-                        <h3 class="modal-features-title">Key Features</h3>
-                        <ul class="modal-features-list">
-                            ${(currentProject.features || []).map(feature => 
-                                `<li>${feature}</li>`
-                            ).join('')}
-                        </ul>
-                    </div>
+        <div class="modal-features">
+            <h3 class="modal-features-title">Key Features</h3>
+            <ul class="modal-features-list">
+                ${(currentProject.features || []).map(feature => 
+                    `<li>${feature}</li>`
+                ).join('')}
+            </ul>
+        </div>
 
-                    <div class="modal-links">
-                        ${(currentProject.links || []).map(link => 
-                            `<a href="${link.url || '#'}" class="modal-link" target="_blank" rel="noopener noreferrer">${link.text || 'Link'}</a>`
-                        ).join('')}
-                    </div>
-                `;
-            }
+        <div class="modal-links">
+            ${(currentProject.links || []).map(link => 
+                `<a href="${link.url || '#'}" class="modal-link" target="_blank" rel="noopener noreferrer">${link.text || 'Link'}</a>`
+            ).join('')}
+        </div>
+    `;
+}
 
             function goToSlide(slideIndex) {
                 if (!currentProject || !carouselContainer || !carouselIndicators) return;
