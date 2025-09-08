@@ -226,9 +226,16 @@
         }
 
         .about-content {
-            text-align: center;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
             margin: 0 auto;
+        }
+
+        .about-text-content {
+            text-align: left;
         }
 
         .about-text {
@@ -238,7 +245,21 @@
             margin-bottom: 2rem;
         }
 
-        /* Tech Stack - Dark theme like your image */
+        .about-image {
+            width: 100%;
+            height: 300px;
+            background: var(--gradient-bg);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 15px 35px rgba(90, 104, 152, 0.15);
+        }
+
+        /* Tech Stack - Dark theme like your image, now with 4 columns */
         .tech-stack-section {
             background: var(--dark-bg);
             color: var(--white);
@@ -257,8 +278,8 @@
 
         .tech-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 4rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
         }
 
         .tech-category {
@@ -295,16 +316,17 @@
         }
 
         .tech-icon {
-            width: 24px;
-            height: 24px;
-            background: var(--color-1);
-            border-radius: 4px;
+            width: 32px;
+            height: 32px;
+            background: var(--gradient-bg);
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 10px;
             color: var(--white);
             font-weight: bold;
+            flex-shrink: 0;
         }
 
         /* Education Section */
@@ -326,8 +348,15 @@
 
         .education-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: 1fr 300px;
             gap: 3rem;
+            align-items: center;
+        }
+
+        .education-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .education-item {
@@ -367,6 +396,20 @@
             color: #ccc;
             font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        .education-image {
+            width: 100%;
+            height: 300px;
+            background: var(--gradient-bg);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 500;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
         /* Projects Section */
@@ -727,8 +770,7 @@
 
         /* Contact Section */
         .contact {
-            background: #2a2a2a;
-            color: var(--white);
+            background: #faf7f8;
             text-align: center;
         }
 
@@ -772,6 +814,13 @@
         }
 
         /* Mobile Responsiveness */
+        @media (max-width: 1024px) {
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-menu {
                 gap: 1rem;
@@ -796,6 +845,15 @@
 
             .section-title {
                 font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-text-content {
+                text-align: center;
             }
 
             .tech-grid {
@@ -864,10 +922,15 @@
         <div class="container">
             <h2 class="section-title fade-in-up">About Me</h2>
             <div class="about-content fade-in-up">
-                <p class="about-text">
-                    I am currently a second year Mechatronics Engineering student at The University of Western Ontario (UWO) in London, Ontario. I joined the General Engineering program at Western in September 2024, which further helped me discover my passion for Mechatronics Engineering, which gave me discipline to excel in my studies to pursue this engineering path for the remainder of my undergraduate studies. From a young age, I knew I was destined to become an engineer. I have always been passionate about technology and learning how various devices and contraptions work while challenging myself to think about how I could improve upon their existing design. 
-                    I am familiar with a variety of tools, ranging from CAD tools to coding languages and frameworks to physical microcontrollers and PCB design tools. 
-                </p>
+                <div class="about-text-content">
+                    <p class="about-text">
+                        I am currently a second year Mechatronics Engineering student at The University of Western Ontario (UWO) in London, Ontario. I joined the General Engineering program at Western in September 2024, which further helped me discover my passion for Mechatronics Engineering, which gave me discipline to excel in my studies to pursue this engineering path for the remainder of my undergraduate studies. From a young age, I knew I was destined to become an engineer. I have always been passionate about technology and learning how various devices and contraptions work while challenging myself to think about how I could improve upon their existing design. 
+                        I am familiar with a variety of tools, ranging from CAD tools to coding languages and frameworks to physical microcontrollers and PCB design tools. 
+                    </p>
+                </div>
+                <div class="about-image">
+                    Profile Photo Placeholder
+                </div>
             </div>
         </div>
     </section>
@@ -881,23 +944,23 @@
                     <h3>Languages</h3>
                     <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon">Py</div>
+                            <div class="tech-icon">🐍</div>
                             <span>Python</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">C+</div>
+                            <div class="tech-icon">🔷</div>
                             <span>C++</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">C</div>
+                            <div class="tech-icon">🔴</div>
                             <span>C</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Ja</div>
+                            <div class="tech-icon">☕</div>
                             <span>Java</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">JS</div>
+                            <div class="tech-icon">🟨</div>
                             <span>JavaScript</span>
                         </div>
                     </div>
@@ -906,43 +969,43 @@
                     <h3>Frameworks / Libraries</h3>
                     <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon">PT</div>
+                            <div class="tech-icon">🔥</div>
                             <span>PyTorch</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">CV</div>
+                            <div class="tech-icon">👁️</div>
                             <span>OpenCV</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Re</div>
+                            <div class="tech-icon">⚛️</div>
                             <span>React</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Fl</div>
+                            <div class="tech-icon">🌶️</div>
                             <span>Flask</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">No</div>
+                            <div class="tech-icon">🟢</div>
                             <span>Node.JS</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Ex</div>
+                            <div class="tech-icon">🚀</div>
                             <span>Express</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Sp</div>
+                            <div class="tech-icon">🍃</div>
                             <span>Spring</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">.N</div>
+                            <div class="tech-icon">🔵</div>
                             <span>.NET</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Np</div>
+                            <div class="tech-icon">📊</div>
                             <span>NumPy</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Pd</div>
+                            <div class="tech-icon">🐼</div>
                             <span>Pandas</span>
                         </div>
                     </div>
@@ -951,39 +1014,39 @@
                     <h3>Design and Engineering Tools</h3>
                     <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon">Mo</div>
+                            <div class="tech-icon">🔧</div>
                             <span>SolidWorks</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">PS</div>
+                            <div class="tech-icon">📐</div>
                             <span>Autocad</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">My</div>
+                            <div class="tech-icon">🔷</div>
                             <span>OnShape</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">AW</div>
+                            <div class="tech-icon">⚡</div>
                             <span>Altium Designer</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">GC</div>
+                            <div class="tech-icon">🔌</div>
                             <span>Kicad</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Do</div>
+                            <div class="tech-icon">🐳</div>
                             <span>Docker</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Ng</div>
+                            <div class="tech-icon">🌐</div>
                             <span>NGINX</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Li</div>
+                            <div class="tech-icon">🐧</div>
                             <span>Linux</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Re</div>
+                            <div class="tech-icon">🔴</div>
                             <span>Redis</span>
                         </div>
                     </div>
@@ -992,35 +1055,35 @@
                     <h3>Developer Tools</h3>
                     <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon">Gi</div>
+                            <div class="tech-icon">📝</div>
                             <span>Git</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">GH</div>
+                            <div class="tech-icon">🐱</div>
                             <span>GitHub</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">GL</div>
+                            <div class="tech-icon">🦊</div>
                             <span>GitLab</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Jr</div>
+                            <div class="tech-icon">📋</div>
                             <span>Jira</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">VS</div>
+                            <div class="tech-icon">💻</div>
                             <span>VSCode</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Vi</div>
+                            <div class="tech-icon">🏢</div>
                             <span>Visual Studio</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">JB</div>
+                            <div class="tech-icon">🧠</div>
                             <span>JetBrains Suite</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">Fi</div>
+                            <div class="tech-icon">🎨</div>
                             <span>Figma</span>
                         </div>
                     </div>
@@ -1034,28 +1097,22 @@
         <div class="container">
             <h2 class="section-title fade-in-up">Education</h2>
             <div class="education-grid">
-                <div class="education-item fade-in-up">
-                    <div class="education-degree">Bachelor of Engineering Science (BESc) in Mechatronics Engineering</div>
-                    <div class="education-school">University of Western Ontario</div>
-                    <div class="education-date">September 2024 - Expected April 2029</div>
-                    <div class="education-details">
-                        Mechatronics Engineer with interests in embedded systems, IOT, and CAD. 
-                        Active member of the Formula Electric SAE club. 
-
-<!--                    </div>
-                </div>
-                <div class="education-item fade-in-up">
-                    <div class="education-degree">Advanced Diploma in Software Development</div>
-                    <div class="education-school">Tech Institute</div>
-                    <div class="education-date">2018 - 2020</div>
-                    <div class="education-details">
-                        Comprehensive program covering web development, mobile app development, and database design. 
-                        Completed capstone project developing a full-stack e-commerce application. Dean's List recognition 
-                        for academic excellence.
+                <div class="education-content">
+                    <div class="education-item fade-in-up">
+                        <div class="education-degree">Bachelor of Engineering Science (BESc) in Mechatronics Engineering</div>
+                        <div class="education-school">University of Western Ontario</div>
+                        <div class="education-date">September 2024 - Expected April 2029</div>
+                        <div class="education-details">
+                            Mechatronics Engineer with interests in embedded systems, IOT, and CAD. 
+                            Active member of the Formula Electric SAE club.
+                        </div>
                     </div>
                 </div>
+                <div class="education-image">
+                    University Campus Photo
+                </div>
             </div>
-      </div>-->  
+        </div>
     </section>
 
     <!-- Projects Section -->
@@ -1243,6 +1300,22 @@
             }
         };
 
+        // Multilingual greetings for the hero section
+        const greetings = [
+            'Hello',      // English
+            'Hola',       // Spanish
+            'Bonjour',    // French
+            'Hallo',      // German
+            'Ciao',       // Italian
+            'Olá',        // Portuguese
+            'こんにちは',    // Japanese
+            '안녕하세요',     // Korean
+            '你好',        // Chinese
+            'Привет',     // Russian
+            'مرحبا',       // Arabic
+            'नमस्ते'       // Hindi
+        ];
+
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             initializeScrollAnimations();
@@ -1338,21 +1411,6 @@
         function updateAlternatingText() {
             const alternatingText = document.getElementById('alternatingText');
             if (!alternatingText) return;
-            
-            const greetings = [
-                'Hola',      // English
-                'Hello',       // Spanish
-                'Bonjour',    // French
-                'Hallo',      // German
-                'Ciao',       // Italian
-                'Olá',        // Portuguese
-                'こんにちは',    // Japanese
-                '안녕하세요',     // Korean
-                '你好',        // Chinese
-                'Привет',     // Russian
-                'مرحبا',       // Arabic
-                'नमस्ते'       // Hindi
-            ];
             
             const currentText = alternatingText.textContent;
             const currentIndex = greetings.indexOf(currentText);
