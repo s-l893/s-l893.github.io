@@ -1189,6 +1189,20 @@
                         </div>
                     </div>
                 </div>
+                <div class="project-card fade-in-up" data-project="autoplantwater">
+                <div class="project-image" style="background-image: url('https://i.imgur.com/Y9HPklx.jpeg'); background-size: cover; background-position: center;"></div>        
+                    <div class="project-content">
+                        <h3 class="project-title">Automatic Plant Waterer</h3>
+                        <p class="project-description">A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for...</p>
+                        <div class="project-tech">
+                            <span class="project-tech-tag">SolidWorks</span>
+                            <span class="project-tech-tag">Arduino</span>
+                            <span class="project-tech-tag">C++</span>
+                            <span class="project-tech-tag">Blynk IOT</span>
+                            <span class="project-tech-tag">PrusaSlicer</span>
+                        </div>
+                    </div>
+                </div>
                 <div class="project-card fade-in-up" data-project="multimediacontroller">
                     <div class="project-image" style="background-image: url('https://i.imgur.com/Y9HPklx.jpeg'); background-size: cover; background-position: center;"></div>        
                     <div class="project-content">
@@ -1282,8 +1296,7 @@
                     "Pro Micro flashable with QMK MSYS for further customization",
                 ],
                 links: [
-                    { text: "Try the App", url: "#" },
-                    { text: "Source Code", url: "#" }
+                    { text: "Source Code", url: "https://github.com/s-l893/3x3-Macropad" }
                 ],
                 images: [
                     { content: "https://i.imgur.com/pOeHWiV.jpeg" },
@@ -1317,16 +1330,16 @@
                     { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
             },
-            aimodel: {
-                title: "AI Image Classifier",
-                longDescription: "Advanced machine learning model for image classification with real-time predictions and comprehensive accuracy visualization. Developed using PyTorch and OpenCV, this application demonstrates the power of deep learning in computer vision tasks.",
-                technologies: ["Python", "PyTorch", "OpenCV", "Flask", "NumPy", "Matplotlib"],
+            autoplantwater: {
+                title: "Automatic Plant Waterer",
+                longDescription: "A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for...",
+                technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks",],
                 features: [
-                    "1st place for overall project quality out of 50+ teams",
-                    "PoC (Proof of Concept) design",
-                    "Self adjusting impact platform",
-                    "Graph generated from live data",
-                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
+                    "Safety features such as filtered sensor readings, dry-run protection, and run-time limits",
+                    "Custom CAD enclosure featuring a snap tab for quick and easy access to internals",
+                    "Automatic and Manual override controls in the app",
+                    "Live feedback accessible from your device anywhere with an internet connection",
+                    "Moisture over-time monitoring via a graph within Blynk",
                 ],
                 links: [
                     { text: "Demo Application", url: "#" },
