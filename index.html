@@ -1204,15 +1204,16 @@
                     </div>
                 </div>
                 <div class="project-card fade-in-up" data-project="multimediacontroller">
-                    <div class="project-image" style="background-image: url('https://i.imgur.com/Y9HPklx.jpeg'); background-size: cover; background-position: center;"></div>        
+                    <div class="project-image" style="background-image: url('https://imgur.com/a/ghDGWIt'); background-size: cover; background-position: center;"></div>        
                     <div class="project-content">
                         <h3 class="project-title">Multimedia Controller (WIP)</h3>
                         <p class="project-description">Multimedia controller for ease of use on a PC. Features an LCD display showing the current song playing and the author, as well as featuring a potentiometer as a volume dial as well as play/pause, skip, and rewind buttons. Current work in progress, prototyping has been finished, currently designing an custom enclosure and designing the PCB.</p>
                         <div class="project-tech">
                             <span class="project-tech-tag">C++</span>
                             <span class="project-tech-tag">Powershell</span>
-                            <span class="project-tech-tag">Altium Designer</span>
-                            <span class="project-tech-tag">SolidWorks</span>
+                            <span class="project-tech-tag">Arduino</span>
+                            <span class="project-tech-tag">.NET Framework</span>
+                            <span class="project-tech-tag">Windows Media API</span>
                         </div>
                     </div>
                 </div>
@@ -1354,7 +1355,7 @@
            },
             multimediacontroller: {
                 title: "Multimedia Controller",
-                longDescription: "Multimedia controller for ease of use on a PC. Features an LCD display showing the current song playing and the author, as well as featuring a potentiometer as a volume dial as well as play/pause, skip, and rewind buttons. Current work in progress, prototyping has been finished, currently designing a custom enclosure and designing the PCB.",
+                longDescription: "MDesigned and built an ESP32-based media controller that interfaces with Windows PCs via serial communication to display real-time song metadata on a 16x2 I2C LCD. Developed a PowerShell script leveraging Windows Media Control API to capture artist, title, and playback status from system audio sources, transmitting data to the microcontroller every 2 seconds. Implemented hardware controls including a high-sensitivity analog volume potentiometer with noise filtering and three debounced push buttons for playback control (play/pause, skip, rewind). Features custom bidirectional text scrolling for long titles, robust serial data parsing, and optimized I2C communication to prevent GPIO interference.",
                 technologies: ["C++", "Powershell", "Arduino", ".NET Framework","Windows Media API"],
                 features: [
                     "ESP32 based multimedia controller with dedicated skip, rewind, play/pause buttons with debounce",
@@ -1367,11 +1368,11 @@
                     { text: "GitHub Repository", url: "#" }
                 ],
                 images: [
-                    { content: "https://i.imgur.com/Y9HPklx.jpeg" },
-                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
-                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
-                    { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
-                    { content: "https://i.imgur.com/iWrcUPz.png" }
+                    { content: "https://imgur.com/a/8m0rCnO.mp4" },
+                    { content: "https://imgur.com/a/UaM9pqy.mp4" },
+                    { content: "https://imgur.com/a/AI4pU0M" },
+                    { content: "https://imgur.com/a/ghDGWIt" },
+                 //   { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
             }
         };
