@@ -1380,8 +1380,8 @@
         // Multilingual greetings for the hero section
         const greetings = [
             'Hola',      // English
-            'Hello',       // Spanish
-            'Bonjour',    // French
+            'Bonjour',       // Spanish
+            'Hello',    // French
             'Hallo',      // German
             'Ciao',       // Italian
             'Olá',        // Portuguese
@@ -1589,97 +1589,42 @@ function populateModal() {
         return;
     }
 
-    currentProject.images.forEach((image, index) => {
-        const slide = document.createElement('div');
-        slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+currentProject.images.forEach((image, index) => {
+    const slide = document.createElement('div');
+    slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
+    
+    // Check if the content is a video URL
+    const isVideoUrl = image.content.includes('.mp4') || 
+                      image.content.includes('.webm') || 
+                      image.content.includes('.mov') ||
+                      image.content.includes('.avi');
+    
+    // Check if the content is an image URL
+    const isImageUrl = image.content.includes('http') || 
+                      image.content.includes('.jpg') || 
+                      image.content.includes('.jpeg') || 
+                      image.content.includes('.png') || 
+                      image.content.includes('.gif');
+    
+    if (isVideoUrl) {
+        // Create video element
+        const video = document.createElement('video');
+        video.src = image.content;
+        video.controls = true;
+        video.loop = true;
+        video.style.cssText = `
+            width: 90%;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        `;
         
-        // Check if the content is a video URL
-        const isVideoUrl = image.content.includes('.mp4') || 
-                          image.content.includes('.webm') || 
-                          image.content.includes('.mov') ||
-                          image.content.includes('.avi');
-        
-        // Check if the content is an image URL
-        const isImageUrl = image.content.includes('http') || 
-                          image.content.includes('.jpg') || 
-                          image.content.includes('.jpeg') || 
-                          image.content.includes('.png') || 
-                          image.content.includes('.gif');
-        
-        if (isVideoUrl) {
-            // Create video element
-            const video = document.createElement('video');
-            video.src = image.content;
-            video.controls = true;
-            video.loop = true;
-            video.style.cssText = `
-                width: 90%;
-                max-height: 350px;
-                object-fit: contain;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            `;
-            
-            // Add error handler
-            video.onerror = function() {
-                this.style.display = 'none';
-                const errorDiv = document.createElement('div');
-                errorDiv.textContent = `Failed to load video`;
-                errorDiv.style.cssText = `
-                    width: 90%;
-                    height: 200px;
-                    background: rgba(255, 255, 255, 0.1);
-                    border-radius: 10px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 1.1rem;
-                    border: 2px dashed rgba(255, 255, 255, 0.3);
-                    color: rgba(255, 255, 255, 0.7);
-                `;
-                slide.appendChild(errorDiv);
-            };
-            
-            slide.appendChild(video);
-        } else if (isImageUrl) {
-            // Create actual image element (your existing image code)
-            const img = document.createElement('img');
-            img.src = image.content;
-            img.alt = `${currentProject.title} - Image ${index + 1}`;
-            img.style.cssText = `
-                width: 90%;
-                max-height: 350px;
-                object-fit: contain;
-                border-radius: 10px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            `;
-            
-            // Add loading error handler
-            img.onerror = function() {
-                this.style.display = 'none';
-                const errorDiv = document.createElement('div');
-                errorDiv.textContent = `Failed to load image`;
-                errorDiv.style.cssText = `
-                    width: 90%;
-                    height: 200px;
-                    background: rgba(255, 255, 255, 0.1);
-                    border-radius: 10px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    font-size: 1.1rem;
-                    border: 2px dashed rgba(255, 255, 255, 0.3);
-                    color: rgba(255, 255, 255, 0.7);
-                `;
-                slide.appendChild(errorDiv);
-            };
-            
-            slide.appendChild(img);
-        } else {
-            // Create placeholder for text content
-            const placeholder = document.createElement('div');
-            placeholder.textContent = image.content || `Image ${index + 1}`;
-            placeholder.style.cssText = `
+        video.onerror = function() {
+            this.style.display = 'none';
+            const errorDiv = document.createElement('div');
+            errorDiv.textContent = `Failed to load video`;
+            errorDiv.style.cssText = `
                 width: 90%;
                 height: 200px;
                 background: rgba(255, 255, 255, 0.1);
@@ -1687,24 +1632,78 @@ function populateModal() {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 border: 2px dashed rgba(255, 255, 255, 0.3);
-                color: white;
-                text-align: center;
-                padding: 20px;
+                color: rgba(255, 255, 255, 0.7);
             `;
-            
-            slide.appendChild(placeholder);
-        }
+            slide.appendChild(errorDiv);
+        };
+        
+        slide.appendChild(video);
+    } else if (isImageUrl) {
+        // Create image element
+        const img = document.createElement('img');
+        img.src = image.content;
+        img.alt = `${currentProject.title} - Image ${index + 1}`;
+        img.style.cssText = `
+            width: 90%;
+            max-height: 350px;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        `;
+        
+        img.onerror = function() {
+            this.style.display = 'none';
+            const errorDiv = document.createElement('div');
+            errorDiv.textContent = `Failed to load image`;
+            errorDiv.style.cssText = `
+                width: 90%;
+                height: 200px;
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.1rem;
+                border: 2px dashed rgba(255, 255, 255, 0.3);
+                color: rgba(255, 255, 255, 0.7);
+            `;
+            slide.appendChild(errorDiv);
+        };
+        
+        slide.appendChild(img);
+    } else {
+        // Create placeholder for text content
+        const placeholder = document.createElement('div');
+        placeholder.textContent = image.content || `Image ${index + 1}`;
+        placeholder.style.cssText = `
+            width: 90%;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        `;
+        
+        slide.appendChild(placeholder);
+    }
 
-        carouselContainer.appendChild(slide);
+    carouselContainer.appendChild(slide);
 
-        // Create indicator
-        const dot = document.createElement('div');
-        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(index));
-        carouselIndicators.appendChild(dot);
-    });
+    // Create indicator
+    const dot = document.createElement('div');
+    dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToSlide(index));
+    carouselIndicators.appendChild(dot);
+});
+
 
     // Populate project info
     modalInfo.innerHTML = `
