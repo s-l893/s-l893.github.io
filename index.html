@@ -1351,17 +1351,16 @@
                     { content: "Training Metrics" },
                     { content: "Performance Charts" }
                 ]
-            }
+},
             multimediacontroller: {
                 title: "Multimedia Controller",
-                longDescription: "Myself and a team of 4 other individuals were challenged to create something that allows the measure of the kinetic energy from hail strikes, for the purpose of data for damage reduction across buildings, crops, and vehicles. This was an ES1050 proof of concept project developed in a team of 5, with a limited budget of $100 CAD. This design features a 3D printed impact platform attached to a pneumatic cylinder and pressure transducer, with software designed with a calibration phase during a storm, allowing the contraption to rotate the impact platform so that the majority of hail strikes hit it at a 90° angle, resutling in the most accurate collection. The software also featured a sleep mode, where it stops recording data to conserve energy after an impact is not detected after some time. At the end of each storm, it will generate various graphs including the kinetic energy strikes it experiences over time based on the data it has just collected from the storm. This design uses an Arduino UNO to transform the pressure change into kinetic energy, and a python based program to generate the graph. This design earned my team and I first place out of 50+ teams for the problem we were assigned to work on.",
+                longDescription: "Multimedia controller for ease of use on a PC. Features an LCD display showing the current song playing and the author, as well as featuring a potentiometer as a volume dial as well as play/pause, skip, and rewind buttons. Current work in progress, prototyping has been finished, currently designing a custom enclosure and designing the PCB.",
                 technologies: ["C++", "Powershell", "Arduino", ".NET Framework","Windows Media API"],
                 features: [
                     "ESP32 based multimedia controller with dedicated skip, rewind, play/pause buttons with debounce",
                     "Potentiometer serving as volume knob using ADC sampling with moving average filtering with a 1% threshold detection",
                     "LCD display with bidirectional scrolling showing name of author and current media playing",
                     "Leverages Windows Media API to obtain and transmit artist name and song title from system audio sources to microcontroller",
-                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
                 ],
                 links: [
                     { text: "Live Demo", url: "#" },
@@ -1374,7 +1373,7 @@
                     { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
                     { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
-            },
+            }
         };
 
         // Multilingual greetings for the hero section
