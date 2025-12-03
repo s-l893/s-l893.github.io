@@ -931,7 +931,7 @@
                     </p>
                 </div>
                 <div class="about-image">
-                    Profile Photo Placeholder
+                    https://imgur.com/a/Ea3ZrPo
                 </div>
             </div>
         </div>
@@ -1314,8 +1314,8 @@
                 features: [
                     "1st place for overall project quality out of 50+ teams",
                     "PoC (Proof of Concept) design",
-                    "Self adjusting impact platform",
-                    "Graph generated from live data",
+                    "Self adjusting impact platform for optimal data collection",
+                    "Graph generated from live data after the storm via auto executing Python script",
                     "Impact platform rotatable 180° and 360° on the x and y axis respectively",
                 ],
                 links: [
@@ -1332,7 +1332,7 @@
             },
             autoplantwater: {
                 title: "Automatic Plant Waterer",
-                longDescription: "A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for...",
+                longDescription: "A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a 3D-printed custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for a manual/automatic mode toggle, manual pump override, moisture history and more.",
                 technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks",],
                 features: [
                     "Safety features such as filtered sensor readings, dry-run protection, and run-time limits",
@@ -1352,6 +1352,29 @@
                     { content: "Performance Charts" }
                 ]
             }
+            multimediacontroller: {
+                title: "Multimedia Controller",
+                longDescription: "Myself and a team of 4 other individuals were challenged to create something that allows the measure of the kinetic energy from hail strikes, for the purpose of data for damage reduction across buildings, crops, and vehicles. This was an ES1050 proof of concept project developed in a team of 5, with a limited budget of $100 CAD. This design features a 3D printed impact platform attached to a pneumatic cylinder and pressure transducer, with software designed with a calibration phase during a storm, allowing the contraption to rotate the impact platform so that the majority of hail strikes hit it at a 90° angle, resutling in the most accurate collection. The software also featured a sleep mode, where it stops recording data to conserve energy after an impact is not detected after some time. At the end of each storm, it will generate various graphs including the kinetic energy strikes it experiences over time based on the data it has just collected from the storm. This design uses an Arduino UNO to transform the pressure change into kinetic energy, and a python based program to generate the graph. This design earned my team and I first place out of 50+ teams for the problem we were assigned to work on.",
+                technologies: ["C++", "Powershell", "Arduino", ".NET Framework","Windows Media API"],
+                features: [
+                    "ESP32 based multimedia controller with dedicated skip, rewind, play/pause buttons with debounce",
+                    "Potentiometer serving as volume knob using ADC sampling with moving average filtering with a 1% threshold detection",
+                    "LCD display with bidirectional scrolling showing name of author and current media playing",
+                    "Leverages Windows Media API to obtain and transmit artist name and song title from system audio sources to microcontroller",
+                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
+                ],
+                links: [
+                    { text: "Live Demo", url: "#" },
+                    { text: "GitHub Repository", url: "#" }
+                ],
+                images: [
+                    { content: "https://i.imgur.com/Y9HPklx.jpeg" },
+                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
+                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
+                    { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
+                    { content: "https://i.imgur.com/iWrcUPz.png" }
+                ]
+            },
         };
 
         // Multilingual greetings for the hero section
