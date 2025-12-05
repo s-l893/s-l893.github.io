@@ -445,7 +445,7 @@
 
         .project-image {
             height: 200px;
-            background: var(--https://i.imgur.com/pOeHWiV.jpeg);
+            background: var(--gradient-bg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -976,6 +976,18 @@
                             </div>
                             <span>JavaScript</span>
                         </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="https://simpleicons.org/icons/html5.svg" alt="Python">
+                            </div>
+                            <span>HTML</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">
+                                <img src="https://simpleicons.org/icons/javascript.svg" alt="Python">
+                            </div>
+                            <span>CSS</span>
+                        </div>
                     </div>
                 </div>
                 <div class="tech-category fade-in-up">
@@ -1032,7 +1044,7 @@
                             <div class="tech-icon">
                                 <img src="https://simpleicons.org/icons/dassaultsystemes.svg" alt="Python">
                             </div>
-                            <span>SolidWorks</span>
+                            <span>SolidWorks (CSWA)</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
@@ -1139,90 +1151,13 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section (rendered with React) -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title fade-in-up">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card fade-in-up" data-project="macropad">
-                    <div class="project-image" style="background-image: url('https://i.imgur.com/pOeHWiV.jpeg'); background-size: cover; background-position: center;"></div>
-                    <div class="project-content">
-                        <h3 class="project-title">3x3 Macropad</h3>
-                        <p class="project-description">A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At it's core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to...</p>
-                        <div class="project-tech">
-                            <span class="project-tech-tag">SolidWorks</span>
-                            <span class="project-tech-tag">KiCad</span>
-                            <span class="project-tech-tag">C++</span>
-                            <span class="project-tech-tag">QMK</span>
-                            <span class="project-tech-tag">Arduino</span>
-                        </div>
-                    </div>
-                </div>
-            <div class="project-card fade-in-up" data-project="kineticefromhail">
-                <div class="project-image" style="background-image: url('https://i.imgur.com/Y9HPklx.jpeg'); background-size: cover; background-position: center;"></div>        
-                    <div class="project-content">
-                        <h3 class="project-title">KineticE from Hail - 1st Place</h3>
-                        <p class="project-description">Myself and a team of 4 other individuals were challenged to create something that allows the measure of the kinetic energy from hail strikes, for the purpose of data for damage reduction across buildings, crops, and vehicles. This was an ES1050 proof of concept project developed in a team of 5, with a limited budget of $100 CAD. This design features a 3D printed... </p>
-                        <div class="project-tech">
-                            <span class="project-tech-tag">OnShape</span>
-                            <span class="project-tech-tag">Python</span>
-                            <span class="project-tech-tag">C++</span>
-                            <span class="project-tech-tag">Arduino</span>
-                            <span class="project-tech-tag">PrusaSlicer</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card fade-in-up" data-project="autoplantwater">
-                <div class="project-image" style="background-image: url('https://i.imgur.com/Y9HPklx.jpeg'); background-size: cover; background-position: center;"></div>        
-                    <div class="project-content">
-                        <h3 class="project-title">Automatic Plant Waterer</h3>
-                        <p class="project-description">A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for...</p>
-                        <div class="project-tech">
-                            <span class="project-tech-tag">SolidWorks</span>
-                            <span class="project-tech-tag">Arduino</span>
-                            <span class="project-tech-tag">C++</span>
-                            <span class="project-tech-tag">Blynk IOT</span>
-                            <span class="project-tech-tag">Bambu Handy</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card fade-in-up" data-project="multimediacontroller">
-                    <div class="project-image" style="background-image: url('https://i.imgur.com/uXmVmri.jpeg'); background-size: cover; background-position: center;"></div>        
-                    <div class="project-content">
-                        <h3 class="project-title">Multimedia Controller</h3>
-                        <p class="project-description">Designed and built an ESP32-based media controller that interfaces with Windows PCs via serial communication to display real-time song metadata on a 16x2 I2C LCD. Developed a PowerShell script leveraging Windows Media Control API to capture artist, title, and playback status from system audio sources, transmitting data to the microcontroller every 2 seconds. Implemented...</p>
-                        <div class="project-tech">
-                            <span class="project-tech-tag">C++</span>
-                            <span class="project-tech-tag">Powershell</span>
-                            <span class="project-tech-tag">Arduino</span>
-                            <span class="project-tech-tag">.NET Framework</span>
-                            <span class="project-tech-tag">Windows Media API</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="projects-root" class="projects-grid"></div>
         </div>
     </section>
-
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <button id="modalClose" class="modal-close">×</button>
-            <div class="modal-carousel">
-                <div id="carouselContainer" class="carousel-container">
-                    <!-- Carousel slides will be inserted here -->
-                </div>
-                <button id="prevSlide" class="carousel-nav carousel-prev">❮</button>
-                <button id="nextSlide" class="carousel-nav carousel-next">❯</button>
-                <div id="carouselIndicators" class="carousel-indicators">
-                    <!-- Indicators will be inserted here -->
-                </div>
-            </div>
-            <div id="modalInfo" class="modal-info">
-                <!-- Project info will be inserted here -->
-            </div>
-        </div>
-    </div>
 
     <!-- Resume Section -->
     <section id="resume" class="resume-section">
@@ -1262,12 +1197,16 @@
         </div>
     </section>
 
-    <script>
-        // Project data for modals
+    <!-- React + ReactDOM and Babel for JSX transformation -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
         const projectData = {
             macropad: {
                 title: "3x3 Macropad",
-                longDescription: "A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At it's core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and a ESP32-S3 instead. ",
+                longDescription: "A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At its core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and an ESP32-S3 instead.",
                 technologies: ["Python", "C", "Arduino", "SolidWorks", "Kicad", "QMK"],
                 features: [
                     "3D printed 3x3 Macropad casing designed using SolidWorks",
@@ -1277,7 +1216,7 @@
                     "Windows batch file for automatic macro updates after downloaded from the HTML frontend",
                     "Custom designed COL2ROW style PCB using Kicad",
                     "On-board memory to store macros between devices",
-                    "Pro Micro flashable with QMK MSYS for further customization",
+                    "Pro Micro flashable with QMK MSYS for further customization"
                 ],
                 links: [
                     { text: "Source Code", url: "https://github.com/s-l893/3x3-Macropad" }
@@ -1293,14 +1232,14 @@
             },
             kineticefromhail: {
                 title: "KineticE From Hail",
-                longDescription: "Myself and a team of 4 other individuals were challenged to create something that allows the measure of the kinetic energy from hail strikes, for the purpose of data for damage reduction across buildings, crops, and vehicles. This was an ES1050 proof of concept project developed in a team of 5, with a limited budget of $100 CAD. This design features a 3D printed impact platform attached to a pneumatic cylinder and pressure transducer, with software designed with a calibration phase during a storm, allowing the contraption to rotate the impact platform so that the majority of hail strikes hit it at a 90° angle, resutling in the most accurate collection. The software also featured a sleep mode, where it stops recording data to conserve energy after an impact is not detected after some time. At the end of each storm, it will generate various graphs including the kinetic energy strikes it experiences over time based on the data it has just collected from the storm. This design uses an Arduino UNO to transform the pressure change into kinetic energy, and a python based program to generate the graph. This design earned my team and I first place out of 50+ teams for the problem we were assigned to work on.",
+                longDescription: "Myself and a team of four other individuals were challenged to create something that allows the measure of the kinetic energy from hail strikes, for the purpose of data for damage reduction across buildings, crops, and vehicles. This was an ES1050 proof of concept project developed in a team of five, with a limited budget of $100 CAD. The design features a 3D printed impact platform attached to a pneumatic cylinder and pressure transducer, with software designed with a calibration phase during a storm, allowing the contraption to rotate the impact platform so that the majority of hail strikes hit it at a 90° angle. The software also featured a sleep mode to conserve energy after inactivity and generated graphs of kinetic energy over time based on collected data. The design uses an Arduino UNO to transform the pressure change into kinetic energy and a Python program to generate the graph. This design earned first place out of 50+ teams for the assigned problem.",
                 technologies: ["OnShape", "Python", "C++", "Arduino", "PrusaSlicer"],
                 features: [
                     "1st place for overall project quality out of 50+ teams",
-                    "PoC (Proof of Concept) design",
-                    "Self adjusting impact platform for optimal data collection",
+                    "Proof of concept design within $100 budget",
+                    "Self-adjusting impact platform for optimal data collection",
                     "Graph generated from live data after the storm via auto executing Python script",
-                    "Impact platform rotatable 180° and 360° on the x and y axis respectively",
+                    "Impact platform rotatable 180° and 360° on the x and y axes respectively"
                 ],
                 links: [
                     { text: "Live Demo", url: "#" },
@@ -1309,81 +1248,307 @@
                 images: [
                     { content: "https://i.imgur.com/Y9HPklx.jpeg" },
                     { content: "https://i.imgur.com/VHrX9g7.jpeg" },
-                    { content: "https://i.imgur.com/VHrX9g7.jpeg" },
                     { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
                     { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
             },
             autoplantwater: {
                 title: "Automatic Plant Waterer",
-                longDescription: "A solo IOT project I decided to take on to mitigate the risk of my forgetfulness resulting in damage to plant life. This features an ESP32-S3 at it's core within a 3D-printed custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for a manual/automatic mode toggle, manual pump override, moisture history and more.",
-                technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks",],
+                longDescription: "A solo IoT project taken on to mitigate the risk of forgetfulness damaging plants. This features an ESP32-S3 at its core within a 3D-printed custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for a manual/automatic mode toggle, manual pump override, moisture history, and more.",
+                technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks"],
                 features: [
                     "Safety features such as filtered sensor readings, dry-run protection, and run-time limits",
                     "Custom CAD enclosure featuring a snap tab for quick and easy access to internals",
-                    "Automatic and Manual override controls in the app",
+                    "Automatic and manual override controls in the app",
                     "Live feedback accessible from your device anywhere with an internet connection",
-                    "Moisture over-time monitoring via a graph within Blynk",
+                    "Moisture over-time monitoring via a graph within Blynk"
                 ],
                 links: [
                     { text: "Demo Application", url: "#" },
                     { text: "Research Paper", url: "#" }
                 ],
                 images: [
-                    { content: "Model Interface" },
-                    { content: "Prediction Results" },
-                    { content: "Training Metrics" },
-                    { content: "Performance Charts" }
+                    { content: "https://i.imgur.com/Y9HPklx.jpeg" },
+                    { content: "https://i.imgur.com/oBQ6KvB.jpeg" },
+                    { content: "https://i.imgur.com/VHrX9g7.jpeg" }
                 ]
-           },
+            },
             multimediacontroller: {
                 title: "Multimedia Controller",
-                longDescription: "Designed and built an ESP32-based media controller that interfaces with Windows PCs via serial communication to display real-time song metadata on a 16x2 I2C LCD. Developed a PowerShell script leveraging Windows Media Control API to capture artist, title, and playback status from system audio sources, transmitting data to the microcontroller every 2 seconds. Implemented hardware controls including a high-sensitivity analog volume potentiometer with noise filtering and three debounced push buttons for playback control (play/pause, skip, rewind). Features custom bidirectional text scrolling for long titles, robust serial data parsing, and optimized I2C communication to prevent GPIO interference.",
-                technologies: ["C++", "Powershell", "Arduino", ".NET Framework","Windows Media API"],
+                longDescription: "Designed and built an ESP32-based media controller that interfaces with Windows PCs via serial communication to display real-time song metadata on a 16x2 I2C LCD. Developed a PowerShell script leveraging Windows Media Control API to capture artist, title, and playback status from system audio sources, transmitting data to the microcontroller every two seconds. Implemented hardware controls including a high-sensitivity analog volume potentiometer with noise filtering and three debounced push buttons for playback control (play/pause, skip, rewind). Features custom bidirectional text scrolling for long titles, robust serial data parsing, and optimized I2C communication to prevent GPIO interference.",
+                technologies: ["C++", "Powershell", "Arduino", ".NET Framework", "Windows Media API"],
                 features: [
-                    "ESP32 based multimedia controller with dedicated skip, rewind, play/pause buttons with debounce",
-                    "Potentiometer serving as volume knob using ADC sampling with moving average filtering with a 1% threshold detection",
-                    "LCD display with bidirectional scrolling showing name of author and current media playing",
-                    "Leverages Windows Media API to obtain and transmit artist name and song title from system audio sources to microcontroller",
+                    "ESP32 based multimedia controller with dedicated skip, rewind, and play/pause buttons",
+                    "Potentiometer volume knob using ADC sampling with moving average filtering and threshold detection",
+                    "LCD display with bidirectional scrolling for long titles",
+                    "Uses Windows Media API to obtain and transmit artist name and song title to the microcontroller"
                 ],
                 links: [
-                    { text: "Source Code", url: "https://github.com/s-l893/Multimedia-Controller" },
+                    { text: "Source Code", url: "https://github.com/s-l893/Multimedia-Controller" }
                 ],
                 images: [
                     { content: "https://i.imgur.com/BMOEcAz.mp4", type: "video" },
                     { content: "https://i.imgur.com/VItyfpS.mp4", type: "video" },
                     { content: "https://i.imgur.com/uXmVmri.jpeg", type: "image" },
                     { content: "https://i.imgur.com/cOE1fbk.jpeg", type: "image" }
-                 //   { content: "https://i.imgur.com/iWrcUPz.png" }
                 ]
             }
         };
 
-        // Multilingual greetings for the hero section
-    const greetings = [
-        'Hello',     // English - START HERE
-        'Hola',      // Spanish
-        'Bonjour',   // French
-        'Hallo',     // German
-        'Ciao',      // Italian
-        'Olá',       // Portuguese
-        'こんにちは',  // Japanese
-        '안녕하세요',   // Korean
-        '你好',       // Chinese
-        'Привет',    // Russian
-        'مرحبا',      // Arabic
-        'नमस्ते'      // Hindi
-    ];
-        // Wait for DOM to be fully loaded
+        const projectCards = [
+            {
+                key: "macropad",
+                cover: "https://i.imgur.com/pOeHWiV.jpeg",
+                summary: "3D printed 3x3 macropad with custom PCB, QMK firmware, and configurable macros.",
+                technologies: ["SolidWorks", "KiCad", "C++", "QMK", "Arduino"]
+            },
+            {
+                key: "kineticefromhail",
+                cover: "https://i.imgur.com/Y9HPklx.jpeg",
+                summary: "Proof-of-concept hail kinetic energy sensor platform that won 1st place in ES1050.",
+                technologies: ["OnShape", "Python", "C++", "Arduino", "PrusaSlicer"]
+            },
+            {
+                key: "autoplantwater",
+                cover: "https://i.imgur.com/Y9HPklx.jpeg",
+                summary: "ESP32-S3 plant watering system with Blynk app, safety limits, and live telemetry.",
+                technologies: ["SolidWorks", "Arduino", "C++", "Blynk IOT", "IOT"]
+            },
+            {
+                key: "multimediacontroller",
+                cover: "https://i.imgur.com/uXmVmri.jpeg",
+                summary: "ESP32 media controller with LCD track display, hardware buttons, and PowerShell data link.",
+                technologies: ["C++", "Powershell", "Arduino", ".NET Framework", "Windows Media API"]
+            }
+        ];
+
+        const MediaSlide = ({ media, projectTitle }) => {
+            if (!media) return null;
+
+            const isVideo = media.type === "video" || media.content.endsWith(".mp4") || media.content.endsWith(".webm");
+            if (isVideo) {
+                return (
+                    <video
+                        src={media.content}
+                        controls
+                        loop
+                        muted
+                        playsInline
+                        style={{
+                            width: "90%",
+                            maxHeight: "350px",
+                            objectFit: "contain",
+                            borderRadius: "10px",
+                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+                        }}
+                    />
+                );
+            }
+
+            return (
+                <img
+                    src={media.content}
+                    alt={`${projectTitle} - slide`}
+                    style={{
+                        width: "90%",
+                        maxHeight: "350px",
+                        objectFit: "cover",
+                        borderRadius: "10px",
+                        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+                    }}
+                />
+            );
+        };
+
+        const Modal = ({ project, onClose, slideIndex, setSlideIndex }) => {
+            const slides = project?.images || [];
+
+            const goToSlide = (nextIndex) => {
+                if (slides.length === 0) return;
+                const normalized = (nextIndex + slides.length) % slides.length;
+                setSlideIndex(normalized);
+            };
+
+            return (
+                <div className="modal active" onClick={(e) => e.target.classList.contains("modal") && onClose()}>
+                    <div className="modal-content">
+                        <button className="modal-close" onClick={onClose}>×</button>
+                        <div className="modal-carousel">
+                            <div className="carousel-container">
+                                {slides.map((media, index) => (
+                                    <div className={`carousel-slide ${index === slideIndex ? "active" : ""}`} key={index}>
+                                        <MediaSlide media={media} projectTitle={project.title} />
+                                    </div>
+                                ))}
+                            </div>
+                            {slides.length > 1 && (
+                                <>
+                                    <button className="carousel-nav carousel-prev" onClick={() => goToSlide(slideIndex - 1)}>❮</button>
+                                    <button className="carousel-nav carousel-next" onClick={() => goToSlide(slideIndex + 1)}>❯</button>
+                                    <div className="carousel-indicators">
+                                        {slides.map((_, dotIndex) => (
+                                            <div
+                                                key={dotIndex}
+                                                className={`carousel-dot ${dotIndex === slideIndex ? "active" : ""}`}
+                                                onClick={() => goToSlide(dotIndex)}
+                                            />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                        <div className="modal-info">
+                            <h2 className="modal-project-title">{project.title}</h2>
+                            <div className="modal-project-description">
+                                <p>{project.longDescription}</p>
+                            </div>
+
+                            <div className="modal-tech-stack">
+                                <h3 className="modal-tech-title">Technologies Used</h3>
+                                <div className="modal-tech-tags">
+                                    {(project.technologies || []).map((tech) => (
+                                        <span className="modal-tech-tag" key={tech}>{tech}</span>
+                                    ))}
+                                </div>
+                            </div>
+
+                            <div className="modal-features">
+                                <h3 className="modal-features-title">Key Features</h3>
+                                <ul className="modal-features-list">
+                                    {(project.features || []).map((feature) => (
+                                        <li key={feature}>{feature}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <div className="modal-links">
+                                {(project.links || []).map((link) => (
+                                    <a
+                                        key={link.url}
+                                        href={link.url || "#"}
+                                        className="modal-link"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        {link.text || "Link"}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const Projects = () => {
+            const [activeProjectKey, setActiveProjectKey] = React.useState(null);
+            const [slideIndex, setSlideIndex] = React.useState(0);
+
+            const activeProject = activeProjectKey ? projectData[activeProjectKey] : null;
+
+            React.useEffect(() => {
+                const handleKey = (event) => {
+                    if (!activeProject) return;
+                    if (event.key === "Escape") {
+                        setActiveProjectKey(null);
+                    } else if (event.key === "ArrowRight") {
+                        setSlideIndex((current) => {
+                            const slides = activeProject.images || [];
+                            return slides.length ? (current + 1) % slides.length : 0;
+                        });
+                    } else if (event.key === "ArrowLeft") {
+                        setSlideIndex((current) => {
+                            const slides = activeProject.images || [];
+                            return slides.length ? (current - 1 + slides.length) % slides.length : 0;
+                        });
+                    }
+                };
+
+                document.addEventListener("keydown", handleKey);
+                document.body.style.overflow = activeProject ? "hidden" : "";
+
+                return () => {
+                    document.removeEventListener("keydown", handleKey);
+                    document.body.style.overflow = "";
+                };
+            }, [activeProject]);
+
+            return (
+                <>
+                    <div className="projects-grid">
+                        {projectCards.map((card) => {
+                            const detail = projectData[card.key];
+                            if (!detail) return null;
+
+                            return (
+                                <div
+                                    className="project-card fade-in-up"
+                                    key={card.key}
+                                    onClick={() => {
+                                        setActiveProjectKey(card.key);
+                                        setSlideIndex(0);
+                                    }}
+                                >
+                                    <div
+                                        className="project-image"
+                                        style={{
+                                            backgroundImage: `url('${card.cover}')`,
+                                            backgroundSize: "cover",
+                                            backgroundPosition: "center"
+                                        }}
+                                    />
+                                    <div className="project-content">
+                                        <h3 className="project-title">{detail.title}</h3>
+                                        <p className="project-description">{card.summary}</p>
+                                        <div className="project-tech">
+                                            {(card.technologies || []).map((tech) => (
+                                                <span className="project-tech-tag" key={tech}>{tech}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
+                    </div>
+
+                    {activeProject && (
+                        <Modal
+                            project={activeProject}
+                            onClose={() => setActiveProjectKey(null)}
+                            slideIndex={slideIndex}
+                            setSlideIndex={setSlideIndex}
+                        />
+                    )}
+                </>
+            );
+        };
+
+        ReactDOM.createRoot(document.getElementById("projects-root")).render(<Projects />);
+    </script>
+
+    <script>
+        const greetings = [
+            'Hello',
+            'Hola',
+            'Bonjour',
+            'Hallo',
+            'Ciao',
+            'Olá',
+            'こんにちは',
+            '안녕하세요',
+            '你好',
+            'Привет',
+            'مرحبا',
+            'नमस्ते'
+        ];
+
         document.addEventListener('DOMContentLoaded', function() {
             initializeScrollAnimations();
             initializeNavigation();
-            initializeProjectModals();
             initializeGreetingAnimation();
             initializeTechStackAnimations();
         });
 
-        // Scroll animations
         function initializeScrollAnimations() {
             handleScrollAnimations();
             
@@ -1413,7 +1578,6 @@
             });
         }
 
-        // Navigation functionality
         function initializeNavigation() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
@@ -1460,7 +1624,6 @@
             });
         }
 
-        // Greeting animation functionality
         function initializeGreetingAnimation() {
             updateAlternatingText();
             setInterval(updateAlternatingText, 3000);
@@ -1475,259 +1638,6 @@
             const nextIndex = (currentIndex + 1) % greetings.length;
             
             alternatingText.textContent = greetings[nextIndex];
-        }
-
-        // Project modal functionality
-        function initializeProjectModals() {
-            const modal = document.getElementById('projectModal');
-            const modalClose = document.getElementById('modalClose');
-            const carouselContainer = document.getElementById('carouselContainer');
-            const modalInfo = document.getElementById('modalInfo');
-            const carouselIndicators = document.getElementById('carouselIndicators');
-            const prevSlide = document.getElementById('prevSlide');
-            const nextSlide = document.getElementById('nextSlide');
-
-            let currentProject = null;
-            let currentSlide = 0;
-
-            // Add click listeners to project cards
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('click', () => {
-                    const projectKey = card.getAttribute('data-project');
-                    if (projectKey && projectData[projectKey]) {
-                        openModal(projectKey);
-                    }
-                });
-            });
-
-            // Close modal event listeners
-            if (modalClose) {
-                modalClose.addEventListener('click', closeModal);
-            }
-
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) closeModal();
-                });
-            }
-
-            // Carousel navigation
-            if (nextSlide) {
-                nextSlide.addEventListener('click', () => nextSlideFunc());
-            }
-
-            if (prevSlide) {
-                prevSlide.addEventListener('click', () => prevSlideFunc());
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (modal && modal.classList.contains('active')) {
-                    if (e.key === 'Escape') {
-                        closeModal();
-                    } else if (e.key === 'ArrowRight') {
-                        nextSlideFunc();
-                    } else if (e.key === 'ArrowLeft') {
-                        prevSlideFunc();
-                    }
-                }
-            });
-
-            // Modal functions
-            function openModal(projectKey) {
-                if (!modal || !modalInfo || !carouselContainer || !carouselIndicators) return;
-                
-                if (!projectData[projectKey]) {
-                    console.error(`Project '${projectKey}' not found in projectData`);
-                    return;
-                }
-                
-                currentProject = projectData[projectKey];
-                currentSlide = 0;
-
-                populateModal();
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeModal() {
-                if (!modal) return;
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                currentProject = null;
-                currentSlide = 0;
-            }
-
-            function populateModal() {
-                if (!carouselContainer || !carouselIndicators || !modalInfo || !currentProject) return;
-                
-                // Create carousel slides
-                carouselContainer.innerHTML = '';
-                carouselIndicators.innerHTML = '';
-
-                if (!currentProject.images || !Array.isArray(currentProject.images)) {
-                    console.error('Project images not found or not an array');
-                    return;
-                }
-
-                currentProject.images.forEach((image, index) => {
-                    const slide = document.createElement('div');
-                    slide.className = `carousel-slide ${index === 0 ? 'active' : ''}`;
-                    
-                    // Check if the content is a URL (contains http or is a file path)
-                    const isImageUrl = image.content.includes('http') || 
-                                    image.content.includes('.jpg') || 
-                                    image.content.includes('.jpeg') || 
-                                    image.content.includes('.png') || 
-                                    image.content.includes('.gif');
-                    const isVideoUrl = image.type === 'video' || 
-                   image.content.endsWith('.mp4') || 
-                   image.content.endsWith('.webm');
-
-                    if (isVideoUrl) {
-                        const video = document.createElement('video');
-                        video.src = image.content;
-                        video.controls = true;
-                        video.loop = true;
-                        video.muted = true;
-                        video.playsInline = true;
-                        video.style.cssText = `
-                            width: 90%;
-                            max-height: 350px;
-                            object-fit: contain;
-                            border-radius: 10px;
-                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                        `;
-                        slide.appendChild(video);
-                    }else if (isImageUrl) {
-                        // Create actual image element
-                        const img = document.createElement('img');
-                        img.src = image.content;
-                        img.alt = `${currentProject.title} - Image ${index + 1}`;
-                        img.style.cssText = `
-                            width: 90%;
-                            max-height: 350px;
-                            object-fit: cover;
-                            border-radius: 10px;
-                            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-                        `;
-                        
-                        // Add loading error handler
-                        img.onerror = function() {
-                            this.style.display = 'none';
-                            const errorDiv = document.createElement('div');
-                            errorDiv.textContent = `Failed to load image`;
-                            errorDiv.style.cssText = `
-                                width: 90%;
-                                height: 200px;
-                                background: rgba(255, 255, 255, 0.1);
-                                border-radius: 10px;
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                font-size: 1.1rem;
-                                border: 2px dashed rgba(255, 255, 255, 0.3);
-                                color: rgba(255, 255, 255, 0.7);
-                            `;
-                            slide.appendChild(errorDiv);
-                        };
-                        
-                        slide.appendChild(img);
-                    } else {
-                        // Create placeholder for text content
-                        const placeholder = document.createElement('div');
-                        placeholder.textContent = image.content || `Image ${index + 1}`;
-                        placeholder.style.cssText = `
-                            width: 90%;
-                            height: 200px;
-                            background: rgba(255, 255, 255, 0.1);
-                            border-radius: 10px;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 1.2rem;
-                            border: 2px dashed rgba(255, 255, 255, 0.3);
-                            color: white;
-                            text-align: center;
-                            padding: 20px;
-                        `;
-                        
-                        slide.appendChild(placeholder);
-                    }
-        
-        carouselContainer.appendChild(slide);
-
-        // Create indicator
-        const dot = document.createElement('div');
-        dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
-        dot.addEventListener('click', () => goToSlide(index));
-        carouselIndicators.appendChild(dot);
-    });
-
-    // Populate project info (rest of your existing code stays the same)
-    modalInfo.innerHTML = `
-        <h2 class="modal-project-title">${currentProject.title || 'Untitled Project'}</h2>
-        <div class="modal-project-description">
-            <p>${currentProject.longDescription || 'No description available.'}</p>
-        </div>
-        
-        <div class="modal-tech-stack">
-            <h3 class="modal-tech-title">Technologies Used</h3>
-            <div class="modal-tech-tags">
-                ${(currentProject.technologies || []).map(tech => 
-                    `<span class="modal-tech-tag">${tech}</span>`
-                ).join('')}
-            </div>
-        </div>
-
-        <div class="modal-features">
-            <h3 class="modal-features-title">Key Features</h3>
-            <ul class="modal-features-list">
-                ${(currentProject.features || []).map(feature => 
-                    `<li>${feature}</li>`
-                ).join('')}
-            </ul>
-        </div>
-
-        <div class="modal-links">
-            ${(currentProject.links || []).map(link => 
-                `<a href="${link.url || '#'}" class="modal-link" target="_blank" rel="noopener noreferrer">${link.text || 'Link'}</a>`
-            ).join('')}
-        </div>
-    `;
-}
-
-            function goToSlide(slideIndex) {
-                if (!currentProject || !carouselContainer || !carouselIndicators) return;
-
-                const slides = carouselContainer.querySelectorAll('.carousel-slide');
-                const dots = carouselIndicators.querySelectorAll('.carousel-dot');
-
-                if (slides.length === 0 || dots.length === 0) return;
-
-                // Remove active class from current slide and dot
-                if (slides[currentSlide]) slides[currentSlide].classList.remove('active');
-                if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
-
-                // Update current slide index
-                currentSlide = slideIndex;
-
-                // Add active class to new slide and dot
-                if (slides[currentSlide]) slides[currentSlide].classList.add('active');
-                if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-            }
-
-            function nextSlideFunc() {
-                if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
-                const nextIndex = (currentSlide + 1) % currentProject.images.length;
-                goToSlide(nextIndex);
-            }
-
-            function prevSlideFunc() {
-                if (!currentProject || !currentProject.images || currentProject.images.length === 0) return;
-                const prevIndex = (currentSlide - 1 + currentProject.images.length) % currentProject.images.length;
-                goToSlide(prevIndex);
-            }
         }
 
         function initializeTechStackAnimations() {
