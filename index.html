@@ -1691,14 +1691,14 @@
 
             React.useEffect(() => {
                 // Animate progress bar on mount
-                const timer = setTimeout(() => setProgress(75), 300);
+                const timer = setTimeout(() => setProgress(5), 300);
                 return () => clearTimeout(timer);
             }, []);
 
             const currentProject = {
-                title: "Advanced IoT Home Automation System",
-                description: "I'm currently developing a comprehensive IoT home automation system that integrates multiple smart devices through a unified ESP32-based hub. The project involves creating custom firmware for device communication, developing a mobile app for remote control, and implementing machine learning algorithms for predictive automation based on user behavior patterns.",
-                technologies: ["C++", "ESP32", "React Native", "Python", "TensorFlow", "MQTT", "Arduino"],
+                title: "Servo Motor Powered Robotic Object Sorting Arm",
+                description: "I'm currently developing a servo motor powered robotic arm that can be controlled via a mobile app and physical joystick. The project involves creating custom firmware for device communication, developing a mobile app for remote control, and utilizing CAD to design the general shape and structure of the arm.",
+                technologies: ["C", "ESP32", "SolidWorks", "Python", "OpenCV", "MQTT", "Arduino"],
                 progress: progress
             };
 
