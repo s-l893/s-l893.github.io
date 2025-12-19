@@ -959,6 +959,12 @@
             border: 1px solid var(--border-subtle);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
+        
+        /* Ensure contact links are visible */
+        .contact .contact-links {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
 
         .contact .section-title {
             background: var(--gradient-text);
@@ -1414,10 +1420,10 @@
                 <a href="mailto:sunnylin893@gmail.com" class="contact-link">
                     📧 Email
                 </a>
-                <a href="https://github.com/s-l893" class="contact-link" target="_blank">
+                <a href="https://github.com/s-l893" class="contact-link" target="_blank" rel="noopener noreferrer">
                     🐙 GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/sunny-lin-03860325a" class="contact-link" target="_blank">
+                <a href="https://www.linkedin.com/in/sunny-lin-03860325a" class="contact-link" target="_blank" rel="noopener noreferrer">
                     💼 LinkedIn
                 </a>
             </div>
@@ -1856,6 +1862,8 @@
         function handleScrollAnimations() {
             const elements = document.querySelectorAll('.fade-in-up:not(.visible)');
             const windowHeight = window.innerHeight;
+            const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+            const documentHeight = document.documentElement.scrollHeight;
             
             // Handle fade-in-up elements with improved detection
             elements.forEach((element) => {
@@ -1863,14 +1871,32 @@
                 const elementTop = rect.top;
                 const elementBottom = rect.bottom;
                 
-                // Element is visible when it's in the viewport (with some threshold)
-                const threshold = windowHeight * 0.15; // Trigger when 15% into viewport
+                // Check if element is in viewport or near it
+                const isInViewport = elementTop < windowHeight + 200 && elementBottom > -200;
                 
-                if (elementTop < windowHeight - threshold && elementBottom > threshold) {
+                // Also check if we're near the bottom of the page (for contact section)
+                const isNearBottom = scrollY + windowHeight >= documentHeight - 100;
+                const isContactSection = element.closest('.contact') !== null;
+                
+                if (isInViewport || (isNearBottom && isContactSection)) {
                     element.classList.add('visible');
                 }
             });
         }
+        
+        // Also trigger animations immediately on load and after a short delay
+        window.addEventListener('load', function() {
+            setTimeout(handleScrollAnimations, 100);
+            setTimeout(handleScrollAnimations, 500);
+        });
+        
+        // Force contact section to be visible after page load
+        window.addEventListener('load', function() {
+            const contactLinks = document.querySelector('.contact .contact-links');
+            if (contactLinks) {
+                contactLinks.classList.add('visible');
+            }
+        });
 
         function initializeNavigation() {
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
