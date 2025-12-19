@@ -300,11 +300,17 @@
 
         .about-content {
             display: grid;
-            grid-template-columns: 250px 1fr 250px;
+            grid-template-columns: 200px 1fr 200px;
             gap: 2.5rem;
             align-items: center;
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
+        }
+        
+        @media (min-width: 1400px) {
+            .about-content {
+                grid-template-columns: 220px 1fr 220px;
+            }
         }
 
         .about-text-content {
@@ -316,12 +322,20 @@
             color: var(--text-light);
             line-height: 1.8;
             margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-text {
+                padding: 0;
+                font-size: 1rem;
+            }
         }
 
         .about-image,
         .about-image-left {
             width: 100%;
-            height: 300px;
+            height: 280px;
             background-size: cover;  
             background-position: center; 
             border-radius: 20px;
@@ -1167,7 +1181,7 @@
                 <div class="about-text-content">
                     <p class="about-text">
                         I am currently a second year Mechatronics Engineering student at The University of Western Ontario (UWO) in London, Ontario. I joined the General Engineering program at Western in September 2024, which further helped me discover my passion for Mechatronics Engineering, which gave me discipline to excel in my studies to pursue this engineering path for the remainder of my undergraduate studies. From a young age, I knew I was destined to become an engineer. I have always been passionate about technology and learning how various devices and contraptions work while challenging myself to think about how I could improve upon their existing design. 
-                        I am familiar with a variety of tools, ranging from CAD to coding languages and frameworks to physical microcontrollers and PCB design tools. Outside of engineering, I am an avid car enthusiast. Similar to engineering, I have always been fascinated and enjoy learning about the cutting edge technologies that automakers implement in their vehicles since I was very young, and of course, driving them and doing maintainance work on them as a hobby, once I was of age and had the skillset to do so. Additionally, I have an extremely tight-knit group of friends that I have known since I was young, who I consider myself to be very loyal to, which I love to spend time with. 
+                        I am familiar with a variety of tools, ranging from CAD to coding languages and frameworks to physical microcontrollers and PCB design tools. Beyond engineering, I am an avid car enthusiast with a longstanding fascination for automotive technology. Since childhood, I have been captivated by the cutting-edge innovations that automakers integrate into their vehicles, and I actively engage with this passion through driving and hands-on maintenance work as a hobby. In my personal life, I value the strong relationships I have cultivated with a close-knit group of friends, many of whom I have known since my youth. I deeply value loyalty and cherish the time spent with those closest to me. 
                     </p>
                 </div>
                 <div class="about-image">
@@ -1933,33 +1947,40 @@
         }
 
         function updateActiveNavigation() {
-            const sections = document.querySelectorAll('section');
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('.nav-menu a');
             const navbar = document.querySelector('.navbar');
             const navHeight = navbar ? navbar.offsetHeight : 0;
 
             let current = '';
-            const scrollPosition = window.pageYOffset + navHeight + 120;
+            const scrollPosition = window.pageYOffset + navHeight + 100;
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
                 const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    current = section.getAttribute('id');
+                // Check if scroll position is within this section's boundaries
+                if (scrollPosition >= sectionTop - 100 && scrollPosition < sectionTop + sectionHeight) {
+                    current = sectionId;
                 }
             });
 
-            const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 2;
+            // Check if we're at the bottom of the page
+            const atBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight - 50;
             if (atBottom && sections.length) {
                 current = sections[sections.length - 1].getAttribute('id');
             }
 
             navLinks.forEach(link => {
-                const isActive = link.getAttribute('href') === '#' + current;
+                const href = link.getAttribute('href');
+                const isActive = href === '#' + current;
                 link.classList.toggle('active', isActive);
             });
         }
+        
+        // Also call on initial load
+        updateActiveNavigation();
 
         function initializeGreetingAnimation() {
             updateAlternatingText();
