@@ -281,31 +281,15 @@
             background-clip: text;
         }
 
-        /* Section Transition Dividers */
-        .section-divider {
-            position: relative;
-            width: 100%;
-            height: 120px;
-            overflow: hidden;
-            z-index: 1;
-            margin: -1px 0;
+        /* Smooth transitions between sections */
+        section {
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .section-divider svg {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        .section-divider.flip {
-            transform: scaleY(-1);
-        }
-
-        /* Smooth gradient transitions between sections */
-        .section-divider path {
-            transition: opacity 0.3s ease;
+        /* Hero section content should be visible immediately */
+        .hero .fade-in-up {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* About Section */
@@ -974,6 +958,15 @@
             position: relative;
         }
 
+        .contact .section-title {
+            color: var(--white) !important;
+            background: none !important;
+            -webkit-text-fill-color: var(--white) !important;
+            -webkit-background-clip: initial !important;
+            background-clip: initial !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
         .contact-links {
             display: flex;
             gap: 2rem;
@@ -1108,14 +1101,6 @@
                 font-size: 1rem;
             }
 
-            .section-divider {
-                height: 80px;
-            }
-
-            .section-divider svg {
-                height: 80px;
-            }
-
             section {
                 padding: 2.5rem 1.25rem;
             }
@@ -1158,13 +1143,6 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(17, 24, 39, 0.85)"/>
-        </svg>
-    </div>
-
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -1181,13 +1159,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider flip">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(17, 24, 39, 0.85)"/>
-        </svg>
-    </div>
 
     <!-- Tech Stack Section -->
     <section id="tech-stack" class="tech-stack-section">
@@ -1380,13 +1351,6 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(17, 24, 39, 0.85)"/>
-        </svg>
-    </div>
-
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
@@ -1409,13 +1373,6 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(17, 24, 39, 0.85)"/>
-        </svg>
-    </div>
-
     <!-- Current Projects Section -->
     <section id="current-projects" class="current-projects">
         <div class="container">
@@ -1424,13 +1381,6 @@
         </div>
     </section>
 
-    <!-- Section Divider -->
-    <div class="section-divider flip">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="rgba(17, 24, 39, 0.85)"/>
-        </svg>
-    </div>
-
     <!-- Projects Section (rendered with React) -->
     <section id="projects" class="projects">
         <div class="container">
@@ -1438,20 +1388,6 @@
             <div id="projects-root" class="projects-grid"></div>
         </div>
     </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider flip">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="gradientDivider" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:rgba(214, 158, 163, 0.3);stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:rgba(90, 104, 152, 0.4);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(160, 134, 158, 0.3);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="url(#gradientDivider)"/>
-        </svg>
-    </div>
 
     <!-- Resume Section -->
     <section id="resume" class="resume-section">
@@ -1472,20 +1408,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Section Divider -->
-    <div class="section-divider">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="gradientDivider2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" style="stop-color:rgba(214, 158, 163, 0.3);stop-opacity:1" />
-                    <stop offset="50%" style="stop-color:rgba(90, 104, 152, 0.4);stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:rgba(160, 134, 158, 0.3);stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <path d="M0,0 Q300,60 600,60 T1200,60 L1200,120 L0,120 Z" fill="url(#gradientDivider2)"/>
-        </svg>
-    </div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -1935,27 +1857,19 @@
         }
 
         function handleScrollAnimations() {
-            const elements = document.querySelectorAll('.fade-in-up');
-            const sections = document.querySelectorAll('section');
+            const elements = document.querySelectorAll('.fade-in-up:not(.visible)');
             const windowHeight = window.innerHeight;
             
-            // Handle fade-in-up elements
+            // Handle fade-in-up elements with improved detection
             elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 100;
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top;
+                const elementBottom = rect.bottom;
+                const elementVisible = 150;
                 
-                if (elementTop < windowHeight - elementVisible) {
+                // Element is visible if any part of it is in the viewport
+                if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
                     element.classList.add('visible');
-                }
-            });
-
-            // Handle section visibility with smooth animations
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const sectionVisible = 150;
-                
-                if (sectionTop < windowHeight - sectionVisible && sectionTop > -section.offsetHeight) {
-                    section.classList.add('visible');
                 }
             });
         }
