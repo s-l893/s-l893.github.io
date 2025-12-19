@@ -41,7 +41,7 @@
                         var(--page-bg);
         }
 
-        section:not(.hero):not(.resume-section):not(.contact) {
+        section:not(.hero):not(.resume-section) {
             background: var(--panel);
             border: 1px solid var(--border-subtle);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
@@ -61,8 +61,8 @@
 
         .fade-in-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.65s ease, transform 0.65s ease;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .fade-in-up.visible {
@@ -953,18 +953,18 @@
 
         /* Contact Section */
         .contact {
-            background: var(--gradient-bg);
+            background: var(--panel);
             text-align: center;
             position: relative;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
 
         .contact .section-title {
-            color: var(--white) !important;
-            background: none !important;
-            -webkit-text-fill-color: var(--white) !important;
-            -webkit-background-clip: initial !important;
-            background-clip: initial !important;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .contact-links {
@@ -980,21 +980,18 @@
             align-items: center;
             gap: 8px;
             padding: 15px 25px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
+            background: var(--white);
+            color: var(--color-2);
             text-decoration: none;
             border-radius: 50px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(90, 104, 152, 0.1);
         }
 
         .contact-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(90, 104, 152, 0.2);
         }
 
         /* Mobile Responsiveness */
@@ -1861,14 +1858,15 @@
             const windowHeight = window.innerHeight;
             
             // Handle fade-in-up elements with improved detection
-            elements.forEach(element => {
+            elements.forEach((element) => {
                 const rect = element.getBoundingClientRect();
                 const elementTop = rect.top;
                 const elementBottom = rect.bottom;
-                const elementVisible = 150;
                 
-                // Element is visible if any part of it is in the viewport
-                if (elementTop < windowHeight - elementVisible && elementBottom > elementVisible) {
+                // Element is visible when it's in the viewport (with some threshold)
+                const threshold = windowHeight * 0.15; // Trigger when 15% into viewport
+                
+                if (elementTop < windowHeight - threshold && elementBottom > threshold) {
                     element.classList.add('visible');
                 }
             });
