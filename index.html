@@ -1044,7 +1044,12 @@
             z-index: 999;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: opacity 0.3s ease;
+            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .floating-nav:hover {
+            padding: 12px 32px;
+            gap: 28px;
         }
 
         .floating-nav a {
@@ -1061,9 +1066,8 @@
         }
 
         .floating-nav a:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             color: var(--color-1);
-            transform: translateY(-2px);
         }
 
         .floating-nav a svg {
@@ -2170,46 +2174,41 @@
             const floatingNav = document.querySelector('.floating-nav');
             if (!floatingNav) return;
 
-            let mouseX = 0;
-            let targetX = 0;
-            let currentX = 0;
-            let rafId = null;
+            const navLinks = floatingNav.querySelectorAll('a');
+            const baseGap = 20;
+            const expandedGap = 32;
+            const basePadding = 24;
+            const expandedPadding = 40;
 
-            // Track mouse position
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                targetX = mouseX - window.innerWidth / 2;
+            // Add dynamic expansion on hover
+            floatingNav.addEventListener('mousemove', (e) => {
+                const rect = floatingNav.getBoundingClientRect();
+                const mouseX = e.clientX - rect.left;
+                const navWidth = rect.width;
+                const relativeX = mouseX / navWidth; // 0 to 1
                 
-                if (!rafId) {
-                    rafId = requestAnimationFrame(updateNavPosition);
-                }
+                // Calculate expansion based on cursor position
+                // Icons scale based on proximity to cursor
+                navLinks.forEach((link) => {
+                    const linkRect = link.getBoundingClientRect();
+                    const linkCenterX = linkRect.left + linkRect.width / 2 - rect.left;
+                    const distanceFromMouse = Math.abs(linkCenterX - mouseX);
+                    const maxDistance = navWidth / 2.5;
+                    const proximity = Math.max(0, 1 - (distanceFromMouse / maxDistance));
+                    
+                    // Scale icon based on proximity to cursor (closer = larger)
+                    const scale = 1 + (proximity * 0.25);
+                    link.style.transform = `scale(${scale})`;
+                    link.style.transition = 'transform 0.1s ease-out';
+                });
             });
 
-            // Smooth animation
-            function updateNavPosition() {
-                const diff = targetX - currentX;
-                currentX += diff * 0.1; // Smoothing factor
-                
-                floatingNav.style.transform = `translateX(calc(-50% + ${currentX}px))`;
-                
-                if (Math.abs(diff) > 0.5) {
-                    rafId = requestAnimationFrame(updateNavPosition);
-                } else {
-                    rafId = null;
-                }
-            }
-
-            // Hide nav when mouse leaves window for a bit
-            let hideTimeout;
-            document.addEventListener('mouseleave', () => {
-                hideTimeout = setTimeout(() => {
-                    floatingNav.style.opacity = '0.5';
-                }, 1000);
-            });
-
-            document.addEventListener('mouseenter', () => {
-                clearTimeout(hideTimeout);
-                floatingNav.style.opacity = '1';
+            // Reset on mouse leave
+            floatingNav.addEventListener('mouseleave', () => {
+                navLinks.forEach(link => {
+                    link.style.transform = 'scale(1)';
+                    link.style.transition = 'transform 0.3s ease-out';
+                });
             });
         }
     </script>
