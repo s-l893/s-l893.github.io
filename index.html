@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <style>
         * {
             margin: 0;
@@ -449,15 +450,22 @@
         .tech-icon {
             width: 32px;
             height: 32px;
-            background: var(--gradient-bg);
-            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
-            color: var(--white);
-            font-weight: bold;
             flex-shrink: 0;
+        }
+        
+        .tech-icon i {
+            font-size: 32px;
+            line-height: 1;
+        }
+        
+        .tech-icon img,
+        .tech-icon svg {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
         }
 
         /* Education Section */
@@ -1413,43 +1421,43 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" />
+                                <i class="devicon-python-plain colored"></i>
                             </div>
                             <span>Python</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" />          
+                                <i class="devicon-cplusplus-plain colored"></i>
                             </div>
                             <span>C++</span>
                         </div>
                         <div class="tech-item">
                              <div class="tech-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" />
+                                <i class="devicon-c-plain colored"></i>
                             </div>
                             <span>C</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" />
+                                <i class="devicon-java-plain colored"></i>
                             </div>
                             <span>Java</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />
+                                <i class="devicon-javascript-plain colored"></i>
                             </div>
                             <span>JavaScript</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" />
+                                <i class="devicon-html5-plain colored"></i>
                             </div>
                             <span>HTML</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />
+                                <i class="devicon-css3-plain colored"></i>
                             </div>
                             <span>CSS</span>
                         </div>
@@ -1460,43 +1468,43 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoft/microsoft-original.svg" alt="Microsoft Office" style="width: 32px; height: 32px;">
                             </div>
                             <span>Microsoft Office</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-matlab-plain colored"></i>
                             </div>
                             <span>Matlab</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-google-plain colored"></i>
                             </div>
                             <span>Google Suite</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-arduino-plain colored"></i>
                             </div>
                             <span>Arduino</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-arduino-plain colored"></i>
                             </div>
                             <span>Blynk IOT</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-windows8-original colored"></i>
                             </div>
                             <span>Windows Automation & Media Tools</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-blender-original colored"></i>
                             </div>
                             <span>3D Printing & Slicing Tools</span>
                         </div>
@@ -1507,48 +1515,56 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/dassaultsystemes.svg" alt="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/solidworks/solidworks-original.svg" alt="SolidWorks" style="width: 32px; height: 32px;">
                             </div>
-                            <span>SOLIDWORKS (CSWA)</span>
+                            <span>SolidWorks (CSWA)</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/autocad.svg" alt="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/autocad/autocad-original.svg" alt="Autocad" style="width: 32px; height: 32px;">
                             </div>
                             <span>Autocad</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/python.svg" alt="Python">
+                                <i class="devicon-blender-original colored"></i>
                             </div>
                             <span>OnShape</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/altiumdesigner.svg" alt="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/altium/altium-original.svg" alt="Altium Designer" style="width: 32px; height: 32px;">
                             </div>
                             <span>Altium Designer</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://simpleicons.org/icons/kicad.svg" alt="Python">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kicad/kicad-original.svg" alt="Kicad" style="width: 32px; height: 32px;">
                             </div>
                             <span>Kicad</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🐳</div>
+                            <div class="tech-icon">
+                                <i class="devicon-docker-plain colored"></i>
+                            </div>
                             <span>Docker</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🌐</div>
+                            <div class="tech-icon">
+                                <i class="devicon-nginx-original colored"></i>
+                            </div>
                             <span>NGINX</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🐧</div>
+                            <div class="tech-icon">
+                                <i class="devicon-linux-plain colored"></i>
+                            </div>
                             <span>Linux</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🔴</div>
+                            <div class="tech-icon">
+                                <i class="devicon-redis-plain colored"></i>
+                            </div>
                             <span>Redis</span>
                         </div>
                     </div>
@@ -1557,35 +1573,51 @@
                     <h3>Developer Tools</h3>
                     <div class="tech-list">
                         <div class="tech-item">
-                            <div class="tech-icon">📝</div>
+                            <div class="tech-icon">
+                                <i class="devicon-git-plain colored"></i>
+                            </div>
                             <span>Git</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🐱</div>
+                            <div class="tech-icon">
+                                <i class="devicon-github-original colored"></i>
+                            </div>
                             <span>GitHub</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🦊</div>
+                            <div class="tech-icon">
+                                <i class="devicon-gitlab-plain colored"></i>
+                            </div>
                             <span>GitLab</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">📋</div>
+                            <div class="tech-icon">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira" style="width: 32px; height: 32px;">
+                            </div>
                             <span>Jira</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">💻</div>
+                            <div class="tech-icon">
+                                <i class="devicon-vscode-plain colored"></i>
+                            </div>
                             <span>VSCode</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🏢</div>
+                            <div class="tech-icon">
+                                <i class="devicon-visualstudio-plain colored"></i>
+                            </div>
                             <span>Visual Studio</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🧠</div>
+                            <div class="tech-icon">
+                                <i class="devicon-jetbrains-plain colored"></i>
+                            </div>
                             <span>JetBrains Suite</span>
                         </div>
                         <div class="tech-item">
-                            <div class="tech-icon">🎨</div>
+                            <div class="tech-icon">
+                                <i class="devicon-figma-plain colored"></i>
+                            </div>
                             <span>Figma</span>
                         </div>
                     </div>
@@ -1606,7 +1638,7 @@
                         <div class="education-date">September 2024 - Expected April 2029</div>
                         <div class="education-details">
                             Mechatronics Engineer with interests in embedded systems, IOT, and CAD. 
-                            Active member of the Western FSAE club and recipient of the Marion Elizabeth MacLeod Award.
+                            Active member of the Formula Electric SAE club.
                         </div>
                     </div>
                 </div>
@@ -1714,10 +1746,10 @@
         const projectData = {
             macropad: {
                 title: "3x3 Macropad",
-                longDescription: "A custom 3D printed enclosure designed with SOLIDWORKS, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At its core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and an ESP32-S3 instead.",
-                technologies: ["Python", "C", "Arduino", "SOLIDWORKS", "Kicad", "QMK"],
+                longDescription: "A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At its core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and an ESP32-S3 instead.",
+                technologies: ["Python", "C", "Arduino", "SolidWorks", "Kicad", "QMK"],
                 features: [
-                    "3D printed 3x3 Macropad casing designed using SOLIDWORKS",
+                    "3D printed 3x3 Macropad casing designed using SolidWorks",
                     "Two versions using ESP32-S3 and Pro Micro microcontrollers", 
                     "Created a software interface with HTML which allows the user to program their desired macros",
                     "Created an alternative macro configuration tool with CircuitPython for our trial run",
@@ -1763,7 +1795,7 @@
             autoplantwater: {
                 title: "Automatic Plant Waterer",
                 longDescription: "A solo IoT project taken on to mitigate the risk of forgetfulness damaging plants. This features an ESP32-S3 at its core within a 3D-printed custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for a manual/automatic mode toggle, manual pump override, moisture history, and more.",
-                technologies: ["C++", "Arduino", "Blynk IOT", "SOLIDWORKS"],
+                technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks"],
                 features: [
                     "Safety features such as filtered sensor readings, dry-run protection, and run-time limits",
                     "Custom CAD enclosure featuring a snap tab for quick and easy access to internals",
@@ -1808,7 +1840,7 @@
                 key: "macropad",
                 cover: "https://i.imgur.com/pOeHWiV.jpeg",
                 summary: "3D printed 3x3 macropad with custom PCB, QMK firmware, and configurable macros.",
-                technologies: ["SOLIDWORKS", "KiCad", "C++", "QMK", "Arduino"]
+                technologies: ["SolidWorks", "KiCad", "C++", "QMK", "Arduino"]
             },
             {
                 key: "kineticefromhail",
@@ -1820,7 +1852,7 @@
                 key: "autoplantwater",
                 cover: "https://i.imgur.com/Y9HPklx.jpeg",
                 summary: "ESP32-S3 plant watering system with Blynk app, safety limits, and live telemetry.",
-                technologies: ["SOLIDWORKS", "Arduino", "C++", "Blynk IOT", "IOT"]
+                technologies: ["SolidWorks", "Arduino", "C++", "Blynk IOT", "IOT"]
             },
             {
                 key: "multimediacontroller",
@@ -1985,7 +2017,7 @@
             const currentProject = {
                 title: "Servo Motor Powered Robotic Object Sorting Arm",
                 description: "I'm currently developing a servo motor powered robotic arm that can be controlled via a mobile app and physical joystick. The project involves creating custom firmware for device communication, developing a mobile app for remote control, and utilizing CAD to design the general shape and structure of the arm.",
-                technologies: ["C", "ESP32", "SOLIDWORKS", "Python", "OpenCV", "MQTT", "Arduino"],
+                technologies: ["C", "ESP32", "SolidWorks", "Python", "OpenCV", "MQTT", "Arduino"],
                 progress: progress
             };
 
