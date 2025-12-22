@@ -1173,15 +1173,18 @@
         }
         
         .floating-nav.fade-out {
-            opacity: 0.4;
-            background: rgba(15, 18, 35, 0.5);
-            backdrop-filter: blur(40px) saturate(150%) brightness(110%);
-            -webkit-backdrop-filter: blur(40px) saturate(150%) brightness(110%);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2),
-                        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
-                        0 2px 20px rgba(255, 255, 255, 0.05) inset,
-                        0 -2px 20px rgba(255, 255, 255, 0.03) inset;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0.35;
+            background: rgba(15, 18, 35, 0.4);
+            backdrop-filter: blur(50px) saturate(180%) brightness(120%) contrast(110%);
+            -webkit-backdrop-filter: blur(50px) saturate(180%) brightness(120%) contrast(110%);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15),
+                        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+                        0 4px 30px rgba(255, 255, 255, 0.12) inset,
+                        0 -4px 30px rgba(255, 255, 255, 0.08) inset,
+                        0 8px 40px rgba(214, 158, 163, 0.15) inset,
+                        0 -8px 40px rgba(90, 104, 152, 0.1) inset,
+                        0 0 60px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .floating-nav a {
@@ -1522,8 +1525,8 @@
                                             <stop offset="100%" style="stop-color:#00A844;stop-opacity:1" />
                                         </linearGradient>
                                     </defs>
-                                    <path d="M16 4 L26 9 L26 23 L16 28 L6 23 L6 9 Z" fill="url(#onshapeGrad)"/>
-                                    <polygon points="16,10 22,13 22,19 16,22 10,19 10,13" fill="#fff"/>
+                                    <path d="M16 2 L28 8 L28 24 L16 30 L4 24 L4 8 Z" fill="url(#onshapeGrad)"/>
+                                    <polygon points="16,8 22,11 22,21 16,24 10,21 10,11" fill="#1a1a1a"/>
                                 </svg>
                             </div>
                             <span>OnShape</span>
@@ -1561,13 +1564,32 @@
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <!-- Stylized A shape -->
-                                    <path d="M11 24 L16 10 L21 24 M13 19 L19 19" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-                                    <!-- Circuit elements -->
-                                    <circle cx="9" cy="16" r="1.5" fill="#fff"/>
-                                    <circle cx="23" cy="16" r="1.5" fill="#fff"/>
-                                    <line x1="10.5" y1="16" x2="12" y2="16" stroke="#fff" stroke-width="1.5"/>
-                                    <line x1="20" y1="16" x2="21.5" y2="16" stroke="#fff" stroke-width="1.5"/>
+                                    <defs>
+                                        <linearGradient id="altiumGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
+                                            <stop offset="30%" style="stop-color:#D4AF37;stop-opacity:1" />
+                                            <stop offset="70%" style="stop-color:#B8860B;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#8B6914;stop-opacity:1" />
+                                        </linearGradient>
+                                        <linearGradient id="altiumHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Metallic gold abstract ribbon shape (stylized folded ribbon) -->
+                                    <path d="M10 10 Q12 8 16 9 Q20 10 22 12 L22 16 Q20 20 16 21 Q12 20 10 18 L10 14 Z" 
+                                          fill="url(#altiumGoldGrad)" 
+                                          stroke="#8B6914" 
+                                          stroke-width="0.3"/>
+                                    <path d="M10 10 Q12 8 16 9 Q20 10 22 12" 
+                                          fill="url(#altiumHighlight)" 
+                                          opacity="0.7"/>
+                                    <!-- Inner fold detail -->
+                                    <path d="M14 14 Q16 13 18 14" 
+                                          fill="none" 
+                                          stroke="#8B6914" 
+                                          stroke-width="0.5" 
+                                          opacity="0.4"/>
                                 </svg>
                             </div>
                             <span>Altium Designer</span>
@@ -1653,12 +1675,20 @@
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                     <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <!-- 3D Open Box - Front Face -->
-                                    <path d="M10 12 L22 12 L22 22 L10 22 Z" fill="#f25022"/>
-                                    <!-- Top Face -->
-                                    <path d="M10 12 L14 8 L26 8 L22 12 Z" fill="#f25022"/>
-                                    <!-- Right Face -->
-                                    <path d="M22 12 L26 8 L26 18 L22 22 Z" fill="#f25022"/>
+                                    <defs>
+                                        <linearGradient id="officeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                            <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
+                                            <stop offset="40%" style="stop-color:#DC2626;stop-opacity:1" />
+                                            <stop offset="70%" style="stop-color:#F97316;stop-opacity:1" />
+                                            <stop offset="100%" style="stop-color:#EA580C;stop-opacity:1" />
+                                        </linearGradient>
+                                    </defs>
+                                    <!-- Rounded U/O shape with smooth gradient -->
+                                    <path d="M10 10 Q8 12 8 16 Q8 20 10 22 Q14 24 18 22 Q22 20 22 16 Q22 12 20 10 Q16 8 12 10 Z" 
+                                          fill="url(#officeGrad)"/>
+                                    <!-- Inner highlight for 3D effect -->
+                                    <path d="M12 12 Q14 11 16 12 Q18 13 20 14 Q20 16 18 17 Q16 16 14 15 Q12 14 12 12 Z" 
+                                          fill="rgba(255,255,255,0.15)"/>
                                 </svg>
                             </div>
                             <span>MS Suite</span>
