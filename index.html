@@ -102,6 +102,20 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo img,
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .logo-text {
+            display: none; /* Hide text, show only logo */
         }
 
         .nav-menu {
@@ -112,7 +126,10 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: var(--text-dark);
+            background: var(--gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
@@ -120,7 +137,10 @@
 
         .nav-menu a:hover,
         .nav-menu a.active {
-            color: var(--color-2);
+            background: none;
+            -webkit-background-clip: initial;
+            -webkit-text-fill-color: var(--white);
+            color: var(--white);
         }
 
         .nav-menu a::after {
@@ -196,6 +216,17 @@
             font-weight: 300;
             margin-bottom: 0.5rem;
             opacity: 0.9;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .greeting-text.fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        
+        .greeting-text.fade-in {
+            opacity: 0.9;
+            transform: translateY(0);
         }
 
         .name-text {
@@ -470,6 +501,7 @@
         .education-item:hover {
             transform: translateY(-5px);
             border-color: var(--color-1);
+            box-shadow: 0 20px 50px rgba(255, 255, 255, 0.15);
         }
 
         .education-degree {
@@ -643,6 +675,18 @@
         .project-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 20px 50px rgba(90, 104, 152, 0.25);
+            background: var(--white);
+        }
+        
+        .project-card:hover .project-title,
+        .project-card:hover .project-description {
+            color: var(--page-bg);
+        }
+        
+        .project-card:hover .project-tech-tag {
+            background: var(--page-bg);
+            color: var(--white);
+            border-color: var(--page-bg);
         }
 
         .project-image {
@@ -715,34 +759,76 @@
             max-width: 900px;
             width: 90%;
             max-height: 80vh;
-            overflow-y: auto;
             position: relative;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0;
+            overflow: hidden;
         }
 
         .modal-close {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            background: none;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
             border: none;
             color: var(--white);
             font-size: 2rem;
             cursor: pointer;
-            z-index: 10;
-            padding: 5px;
+            z-index: 2010;
+            padding: 8px;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+            opacity: 0.8;
         }
 
         .modal-close:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        
+        /* Project Navigation Arrows */
+        .project-nav {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 15px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            z-index: 2010;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .project-nav:hover:not(:disabled) {
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 1;
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        .project-nav:disabled {
+            cursor: not-allowed;
+        }
+        
+        .project-nav-prev {
+            left: 30px;
+        }
+        
+        .project-nav-next {
+            right: 30px;
         }
 
         .modal-carousel {
@@ -752,6 +838,8 @@
             justify-content: center;
             position: relative;
             min-height: 400px;
+            overflow: hidden;
+            height: 100%;
         }
 
         .carousel-container {
@@ -767,15 +855,16 @@
             display: none;
             width: 100%;
             height: 100%;
-            background: rgba(255, 255, 255, 0.1);
+            background: transparent;
             border-radius: 10px;
-            margin: 20px;
+            margin: 0;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             color: var(--white);
             font-size: 1.2rem;
             text-align: center;
+            padding: 20px;
         }
 
         .carousel-slide.active {
@@ -833,6 +922,7 @@
         .modal-info {
             padding: 2rem;
             overflow-y: auto;
+            max-height: 80vh;
         }
 
         .modal-project-title {
@@ -1043,12 +1133,18 @@
             z-index: 999;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), gap 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), gap 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
+            opacity: 1;
         }
         
         .floating-nav:hover {
             padding: 12px 32px;
             gap: 28px;
+            opacity: 1;
+        }
+        
+        .floating-nav.fade-out {
+            opacity: 0.3;
         }
 
         .floating-nav a {
@@ -1274,7 +1370,7 @@
     <section id="home" class="hero">
         <div class="hero-content fade-in-up">
             <div class="greeting-container">
-                <div id="alternatingText" class="greeting-text">नमस्ते</div>
+                <div id="alternatingText" class="greeting-text">Hello</div>
                 <div class="name-text">I'm Sunny Lin</div>
             </div>
             <p class="hero-description">
@@ -1413,7 +1509,7 @@
                             <div class="tech-icon">
                                 <img src="https://simpleicons.org/icons/dassaultsystemes.svg" alt="Python">
                             </div>
-                            <span>SOLIDWORKS (CSWA)</span>
+                            <span>SolidWorks (CSWA)</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
@@ -1618,10 +1714,10 @@
         const projectData = {
             macropad: {
                 title: "3x3 Macropad",
-                longDescription: "A custom 3D printed enclosure designed with SOLIDWORKS, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At its core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and an ESP32-S3 instead.",
-                technologies: ["Python", "C", "Arduino", "SOLIDWORKS", "Kicad", "QMK"],
+                longDescription: "A custom 3D printed enclosure designed with SolidWorks, featuring a 3x3 grid of programmable buttons featuring a proprietary software developed with C++ and QMK with a clean and simple user interface to program the macropad. At its core, it uses a Pro Micro microcontroller with a custom designed PCB with Kicad with Epomaker Wisteria switches to provide a satisfying experience. Additionally, a prototype version was created with hard soldering without a PCB while utilizing CircuitPython and an ESP32-S3 instead.",
+                technologies: ["Python", "C", "Arduino", "SolidWorks", "Kicad", "QMK"],
                 features: [
-                    "3D printed 3x3 Macropad casing designed using SOLIDWORKS",
+                    "3D printed 3x3 Macropad casing designed using SolidWorks",
                     "Two versions using ESP32-S3 and Pro Micro microcontrollers", 
                     "Created a software interface with HTML which allows the user to program their desired macros",
                     "Created an alternative macro configuration tool with CircuitPython for our trial run",
@@ -1667,7 +1763,7 @@
             autoplantwater: {
                 title: "Automatic Plant Waterer",
                 longDescription: "A solo IoT project taken on to mitigate the risk of forgetfulness damaging plants. This features an ESP32-S3 at its core within a 3D-printed custom designed enclosure with a capacitive moisture sensor to detect when to activate the water pump, powered through a relay module. Additionally, it features an interface through Blynk allowing for a manual/automatic mode toggle, manual pump override, moisture history, and more.",
-                technologies: ["C++", "Arduino", "Blynk IOT", "SOLIDWORKS"],
+                technologies: ["C++", "Arduino", "Blynk IOT", "SolidWorks"],
                 features: [
                     "Safety features such as filtered sensor readings, dry-run protection, and run-time limits",
                     "Custom CAD enclosure featuring a snap tab for quick and easy access to internals",
@@ -1712,7 +1808,7 @@
                 key: "macropad",
                 cover: "https://i.imgur.com/pOeHWiV.jpeg",
                 summary: "3D printed 3x3 macropad with custom PCB, QMK firmware, and configurable macros.",
-                technologies: ["SOLIDWORKS", "KiCad", "C++", "QMK", "Arduino"]
+                technologies: ["SolidWorks", "KiCad", "C++", "QMK", "Arduino"]
             },
             {
                 key: "kineticefromhail",
@@ -1724,7 +1820,7 @@
                 key: "autoplantwater",
                 cover: "https://i.imgur.com/Y9HPklx.jpeg",
                 summary: "ESP32-S3 plant watering system with Blynk app, safety limits, and live telemetry.",
-                technologies: ["SOLIDWORKS", "Arduino", "C++", "Blynk IOT", "IOT"]
+                technologies: ["SolidWorks", "Arduino", "C++", "Blynk IOT", "IOT"]
             },
             {
                 key: "multimediacontroller",
@@ -1751,7 +1847,9 @@
                             maxHeight: "350px",
                             objectFit: "contain",
                             borderRadius: "10px",
-                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+                            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                            margin: "0 auto",
+                            display: "block"
                         }}
                     />
                 );
@@ -1766,13 +1864,15 @@
                         maxHeight: "350px",
                         objectFit: "cover",
                         borderRadius: "10px",
-                        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
+                        boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)",
+                        margin: "0 auto",
+                        display: "block"
                     }}
                 />
             );
         };
 
-        const Modal = ({ project, onClose, slideIndex, setSlideIndex }) => {
+        const Modal = ({ project, onClose, slideIndex, setSlideIndex, goToNextProject, goToPrevProject, canGoNext, canGoPrev }) => {
             const slides = project?.images || [];
 
             const goToSlide = (nextIndex) => {
@@ -1785,6 +1885,27 @@
                 <div className="modal active" onClick={(e) => e.target.classList.contains("modal") && onClose()}>
                     <div className="modal-content">
                         <button className="modal-close" onClick={onClose}>×</button>
+                        {/* Project Navigation Arrows */}
+                        {goToNextProject && goToPrevProject && (
+                            <>
+                                <button 
+                                    className="project-nav project-nav-prev" 
+                                    onClick={(e) => { e.stopPropagation(); goToPrevProject(); }}
+                                    disabled={!canGoPrev}
+                                    style={{ opacity: canGoPrev ? 1 : 0.3 }}
+                                >
+                                    ← Prev
+                                </button>
+                                <button 
+                                    className="project-nav project-nav-next" 
+                                    onClick={(e) => { e.stopPropagation(); goToNextProject(); }}
+                                    disabled={!canGoNext}
+                                    style={{ opacity: canGoNext ? 1 : 0.3 }}
+                                >
+                                    Next →
+                                </button>
+                            </>
+                        )}
                         <div className="modal-carousel">
                             <div className="carousel-container">
                                 {slides.map((media, index) => (
@@ -1864,7 +1985,7 @@
             const currentProject = {
                 title: "Servo Motor Powered Robotic Object Sorting Arm",
                 description: "I'm currently developing a servo motor powered robotic arm that can be controlled via a mobile app and physical joystick. The project involves creating custom firmware for device communication, developing a mobile app for remote control, and utilizing CAD to design the general shape and structure of the arm.",
-                technologies: ["C", "ESP32", "SOLIDWORKS", "Python", "OpenCV", "MQTT", "Arduino"],
+                technologies: ["C", "ESP32", "SolidWorks", "Python", "OpenCV", "MQTT", "Arduino"],
                 progress: progress
             };
 
@@ -1901,6 +2022,24 @@
             const [slideIndex, setSlideIndex] = React.useState(0);
 
             const activeProject = activeProjectKey ? projectData[activeProjectKey] : null;
+            
+            // Get all project keys for navigation
+            const projectKeys = Object.keys(projectData);
+            const currentProjectIndex = activeProjectKey ? projectKeys.indexOf(activeProjectKey) : -1;
+            
+            const goToNextProject = () => {
+                if (currentProjectIndex >= 0 && currentProjectIndex < projectKeys.length - 1) {
+                    setActiveProjectKey(projectKeys[currentProjectIndex + 1]);
+                    setSlideIndex(0);
+                }
+            };
+            
+            const goToPrevProject = () => {
+                if (currentProjectIndex > 0) {
+                    setActiveProjectKey(projectKeys[currentProjectIndex - 1]);
+                    setSlideIndex(0);
+                }
+            };
 
             React.useEffect(() => {
                 const handleKey = (event) => {
@@ -1973,6 +2112,10 @@
                             onClose={() => setActiveProjectKey(null)}
                             slideIndex={slideIndex}
                             setSlideIndex={setSlideIndex}
+                            goToNextProject={goToNextProject}
+                            goToPrevProject={goToPrevProject}
+                            canGoNext={currentProjectIndex < projectKeys.length - 1}
+                            canGoPrev={currentProjectIndex > 0}
                         />
                     )}
                 </>
@@ -2148,7 +2291,18 @@
             const currentIndex = greetings.indexOf(currentText);
             const nextIndex = (currentIndex + 1) % greetings.length;
             
-            alternatingText.textContent = greetings[nextIndex];
+            // Fade out
+            alternatingText.classList.add('fade-out');
+            
+            setTimeout(() => {
+                alternatingText.textContent = greetings[nextIndex];
+                alternatingText.classList.remove('fade-out');
+                alternatingText.classList.add('fade-in');
+                
+                setTimeout(() => {
+                    alternatingText.classList.remove('fade-in');
+                }, 100);
+            }, 250);
         }
 
         function initializeTechStackAnimations() {
@@ -2179,12 +2333,22 @@
             const basePadding = 24;
             const expandedPadding = 40;
 
+            let fadeTimeout;
+            let isHovering = false;
+
             // Add dynamic expansion on hover
+            floatingNav.addEventListener('mouseenter', () => {
+                isHovering = true;
+                clearTimeout(fadeTimeout);
+                floatingNav.classList.remove('fade-out');
+            });
+
             floatingNav.addEventListener('mousemove', (e) => {
+                if (!isHovering) return;
+                
                 const rect = floatingNav.getBoundingClientRect();
                 const mouseX = e.clientX - rect.left;
                 const navWidth = rect.width;
-                const relativeX = mouseX / navWidth; // 0 to 1
                 
                 // Calculate expansion based on cursor position
                 // Icons scale based on proximity to cursor
@@ -2200,14 +2364,32 @@
                     link.style.transform = `scale(${scale})`;
                     link.style.transition = 'transform 0.1s ease-out';
                 });
+                
+                clearTimeout(fadeTimeout);
             });
 
-            // Reset on mouse leave
+            // Reset on mouse leave and start fade timer
             floatingNav.addEventListener('mouseleave', () => {
+                isHovering = false;
                 navLinks.forEach(link => {
                     link.style.transform = 'scale(1)';
                     link.style.transition = 'transform 0.3s ease-out';
                 });
+                
+                // Start fade out after 3 seconds
+                fadeTimeout = setTimeout(() => {
+                    floatingNav.classList.add('fade-out');
+                }, 3000);
+            });
+            
+            // Reset fade on any mouse movement
+            document.addEventListener('mousemove', () => {
+                if (!isHovering) {
+                    clearTimeout(fadeTimeout);
+                    fadeTimeout = setTimeout(() => {
+                        floatingNav.classList.add('fade-out');
+                    }, 3000);
+                }
             });
         }
     </script>
