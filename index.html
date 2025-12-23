@@ -893,6 +893,26 @@
             right: 30px;
         }
 
+        @media (max-width: 768px) {
+            .project-nav {
+                position: static;
+                transform: none;
+                width: 100%;
+                margin: 0.25rem 0;
+                padding: 12px;
+                font-size: 0.95rem;
+                text-align: center;
+            }
+            .project-nav-prev,
+            .project-nav-next {
+                left: auto;
+                right: auto;
+            }
+            .modal-content {
+                gap: 0.5rem;
+            }
+        }
+
         .modal-carousel {
             background: var(--gradient-bg);
             display: flex;
@@ -1327,24 +1347,32 @@
         @media (max-width: 768px) {
             .nav-container {
                 align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 100%;
+                position: relative;
+                padding: 0 1rem;
             }
 
             .nav-toggle {
                 display: inline-flex;
+                margin-left: auto;
             }
 
             .nav-menu {
                 position: absolute;
-                top: 70px;
-                right: 20px;
-                left: 20px;
-                background: rgba(15, 18, 35, 0.95);
+                top: calc(100% + 8px);
+                left: 12px;
+                right: 12px;
+                background: rgba(15, 18, 35, 0.97);
                 border: 1px solid var(--border-subtle);
                 border-radius: 12px;
-                padding: 1rem 1.25rem;
+                padding: 1rem 1.25rem 1.25rem;
                 flex-direction: column;
                 gap: 1rem;
                 display: none;
+                z-index: 1200;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             }
 
             .nav-menu.open {
@@ -1484,7 +1512,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#current-projects">Current Projects</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#resume">Resume</a></li>
+                <li><a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1813,10 +1841,10 @@
                     Download my resume to learn more about my experience, skills, and achievements.
                 </p>
                 <div class="resume-links">
-                    <a href="#" class="resume-link">
+                    <a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" class="resume-link" target="_blank" rel="noopener noreferrer">
                         📄 Download Resume (PDF)
                     </a>
-                    <a href="#" class=https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing">
+                    <a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" class="resume-link" target="_blank" rel="noopener noreferrer">
                         📋 View Online Resume
                     </a>
                 </div>
@@ -1876,7 +1904,7 @@
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
         </a>
-        <a href="#resume" aria-label="Resume">
+        <a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" aria-label="Resume" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
