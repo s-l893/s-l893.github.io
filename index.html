@@ -125,6 +125,60 @@
             gap: 2rem;
         }
 
+        .nav-toggle {
+            display: none;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border-subtle);
+            color: var(--white);
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .nav-toggle .hamburger {
+            width: 18px;
+            height: 2px;
+            background: var(--white);
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle .hamburger::before,
+        .nav-toggle .hamburger::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 18px;
+            height: 2px;
+            background: var(--white);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .nav-toggle .hamburger::before {
+            top: -6px;
+        }
+
+        .nav-toggle .hamburger::after {
+            top: 6px;
+        }
+
+        .nav-toggle.open .hamburger {
+            background: transparent;
+        }
+
+        .nav-toggle.open .hamburger::before {
+            transform: translateY(6px) rotate(45deg);
+        }
+
+        .nav-toggle.open .hamburger::after {
+            transform: translateY(-6px) rotate(-45deg);
+        }
+
         .nav-menu a {
             text-decoration: none;
             background: var(--gradient-text);
@@ -1272,6 +1326,32 @@
 
         @media (max-width: 768px) {
             .nav-container {
+                align-items: center;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                left: 20px;
+                background: rgba(15, 18, 35, 0.95);
+                border: 1px solid var(--border-subtle);
+                border-radius: 12px;
+                padding: 1rem 1.25rem;
+                flex-direction: column;
+                gap: 1rem;
+                display: none;
+            }
+
+            .nav-menu.open {
+                display: flex;
+            }
+
+            .nav-container {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0.5rem;
@@ -1393,6 +1473,10 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">Sunny Lin</div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+                Menu
+            </button>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -1562,35 +1646,7 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <defs>
-                                        <linearGradient id="altiumGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                            <stop offset="0%" style="stop-color:#F4D03F;stop-opacity:1" />
-                                            <stop offset="30%" style="stop-color:#D4AF37;stop-opacity:1" />
-                                            <stop offset="70%" style="stop-color:#B8860B;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#8B6914;stop-opacity:1" />
-                                        </linearGradient>
-                                        <linearGradient id="altiumHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" style="stop-color:rgba(255,255,255,0.4);stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <!-- Metallic gold abstract ribbon shape (stylized folded ribbon) -->
-                                    <path d="M10 10 Q12 8 16 9 Q20 10 22 12 L22 16 Q20 20 16 21 Q12 20 10 18 L10 14 Z" 
-                                          fill="url(#altiumGoldGrad)" 
-                                          stroke="#8B6914" 
-                                          stroke-width="0.3"/>
-                                    <path d="M10 10 Q12 8 16 9 Q20 10 22 12" 
-                                          fill="url(#altiumHighlight)" 
-                                          opacity="0.7"/>
-                                    <!-- Inner fold detail -->
-                                    <path d="M14 14 Q16 13 18 14" 
-                                          fill="none" 
-                                          stroke="#8B6914" 
-                                          stroke-width="0.5" 
-                                          opacity="0.4"/>
-                                </svg>
+                                <img src="https://www.altium.com/sites/default/files/media_icon/Altium_Designer_Logo.png" alt="Altium Designer" style="width: 32px; height: 32px; object-fit: contain;">
                             </div>
                             <span>Altium Designer</span>
                         </div>
@@ -1673,23 +1729,7 @@
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <defs>
-                                        <linearGradient id="officeGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-                                            <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:1" />
-                                            <stop offset="40%" style="stop-color:#DC2626;stop-opacity:1" />
-                                            <stop offset="70%" style="stop-color:#F97316;stop-opacity:1" />
-                                            <stop offset="100%" style="stop-color:#EA580C;stop-opacity:1" />
-                                        </linearGradient>
-                                    </defs>
-                                    <!-- Rounded U/O shape with smooth gradient -->
-                                    <path d="M10 10 Q8 12 8 16 Q8 20 10 22 Q14 24 18 22 Q22 20 22 16 Q22 12 20 10 Q16 8 12 10 Z" 
-                                          fill="url(#officeGrad)"/>
-                                    <!-- Inner highlight for 3D effect -->
-                                    <path d="M12 12 Q14 11 16 12 Q18 13 20 14 Q20 16 18 17 Q16 16 14 15 Q12 14 12 12 Z" 
-                                          fill="rgba(255,255,255,0.15)"/>
-                                </svg>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Microsoft_Office_logo_%282013%E2%80%932019%29.svg" alt="MS Suite" style="width: 32px; height: 32px; object-fit: contain;">
                             </div>
                             <span>MS Suite</span>
                         </div>
@@ -1776,7 +1816,7 @@
                     <a href="#" class="resume-link">
                         📄 Download Resume (PDF)
                     </a>
-                    <a href="#" class="resume-link">
+                    <a href="#" class=https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing">
                         📋 View Online Resume
                     </a>
                 </div>
@@ -2306,8 +2346,29 @@
             initializeNavigation();
             initializeGreetingAnimation();
             initializeTechStackAnimations();
+            initializeMobileNav();
             initializeFloatingNav();
         });
+
+        function initializeMobileNav() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            if (!navToggle || !navMenu) return;
+
+            const toggleMenu = () => {
+                navToggle.classList.toggle('open');
+                navMenu.classList.toggle('open');
+            };
+
+            navToggle.addEventListener('click', toggleMenu);
+
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('open');
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
 
         function initializeScrollAnimations() {
             handleScrollAnimations();
@@ -2470,19 +2531,25 @@
             if (!floatingNav) return;
 
             const navLinks = floatingNav.querySelectorAll('a');
-            const baseGap = 20;
-            const expandedGap = 32;
-            const basePadding = 24;
-            const expandedPadding = 40;
-
             let fadeTimeout;
             let isHovering = false;
 
-            // Add dynamic expansion on hover
+            const clearFade = () => {
+                floatingNav.classList.remove('fade-out');
+                clearTimeout(fadeTimeout);
+            };
+
+            const scheduleFade = (delay = 2500) => {
+                clearTimeout(fadeTimeout);
+                fadeTimeout = setTimeout(() => {
+                    floatingNav.classList.add('fade-out');
+                }, delay);
+            };
+
+            // Add dynamic expansion on hover (desktop)
             floatingNav.addEventListener('mouseenter', () => {
                 isHovering = true;
-                clearTimeout(fadeTimeout);
-                floatingNav.classList.remove('fade-out');
+                clearFade();
             });
 
             floatingNav.addEventListener('mousemove', (e) => {
@@ -2492,47 +2559,40 @@
                 const mouseX = e.clientX - rect.left;
                 const navWidth = rect.width;
                 
-                // Calculate expansion based on cursor position
-                // Icons scale based on proximity to cursor
                 navLinks.forEach((link) => {
                     const linkRect = link.getBoundingClientRect();
                     const linkCenterX = linkRect.left + linkRect.width / 2 - rect.left;
                     const distanceFromMouse = Math.abs(linkCenterX - mouseX);
                     const maxDistance = navWidth / 2.5;
                     const proximity = Math.max(0, 1 - (distanceFromMouse / maxDistance));
-                    
-                    // Scale icon based on proximity to cursor (closer = larger)
                     const scale = 1 + (proximity * 0.25);
                     link.style.transform = `scale(${scale})`;
                     link.style.transition = 'transform 0.1s ease-out';
                 });
                 
-                clearTimeout(fadeTimeout);
+                clearFade();
             });
 
-            // Reset on mouse leave and start fade timer
             floatingNav.addEventListener('mouseleave', () => {
                 isHovering = false;
                 navLinks.forEach(link => {
                     link.style.transform = 'scale(1)';
                     link.style.transition = 'transform 0.3s ease-out';
                 });
-                
-                // Start fade out after 3 seconds
-                fadeTimeout = setTimeout(() => {
-                    floatingNav.classList.add('fade-out');
-                }, 3000);
+                scheduleFade();
             });
             
-            // Reset fade on any mouse movement
-            document.addEventListener('mousemove', () => {
-                if (!isHovering) {
-                    clearTimeout(fadeTimeout);
-                    fadeTimeout = setTimeout(() => {
-                        floatingNav.classList.add('fade-out');
-                    }, 3000);
-                }
-            });
+            // Reset fade on any interaction (mouse or touch)
+            const wakeNav = () => {
+                clearFade();
+                scheduleFade();
+            };
+
+            document.addEventListener('mousemove', wakeNav);
+            document.addEventListener('touchstart', wakeNav, { passive: true });
+
+            // Initial fade after load
+            scheduleFade(2000);
         }
     </script>
 </body>
