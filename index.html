@@ -137,6 +137,14 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            user-select: none;
+        }
+        
+        .nav-toggle:active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(0.95);
         }
 
         .nav-toggle .hamburger {
@@ -2391,15 +2399,28 @@
             const navMenu = document.querySelector('.nav-menu');
             if (!navToggle || !navMenu) return;
 
-            const toggleMenu = () => {
+            const toggleMenu = (e) => {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
                 navToggle.classList.toggle('open');
                 navMenu.classList.toggle('open');
             };
 
+            // Add both click and touch events for better mobile support
             navToggle.addEventListener('click', toggleMenu);
+            navToggle.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                toggleMenu(e);
+            }, { passive: false });
 
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
+                    navToggle.classList.remove('open');
+                    navMenu.classList.remove('open');
+                });
+                link.addEventListener('touchend', () => {
                     navToggle.classList.remove('open');
                     navMenu.classList.remove('open');
                 });
