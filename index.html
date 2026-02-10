@@ -117,9 +117,17 @@
 
         .logo img,
         .logo svg {
-            width: 40px;
+            width: auto;
             height: 40px;
+            max-width: 200px;
             object-fit: contain;
+        }
+
+        .logo:has(img) {
+            background: none;
+            -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background-clip: unset;
         }
 
         .logo-text {
@@ -1569,7 +1577,9 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Sunny Lin</div>
+            <div class="logo">
+                <img src="signature.svg" alt="Sunny Lin" />
+            </div>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
                 Menu
