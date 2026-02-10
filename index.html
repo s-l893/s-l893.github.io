@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunny Lin - Portfolio</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -645,6 +646,49 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 60px rgba(90, 104, 152, 0.3);
             border-color: var(--color-1);
+            background: var(--white);
+        }
+
+        .current-project-card:hover .current-project-title {
+            background: var(--gradient-bg);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .current-project-card:hover .current-project-description {
+            color: var(--page-bg);
+        }
+
+        .current-project-card:hover .current-project-tech-tag {
+            background: var(--page-bg);
+            color: var(--white);
+            border-color: var(--page-bg);
+        }
+
+        .current-project-card:hover .current-project-badge {
+            background: var(--gradient-bg);
+            color: var(--white);
+        }
+
+        .current-project-card:hover .progress-label {
+            color: var(--page-bg);
+        }
+
+        .current-project-card:hover .progress-bar-container {
+            background: rgba(13, 20, 38, 0.1);
+        }
+
+        .current-project-view-hint {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #64ffda;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+
+        .current-project-card:hover .current-project-view-hint {
+            color: var(--page-bg);
         }
 
         .current-project-header {
@@ -2352,12 +2396,7 @@
                             </div>
                         </div>
                         {currentProject.images && currentProject.images.length > 0 && (
-                            <div style={{
-                                marginTop: "15px",
-                                fontSize: "14px",
-                                color: "#64ffda",
-                                textAlign: "center"
-                            }}>
+                            <div className="current-project-view-hint">
                                 Click to view images/videos →
                             </div>
                         )}
