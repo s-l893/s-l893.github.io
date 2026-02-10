@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sunny Lin - Portfolio</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="https://i.imgur.com/iecdZvv.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -2318,6 +2318,15 @@
                 longDescription: "Currently working on developing a high-frequency data acquisition system (Black Box) utilizing an STM32 microcontroller combining inertial data, GPS, and real-time vehicle diagnostics via CAN BUS (OBD-II). This system will utilize interrupt-driven firmware to log critical vehicle telemetry to a micro SD card for post-trip performance analysis via heatmaps using a Python-based script with Pandas and Folium.",
                 technologies: ["C", "STM32", "SOLIDWORKS", "Python", "CAN Bus", "I2C/UART/SPI"],
                 progress: progress,
+                features: [
+                    "Developed a real-time logging system using an STM32F446RE microcontroller clocked at 180MHz to synchronize multiple high-frequency data streams",
+                    "Integrated and managed concurrent communication across I2C (MPU-6050 IMU), UART (NEO-6M GPS Module), and SPI (MicroSD logging) to capture 6-axis motion and location data",
+                    "Implemented an SN65HVD230 CAN Transceiver to interface with the OBD-II port, enabling the retrieval of real-time vehicle diagnostics such as engine RPM and throttle position",
+                    "Designed a fail-safe logging system that writes timestamped telemetry data to a CSV format on a MicroSD card, ensuring data integrity during power loss or high-vibration environments"
+                ],
+                links: [
+                    { text: "GitHub Repository", url: "https://github.com/s-l893/Automotive-Telemetry-Data-Acquisition-System-Black-Box-" }
+                ],
                 images: [
                     { content: "https://i.imgur.com/nvGs2Iv.jpeg" },
                     { content: "https://i.imgur.com/nvGs2Iv.jpeg" },
