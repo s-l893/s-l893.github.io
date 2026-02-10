@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,8 +42,8 @@
             line-height: 1.6;
             color: var(--text-dark);
             background: radial-gradient(circle at 20% 20%, rgba(90, 104, 152, 0.25), transparent 35%),
-                        radial-gradient(circle at 80% 0%, rgba(166, 134, 158, 0.22), transparent 30%),
-                        var(--page-bg);
+                radial-gradient(circle at 80% 0%, rgba(166, 134, 158, 0.22), transparent 30%),
+                var(--page-bg);
         }
 
         section:not(.hero):not(.resume-section) {
@@ -52,8 +53,13 @@
         }
 
         @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
         }
 
         .hero,
@@ -107,16 +113,17 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .logo img,
         .logo svg {
             width: 40px;
             height: 40px;
             object-fit: contain;
         }
-        
+
         .logo-text {
-            display: none; /* Hide text, show only logo */
+            display: none;
+            /* Hide text, show only logo */
         }
 
         .nav-menu {
@@ -141,7 +148,7 @@
             touch-action: manipulation;
             user-select: none;
         }
-        
+
         .nav-toggle:active {
             background: rgba(255, 255, 255, 0.15);
             transform: scale(0.95);
@@ -281,12 +288,12 @@
             opacity: 0.9;
             transition: opacity 0.5s ease, transform 0.5s ease;
         }
-        
+
         .greeting-text.fade-out {
             opacity: 0;
             transform: translateY(-10px);
         }
-        
+
         .greeting-text.fade-in {
             opacity: 0.9;
             transform: translateY(0);
@@ -403,7 +410,7 @@
             max-width: 1500px;
             margin: 0 auto;
         }
-        
+
         @media (min-width: 1400px) {
             .about-content {
                 grid-template-columns: 220px 1fr 220px;
@@ -421,7 +428,7 @@
             margin-bottom: 2rem;
             padding: 0 1rem;
         }
-        
+
         @media (max-width: 768px) {
             .about-text {
                 padding: 0;
@@ -433,8 +440,8 @@
         .about-image-left {
             width: 100%;
             height: 280px;
-            background-size: cover;  
-            background-position: center; 
+            background-size: cover;
+            background-position: center;
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -517,12 +524,12 @@
             justify-content: center;
             flex-shrink: 0;
         }
-        
+
         .tech-icon i {
             font-size: 32px;
             line-height: 1;
         }
-        
+
         .tech-icon img,
         .tech-icon svg {
             width: 32px;
@@ -747,12 +754,12 @@
             box-shadow: 0 20px 50px rgba(90, 104, 152, 0.25);
             background: var(--white);
         }
-        
+
         .project-card:hover .project-title,
         .project-card:hover .project-description {
             color: var(--page-bg);
         }
-        
+
         .project-card:hover .project-tech-tag {
             background: var(--page-bg);
             color: var(--white);
@@ -863,7 +870,7 @@
             opacity: 1;
             transform: scale(1.1);
         }
-        
+
         /* Project Navigation Arrows */
         .project-nav {
             position: fixed;
@@ -882,21 +889,21 @@
             transition: all 0.3s ease;
             opacity: 0.8;
         }
-        
+
         .project-nav:hover:not(:disabled) {
             background: rgba(0, 0, 0, 0.8);
             opacity: 1;
             transform: translateY(-50%) scale(1.05);
         }
-        
+
         .project-nav:disabled {
             cursor: not-allowed;
         }
-        
+
         .project-nav-prev {
             left: 30px;
         }
-        
+
         .project-nav-next {
             right: 30px;
         }
@@ -911,11 +918,13 @@
                 font-size: 0.95rem;
                 text-align: center;
             }
+
             .project-nav-prev,
             .project-nav-next {
                 left: auto;
                 right: auto;
             }
+
             .modal-content {
                 gap: 0.5rem;
             }
@@ -1164,7 +1173,7 @@
             border: 1px solid var(--border-subtle);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
         }
-        
+
         /* Ensure contact links are visible */
         .contact .contact-links {
             opacity: 1 !important;
@@ -1229,19 +1238,19 @@
             gap: 20px;
             z-index: 999;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
-                        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
-                        0 1px 0 rgba(255, 255, 255, 0.2) inset;
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+                0 1px 0 rgba(255, 255, 255, 0.2) inset;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        gap 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
-                        opacity 0.6s ease,
-                        background 0.6s ease,
-                        backdrop-filter 0.6s ease,
-                        -webkit-backdrop-filter 0.6s ease,
-                        box-shadow 0.6s ease;
+            transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                gap 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.6s ease,
+                background 0.6s ease,
+                backdrop-filter 0.6s ease,
+                -webkit-backdrop-filter 0.6s ease,
+                box-shadow 0.6s ease;
             opacity: 1;
         }
-        
+
         .floating-nav:hover {
             padding: 12px 32px;
             gap: 28px;
@@ -1250,22 +1259,22 @@
             backdrop-filter: blur(30px) saturate(200%);
             -webkit-backdrop-filter: blur(30px) saturate(200%);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
-                        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
-                        0 2px 10px rgba(255, 255, 255, 0.1) inset;
+                0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+                0 2px 10px rgba(255, 255, 255, 0.1) inset;
         }
-        
+
         .floating-nav.fade-out {
             opacity: 0.35;
             background: rgba(15, 18, 35, 0.4);
             backdrop-filter: blur(50px) saturate(180%) brightness(120%) contrast(110%);
             -webkit-backdrop-filter: blur(50px) saturate(180%) brightness(120%) contrast(110%);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15),
-                        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
-                        0 4px 30px rgba(255, 255, 255, 0.12) inset,
-                        0 -4px 30px rgba(255, 255, 255, 0.08) inset,
-                        0 8px 40px rgba(214, 158, 163, 0.15) inset,
-                        0 -8px 40px rgba(90, 104, 152, 0.1) inset,
-                        0 0 60px rgba(255, 255, 255, 0.1);
+                0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+                0 4px 30px rgba(255, 255, 255, 0.12) inset,
+                0 -4px 30px rgba(255, 255, 255, 0.08) inset,
+                0 8px 40px rgba(214, 158, 163, 0.15) inset,
+                0 -8px 40px rgba(90, 104, 152, 0.1) inset,
+                0 0 60px rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
@@ -1291,12 +1300,12 @@
             width: 20px;
             height: 20px;
         }
-        
+
         .floating-nav a svg[stroke] {
             fill: none;
             stroke: currentColor;
         }
-        
+
         .floating-nav a svg:not([stroke]) {
             fill: currentColor;
         }
@@ -1356,7 +1365,7 @@
             .navbar {
                 padding: 0.35rem 0;
             }
-            
+
             .nav-container {
                 align-items: center;
                 flex-direction: row;
@@ -1365,7 +1374,7 @@
                 position: relative;
                 padding: 0.15rem 1rem;
             }
-            
+
             .logo img,
             .logo svg {
                 width: 32px;
@@ -1378,12 +1387,12 @@
                 padding: 0.35rem 0.55rem;
                 font-size: 0.85rem;
             }
-            
+
             .nav-toggle .hamburger {
                 width: 16px;
                 height: 2px;
             }
-            
+
             .nav-toggle .hamburger::before,
             .nav-toggle .hamburger::after {
                 width: 16px;
@@ -1403,7 +1412,7 @@
                 gap: 0.85rem;
                 display: none;
                 z-index: 1200;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
                 width: calc(100% - 24px);
             }
 
@@ -1511,6 +1520,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -1527,7 +1537,8 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#current-projects">Current Projects</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="https://drive.google.com/file/d/1h2vIoAeSP4r-XF4cjJHxkWBlNxW8fCeq/view?usp=sharing" target="_blank" rel="noopener noreferrer">Resume</a></li>
+                <li><a href="https://drive.google.com/file/d/1h2vIoAeSP4r-XF4cjJHxkWBlNxW8fCeq/view?usp=sharing"
+                        target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1541,7 +1552,7 @@
                 <div class="name-text">I'm Sunny Lin</div>
             </div>
             <p class="hero-description">
-               I'm a second year Mechatronics Engineer @ The University of Western Ontario.
+                I'm a second year Mechatronics Engineer @ The University of Western Ontario.
                 Welcome to my portfolio website.
             </p>
             <div class="hero-buttons">
@@ -1560,7 +1571,18 @@
                 </div>
                 <div class="about-text-content">
                     <p class="about-text">
-                         I am currently a second year Mechatronics Engineering student at The University of Western Ontario (UWO) in London, Ontario. From a young age, I knew I was destined to become an engineer. I have always been passionate about technology and learning how various devices and contraptions work while challenging myself to think about how I could improve upon their existing design. I am familiar with a variety of tools, ranging from CAD to coding languages and frameworks to physical microcontrollers and PCB design tools. Beyond engineering, I am an avid car enthusiast with a longstanding fascination for automotive technology. Since childhood, I have been captivated by the cutting-edge innovations that automakers integrate into their vehicles, and I actively engage with this passion through driving and hands-on maintenance work as a hobby. In my personal life, I value the strong relationships I have cultivated with a close-knit group of friends, many of whom I have known since my youth. I deeply value loyalty and cherish the time spent with those closest to me. 
+                        I am currently a second year Mechatronics Engineering student at The University of Western
+                        Ontario (UWO) in London, Ontario. From a young age, I knew I was destined to become an engineer.
+                        I have always been passionate about technology and learning how various devices and contraptions
+                        work while challenging myself to think about how I could improve upon their existing design. I
+                        am familiar with a variety of tools, ranging from CAD to coding languages and frameworks to
+                        physical microcontrollers and PCB design tools. Beyond engineering, I am an avid car enthusiast
+                        with a longstanding fascination for automotive technology. Since childhood, I have been
+                        captivated by the cutting-edge innovations that automakers integrate into their vehicles, and I
+                        actively engage with this passion through driving and hands-on maintenance work as a hobby. In
+                        my personal life, I value the strong relationships I have cultivated with a close-knit group of
+                        friends, many of whom I have known since my youth. I deeply value loyalty and cherish the time
+                        spent with those closest to me.
                     </p>
                 </div>
                 <div class="about-image">
@@ -1638,7 +1660,8 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.simpleicons.org/dassaultsystemes/FFFFFF" alt="Dassault Systemes" style="width: 32px; height: 32px;">
+                                <img src="https://cdn.simpleicons.org/dassaultsystemes/FFFFFF" alt="Dassault Systemes"
+                                    style="width: 32px; height: 32px;">
                             </div>
                             <span>SOLIDWORKS (CSWA)</span>
                         </div>
@@ -1651,32 +1674,38 @@
                                             <stop offset="100%" style="stop-color:#00A844;stop-opacity:1" />
                                         </linearGradient>
                                     </defs>
-                                    <path d="M16 2 L28 8 L28 24 L16 30 L4 24 L4 8 Z" fill="url(#onshapeGrad)"/>
-                                    <polygon points="16,8 22,11 22,21 16,24 10,21 10,11" fill="#1a1a1a"/>
+                                    <path d="M16 2 L28 8 L28 24 L16 30 L4 24 L4 8 Z" fill="url(#onshapeGrad)" />
+                                    <polygon points="16,8 22,11 22,21 16,24 10,21 10,11" fill="#1a1a1a" />
                                 </svg>
                             </div>
                             <span>OnShape</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.simpleicons.org/autodesk/FFFFFF" alt="AutoCAD" style="width: 32px; height: 32px;">
+                                <img src="https://cdn.simpleicons.org/autodesk/FFFFFF" alt="AutoCAD"
+                                    style="width: 32px; height: 32px;">
                             </div>
                             <span>AutoCAD</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.simpleicons.org/bambulab/FFFFFF" alt="Bambu Handy" style="width: 32px; height: 32px;">
+                                <img src="https://cdn.simpleicons.org/bambulab/FFFFFF" alt="Bambu Handy"
+                                    style="width: 32px; height: 32px;">
                             </div>
                             <span>3D Printing & Slicing Tools</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <path d="M8 10 L16 8 L24 10 L24 20 L16 22 L8 20 Z" fill="none" stroke="#fff" stroke-width="1.5"/>
-                                    <line x1="10" y1="14" x2="22" y2="14" stroke="#fff" stroke-width="1" opacity="0.6"/>
-                                    <line x1="10" y1="17" x2="22" y2="17" stroke="#fff" stroke-width="1" opacity="0.6"/>
-                                    <line x1="16" y1="10" x2="16" y2="20" stroke="#fff" stroke-width="1" opacity="0.6"/>
+                                    <rect width="32" height="32" rx="4" fill="#1a1a1a" />
+                                    <path d="M8 10 L16 8 L24 10 L24 20 L16 22 L8 20 Z" fill="none" stroke="#fff"
+                                        stroke-width="1.5" />
+                                    <line x1="10" y1="14" x2="22" y2="14" stroke="#fff" stroke-width="1"
+                                        opacity="0.6" />
+                                    <line x1="10" y1="17" x2="22" y2="17" stroke="#fff" stroke-width="1"
+                                        opacity="0.6" />
+                                    <line x1="16" y1="10" x2="16" y2="20" stroke="#fff" stroke-width="1"
+                                        opacity="0.6" />
                                 </svg>
                             </div>
                             <span>DFM</span>
@@ -1688,13 +1717,15 @@
                     <div class="tech-list">
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://src.koda.cnrs.fr/uploads/-/system/group/avatar/1298/logo-altium-designer.png?width=48" alt="Altium Designer" style="width: 32px; height: 32px; object-fit: contain;">
+                                <img src="https://src.koda.cnrs.fr/uploads/-/system/group/avatar/1298/logo-altium-designer.png?width=48"
+                                    alt="Altium Designer" style="width: 32px; height: 32px; object-fit: contain;">
                             </div>
                             <span>Altium Designer</span>
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.simpleicons.org/kicad/FFFFFF" alt="KiCad" style="width: 32px; height: 32px;">
+                                <img src="https://cdn.simpleicons.org/kicad/FFFFFF" alt="KiCad"
+                                    style="width: 32px; height: 32px;">
                             </div>
                             <span>KiCad</span>
                         </div>
@@ -1707,12 +1738,14 @@
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <circle cx="10" cy="16" r="2" fill="#fff"/>
-                                    <circle cx="22" cy="16" r="2" fill="#fff"/>
-                                    <line x1="12" y1="16" x2="20" y2="16" stroke="#fff" stroke-width="1.5"/>
-                                    <line x1="10" y1="12" x2="10" y2="20" stroke="#fff" stroke-width="1" opacity="0.6"/>
-                                    <line x1="22" y1="12" x2="22" y2="20" stroke="#fff" stroke-width="1" opacity="0.6"/>
+                                    <rect width="32" height="32" rx="4" fill="#1a1a1a" />
+                                    <circle cx="10" cy="16" r="2" fill="#fff" />
+                                    <circle cx="22" cy="16" r="2" fill="#fff" />
+                                    <line x1="12" y1="16" x2="20" y2="16" stroke="#fff" stroke-width="1.5" />
+                                    <line x1="10" y1="12" x2="10" y2="20" stroke="#fff" stroke-width="1"
+                                        opacity="0.6" />
+                                    <line x1="22" y1="12" x2="22" y2="20" stroke="#fff" stroke-width="1"
+                                        opacity="0.6" />
                                 </svg>
                             </div>
                             <span>UART/I2C/SPI/CAN Bus</span>
@@ -1720,13 +1753,14 @@
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <rect x="8" y="12" width="16" height="8" rx="1" fill="none" stroke="#fff" stroke-width="1.5"/>
-                                    <rect x="9" y="13.5" width="2" height="5" rx="0.5" fill="#fff"/>
-                                    <rect x="12" y="14.5" width="2" height="3" rx="0.5" fill="#fff"/>
-                                    <rect x="15" y="14" width="2" height="4" rx="0.5" fill="#fff"/>
-                                    <rect x="18" y="14.5" width="2" height="3" rx="0.5" fill="#fff"/>
-                                    <rect x="21" y="13.5" width="2" height="5" rx="0.5" fill="#fff"/>
+                                    <rect width="32" height="32" rx="4" fill="#1a1a1a" />
+                                    <rect x="8" y="12" width="16" height="8" rx="1" fill="none" stroke="#fff"
+                                        stroke-width="1.5" />
+                                    <rect x="9" y="13.5" width="2" height="5" rx="0.5" fill="#fff" />
+                                    <rect x="12" y="14.5" width="2" height="3" rx="0.5" fill="#fff" />
+                                    <rect x="15" y="14" width="2" height="4" rx="0.5" fill="#fff" />
+                                    <rect x="18" y="14.5" width="2" height="3" rx="0.5" fill="#fff" />
+                                    <rect x="21" y="13.5" width="2" height="5" rx="0.5" fill="#fff" />
                                 </svg>
                             </div>
                             <span>USB HID</span>
@@ -1734,14 +1768,17 @@
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#1a1a1a"/>
-                                    <rect x="8" y="10" width="16" height="12" rx="1" fill="none" stroke="#fff" stroke-width="1.5"/>
-                                    <circle cx="12" cy="16" r="1.5" fill="#fff"/>
-                                    <circle cx="16" cy="14" r="1.5" fill="#fff"/>
-                                    <circle cx="16" cy="18" r="1.5" fill="#fff"/>
-                                    <circle cx="20" cy="16" r="1.5" fill="#fff"/>
-                                    <line x1="12" y1="16" x2="16" y2="14" stroke="#fff" stroke-width="1" opacity="0.5"/>
-                                    <line x1="16" y1="18" x2="20" y2="16" stroke="#fff" stroke-width="1" opacity="0.5"/>
+                                    <rect width="32" height="32" rx="4" fill="#1a1a1a" />
+                                    <rect x="8" y="10" width="16" height="12" rx="1" fill="none" stroke="#fff"
+                                        stroke-width="1.5" />
+                                    <circle cx="12" cy="16" r="1.5" fill="#fff" />
+                                    <circle cx="16" cy="14" r="1.5" fill="#fff" />
+                                    <circle cx="16" cy="18" r="1.5" fill="#fff" />
+                                    <circle cx="20" cy="16" r="1.5" fill="#fff" />
+                                    <line x1="12" y1="16" x2="16" y2="14" stroke="#fff" stroke-width="1"
+                                        opacity="0.5" />
+                                    <line x1="16" y1="18" x2="20" y2="16" stroke="#fff" stroke-width="1"
+                                        opacity="0.5" />
                                 </svg>
                             </div>
                             <span>QMK</span>
@@ -1771,7 +1808,8 @@
                         </div>
                         <div class="tech-item">
                             <div class="tech-icon">
-                                <img src="https://cdn.worldvectorlogo.com/logos/office-2.svg" alt="MS Suite" style="width: 32px; height: 32px; object-fit: contain;">
+                                <img src="https://cdn.worldvectorlogo.com/logos/office-2.svg" alt="MS Suite"
+                                    style="width: 32px; height: 32px; object-fit: contain;">
                             </div>
                             <span>MS Suite</span>
                         </div>
@@ -1784,8 +1822,9 @@
                         <div class="tech-item">
                             <div class="tech-icon">
                                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="4" fill="#00C853"/>
-                                    <text x="16" y="24" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#fff" text-anchor="middle">B</text>
+                                    <rect width="32" height="32" rx="4" fill="#00C853" />
+                                    <text x="16" y="24" font-family="Arial, sans-serif" font-size="22"
+                                        font-weight="bold" fill="#fff" text-anchor="middle">B</text>
                                 </svg>
                             </div>
                             <span>Blynk IOT</span>
@@ -1815,12 +1854,14 @@
             <div class="education-grid">
                 <div class="education-content">
                     <div class="education-item fade-in-up">
-                        <div class="education-degree">Bachelor of Engineering Science (BESc) in Mechatronics Engineering</div>
+                        <div class="education-degree">Bachelor of Engineering Science (BESc) in Mechatronics Engineering
+                        </div>
                         <div class="education-school">University of Western Ontario</div>
                         <div class="education-date">September 2024 - Expected April 2028</div>
                         <div class="education-details">
-                            Mechatronics Engineer with interests in embedded systems, IOT, and CAD. 
-                            Active member of the Formula Electric SAE club and recipient of the Marion Elizabeth McLeod Award.
+                            Mechatronics Engineer with interests in embedded systems, IOT, and CAD.
+                            Active member of the Formula Electric SAE club and recipient of the Marion Elizabeth McLeod
+                            Award.
                         </div>
                     </div>
                 </div>
@@ -1855,10 +1896,12 @@
                     Download my resume to learn more about my experience, skills, and achievements.
                 </p>
                 <div class="resume-links">
-                    <a href="https://drive.google.com/file/d/1vKzv3z0K4EW64jrXb7EDvRQcVjDh4XL9/view?usp=sharing" class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://drive.google.com/file/d/1vKzv3z0K4EW64jrXb7EDvRQcVjDh4XL9/view?usp=sharing"
+                        class="resume-link" target="_blank" rel="noopener noreferrer">
                         📄 Download Resume (PDF)
                     </a>
-                    <a href="https://drive.google.com/file/d/1vKzv3z0K4EW64jrXb7EDvRQcVjDh4XL9/view?usp=sharing" class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href="https://drive.google.com/file/d/1vKzv3z0K4EW64jrXb7EDvRQcVjDh4XL9/view?usp=sharing"
+                        class="resume-link" target="_blank" rel="noopener noreferrer">
                         📋 View Online Resume
                     </a>
                 </div>
@@ -1872,21 +1915,27 @@
             <h2 class="section-title fade-in-up">Get In Touch</h2>
             <div class="contact-links fade-in-up">
                 <a href="mailto:sunnylin893@gmail.com" class="contact-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                         <polyline points="22,6 12,13 2,6"></polyline>
                     </svg>
                     Email
                 </a>
                 <a href="https://github.com/s-l893" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                     GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/sunny-lin-03860325a" class="contact-link" target="_blank" rel="noopener noreferrer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <a href="https://www.linkedin.com/in/sunny-lin-03860325a" class="contact-link" target="_blank"
+                    rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                     </svg>
                     LinkedIn
                 </a>
@@ -1897,29 +1946,36 @@
     <!-- Floating Navigation Bar -->
     <nav class="floating-nav">
         <a href="#home" aria-label="Home">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
         </a>
         <a href="https://github.com/s-l893" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
             </svg>
         </a>
-        <a href="https://www.linkedin.com/in/sunny-lin-03860325a" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.linkedin.com/in/sunny-lin-03860325a" aria-label="LinkedIn" target="_blank"
+            rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
             </svg>
         </a>
         <a href="mailto:sunnylin893@gmail.com" aria-label="Email">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
         </a>
-        <a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" aria-label="Resume" target="_blank" rel="noopener noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="https://drive.google.com/file/d/1GmxVMnPzZjNPAidDy3HMXou8Hje_vET7/view?usp=sharing" aria-label="Resume"
+            target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
                 <polyline points="14 2 14 8 20 8"></polyline>
                 <line x1="16" y1="13" x2="8" y2="13"></line>
@@ -1942,7 +1998,7 @@
                 technologies: ["Python", "C", "Arduino", "SOLIDWORKS", "Kicad", "QMK"],
                 features: [
                     "3D printed 3x3 Macropad casing designed using SOLIDWORKS",
-                    "Two versions using ESP32-S3 and Pro Micro microcontrollers", 
+                    "Two versions using ESP32-S3 and Pro Micro microcontrollers",
                     "Created a software interface with HTML which allows the user to program their desired macros",
                     "Created an alternative macro configuration tool with CircuitPython for our trial run",
                     "Windows batch file for automatic macro updates after downloaded from the HTML frontend",
@@ -1960,9 +2016,9 @@
                     { content: "https://i.imgur.com/42CK7uJ.jpeg" },
                     { content: "https://i.imgur.com/0XICNZC.jpeg" },
                     { content: "https://i.imgur.com/iWnHFjl.jpeg" },
-                    { content: "https://i.imgur.com/patKgf3.png"  },
-                    { content: "https://i.imgur.com/U2o5oiV.png"  },
-                    { content: "https://i.imgur.com/rfehLPc.png"  }
+                    { content: "https://i.imgur.com/patKgf3.png" },
+                    { content: "https://i.imgur.com/U2o5oiV.png" },
+                    { content: "https://i.imgur.com/rfehLPc.png" }
                 ]
             },
             kineticefromhail: {
@@ -2116,16 +2172,16 @@
                         {/* Project Navigation Arrows */}
                         {goToNextProject && goToPrevProject && (
                             <>
-                                <button 
-                                    className="project-nav project-nav-prev" 
+                                <button
+                                    className="project-nav project-nav-prev"
                                     onClick={(e) => { e.stopPropagation(); goToPrevProject(); }}
                                     disabled={!canGoPrev}
                                     style={{ opacity: canGoPrev ? 1 : 0.3 }}
                                 >
                                     ← Prev
                                 </button>
-                                <button 
-                                    className="project-nav project-nav-next" 
+                                <button
+                                    className="project-nav project-nav-next"
                                     onClick={(e) => { e.stopPropagation(); goToNextProject(); }}
                                     disabled={!canGoNext}
                                     style={{ opacity: canGoNext ? 1 : 0.3 }}
@@ -2203,6 +2259,8 @@
 
         const CurrentProjects = () => {
             const [progress, setProgress] = React.useState(0);
+            const [isModalOpen, setIsModalOpen] = React.useState(false);
+            const [slideIndex, setSlideIndex] = React.useState(0);
 
             React.useEffect(() => {
                 // Animate progress bar on mount
@@ -2213,35 +2271,112 @@
             const currentProject = {
                 title: "Automotive Telematics & High-Frequency Data Acquisition System (Black Box)",
                 description: "Currently working on developing a high-frequency data acquisition system (Black Box) utilizing an STM32 microcontroller combining inertial data, GPS, and real-time vehicle diagnostics via CAN BUS (OBD-II). This system will utilize interrupt-driven firmware to log critical vehicle telemetry to a micro SD card for post-trip performance analysis via heatmaps using a Python-based script with Pandas and Folium.",
+                longDescription: "Currently working on developing a high-frequency data acquisition system (Black Box) utilizing an STM32 microcontroller combining inertial data, GPS, and real-time vehicle diagnostics via CAN BUS (OBD-II). This system will utilize interrupt-driven firmware to log critical vehicle telemetry to a micro SD card for post-trip performance analysis via heatmaps using a Python-based script with Pandas and Folium.",
                 technologies: ["C", "STM32", "SOLIDWORKS", "Python", "CAN Bus", "I2C/UART/SPI"],
-                progress: progress
+                progress: progress,
+                images: [
+                    // Add your images/videos here
+                    // Example format:
+                    // { content: "https://example.com/image.jpg" },
+                    // { content: "https://example.com/video.mp4", type: "video" }
+                ]
+            };
+
+            React.useEffect(() => {
+                const handleKey = (event) => {
+                    if (!isModalOpen) return;
+                    if (event.key === "Escape") {
+                        setIsModalOpen(false);
+                    } else if (event.key === "ArrowRight") {
+                        setSlideIndex((current) => {
+                            const slides = currentProject.images || [];
+                            return slides.length ? (current + 1) % slides.length : 0;
+                        });
+                    } else if (event.key === "ArrowLeft") {
+                        setSlideIndex((current) => {
+                            const slides = currentProject.images || [];
+                            return slides.length ? (current - 1 + slides.length) % slides.length : 0;
+                        });
+                    }
+                };
+
+                document.addEventListener("keydown", handleKey);
+                document.body.style.overflow = isModalOpen ? "hidden" : "";
+
+                return () => {
+                    document.removeEventListener("keydown", handleKey);
+                    document.body.style.overflow = "";
+                };
+            }, [isModalOpen, currentProject.images]);
+
+            const goToSlide = (nextIndex) => {
+                const slides = currentProject.images || [];
+                if (slides.length === 0) return;
+                const normalized = (nextIndex + slides.length) % slides.length;
+                setSlideIndex(normalized);
             };
 
             return (
-                <div className="current-project-card fade-in-up">
-                    <div className="current-project-header">
-                        <span className="current-project-badge">In Progress</span>
-                        <h3 className="current-project-title">{currentProject.title}</h3>
-                    </div>
-                    <p className="current-project-description">{currentProject.description}</p>
-                    <div className="current-project-tech">
-                        {currentProject.technologies.map((tech) => (
-                            <span className="current-project-tech-tag" key={tech}>{tech}</span>
-                        ))}
-                    </div>
-                    <div className="current-project-progress">
-                        <div className="progress-label">
-                            <span>Progress</span>
-                            <span>{currentProject.progress}%</span>
+                <>
+                    <div
+                        className="current-project-card fade-in-up"
+                        onClick={() => {
+                            if (currentProject.images && currentProject.images.length > 0) {
+                                setIsModalOpen(true);
+                                setSlideIndex(0);
+                            }
+                        }}
+                        style={{
+                            cursor: currentProject.images && currentProject.images.length > 0 ? 'pointer' : 'default'
+                        }}
+                    >
+                        <div className="current-project-header">
+                            <span className="current-project-badge">In Progress</span>
+                            <h3 className="current-project-title">{currentProject.title}</h3>
                         </div>
-                        <div className="progress-bar-container">
-                            <div 
-                                className="progress-bar" 
-                                style={{ width: `${currentProject.progress}%` }}
-                            />
+                        <p className="current-project-description">{currentProject.description}</p>
+                        <div className="current-project-tech">
+                            {currentProject.technologies.map((tech) => (
+                                <span className="current-project-tech-tag" key={tech}>{tech}</span>
+                            ))}
                         </div>
+                        <div className="current-project-progress">
+                            <div className="progress-label">
+                                <span>Progress</span>
+                                <span>{currentProject.progress}%</span>
+                            </div>
+                            <div className="progress-bar-container">
+                                <div
+                                    className="progress-bar"
+                                    style={{ width: `${currentProject.progress}%` }}
+                                />
+                            </div>
+                        </div>
+                        {currentProject.images && currentProject.images.length > 0 && (
+                            <div style={{
+                                marginTop: "15px",
+                                fontSize: "14px",
+                                color: "#64ffda",
+                                textAlign: "center"
+                            }}>
+                                Click to view images/videos →
+                            </div>
+                        )}
                     </div>
-                </div>
+
+                    {isModalOpen && currentProject.images && currentProject.images.length > 0 && (
+                        <Modal
+                            project={currentProject}
+                            onClose={() => setIsModalOpen(false)}
+                            slideIndex={slideIndex}
+                            setSlideIndex={setSlideIndex}
+                            goToNextProject={null}
+                            goToPrevProject={null}
+                            canGoNext={false}
+                            canGoPrev={false}
+                        />
+                    )}
+                </>
             );
         };
 
@@ -2250,18 +2385,18 @@
             const [slideIndex, setSlideIndex] = React.useState(0);
 
             const activeProject = activeProjectKey ? projectData[activeProjectKey] : null;
-            
+
             // Get all project keys for navigation
             const projectKeys = Object.keys(projectData);
             const currentProjectIndex = activeProjectKey ? projectKeys.indexOf(activeProjectKey) : -1;
-            
+
             const goToNextProject = () => {
                 if (currentProjectIndex >= 0 && currentProjectIndex < projectKeys.length - 1) {
                     setActiveProjectKey(projectKeys[currentProjectIndex + 1]);
                     setSlideIndex(0);
                 }
             };
-            
+
             const goToPrevProject = () => {
                 if (currentProjectIndex > 0) {
                     setActiveProjectKey(projectKeys[currentProjectIndex - 1]);
@@ -2359,7 +2494,7 @@
                 ReactDOM.render(<CurrentProjects />, currentProjectsRootEl);
             }
         }
-        
+
         // Render Projects component
         const projectsRootEl = document.getElementById("projects-root");
         if (projectsRootEl) {
@@ -2387,7 +2522,7 @@
             'नमस्ते'
         ];
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             initializeScrollAnimations();
             initializeNavigation();
             initializeGreetingAnimation();
@@ -2431,11 +2566,11 @@
 
         function initializeScrollAnimations() {
             handleScrollAnimations();
-            
+
             let ticking = false;
-            window.addEventListener('scroll', function() {
+            window.addEventListener('scroll', function () {
                 if (!ticking) {
-                    requestAnimationFrame(function() {
+                    requestAnimationFrame(function () {
                         handleScrollAnimations();
                         ticking = false;
                     });
@@ -2449,34 +2584,34 @@
             const windowHeight = window.innerHeight;
             const scrollY = window.pageYOffset || document.documentElement.scrollTop;
             const documentHeight = document.documentElement.scrollHeight;
-            
+
             // Handle fade-in-up elements with improved detection
             elements.forEach((element) => {
                 const rect = element.getBoundingClientRect();
                 const elementTop = rect.top;
                 const elementBottom = rect.bottom;
-                
+
                 // Check if element is in viewport or near it
                 const isInViewport = elementTop < windowHeight + 200 && elementBottom > -200;
-                
+
                 // Also check if we're near the bottom of the page (for contact section)
                 const isNearBottom = scrollY + windowHeight >= documentHeight - 100;
                 const isContactSection = element.closest('.contact') !== null;
-                
+
                 if (isInViewport || (isNearBottom && isContactSection)) {
                     element.classList.add('visible');
                 }
             });
         }
-        
+
         // Also trigger animations immediately on load and after a short delay
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             setTimeout(handleScrollAnimations, 100);
             setTimeout(handleScrollAnimations, 500);
         });
-        
+
         // Force contact section to be visible after page load
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             const contactLinks = document.querySelector('.contact .contact-links');
             if (contactLinks) {
                 contactLinks.classList.add('visible');
@@ -2492,7 +2627,7 @@
                         const navbar = document.querySelector('.navbar');
                         const navHeight = navbar ? navbar.offsetHeight : 0;
                         const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-                        
+
                         window.scrollTo({
                             top: targetPosition,
                             behavior: 'smooth'
@@ -2536,7 +2671,7 @@
                 link.classList.toggle('active', isActive);
             });
         }
-        
+
         // Also call on initial load
         updateActiveNavigation();
 
@@ -2548,19 +2683,19 @@
         function updateAlternatingText() {
             const alternatingText = document.getElementById('alternatingText');
             if (!alternatingText) return;
-            
+
             const currentText = alternatingText.textContent;
             const currentIndex = greetings.indexOf(currentText);
             const nextIndex = (currentIndex + 1) % greetings.length;
-            
+
             // Fade out
             alternatingText.classList.add('fade-out');
-            
+
             setTimeout(() => {
                 alternatingText.textContent = greetings[nextIndex];
                 alternatingText.classList.remove('fade-out');
                 alternatingText.classList.add('fade-in');
-                
+
                 setTimeout(() => {
                     alternatingText.classList.remove('fade-in');
                 }, 100);
@@ -2569,7 +2704,7 @@
 
         function initializeTechStackAnimations() {
             const techItems = document.querySelectorAll('.tech-item');
-            
+
             techItems.forEach((item, index) => {
                 item.style.animationDelay = `${index * 0.1}s`;
             });
@@ -2578,7 +2713,7 @@
                 item.addEventListener('mouseenter', () => {
                     item.style.transform = 'translateX(8px) scale(1.05)';
                 });
-                
+
                 item.addEventListener('mouseleave', () => {
                     item.style.transform = 'translateX(0) scale(1)';
                 });
@@ -2613,11 +2748,11 @@
 
             floatingNav.addEventListener('mousemove', (e) => {
                 if (!isHovering) return;
-                
+
                 const rect = floatingNav.getBoundingClientRect();
                 const mouseX = e.clientX - rect.left;
                 const navWidth = rect.width;
-                
+
                 navLinks.forEach((link) => {
                     const linkRect = link.getBoundingClientRect();
                     const linkCenterX = linkRect.left + linkRect.width / 2 - rect.left;
@@ -2628,7 +2763,7 @@
                     link.style.transform = `scale(${scale})`;
                     link.style.transition = 'transform 0.1s ease-out';
                 });
-                
+
                 clearFade();
             });
 
@@ -2640,10 +2775,11 @@
                 });
                 scheduleFade();
             });
-            
+
             // Initial fade after load
             scheduleFade(2000);
         }
     </script>
 </body>
+
 </html>
