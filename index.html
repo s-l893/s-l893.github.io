@@ -1002,6 +1002,7 @@
             min-height: 400px;
             overflow: hidden;
             height: 100%;
+            touch-action: pan-y pinch-zoom;
         }
 
         .carousel-container {
@@ -1491,7 +1492,16 @@
                 touch-action: manipulation;
                 -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
                 padding: 0.5rem 0;
-                display: block;
+                display: inline-block;
+            }
+
+            .nav-menu a::after {
+                width: 0;
+            }
+
+            .nav-menu a:hover::after,
+            .nav-menu a.active::after {
+                width: 100%;
             }
 
 
@@ -2235,11 +2245,39 @@
 
         const Modal = ({ project, onClose, slideIndex, setSlideIndex, goToNextProject, goToPrevProject, canGoNext, canGoPrev }) => {
             const slides = project?.images || [];
+            const [touchStart, setTouchStart] = React.useState(null);
+            const [touchEnd, setTouchEnd] = React.useState(null);
 
             const goToSlide = (nextIndex) => {
                 if (slides.length === 0) return;
                 const normalized = (nextIndex + slides.length) % slides.length;
                 setSlideIndex(normalized);
+            };
+
+            // Minimum swipe distance (in pixels)
+            const minSwipeDistance = 50;
+
+            const onTouchStart = (e) => {
+                setTouchEnd(null);
+                setTouchStart(e.targetTouches[0].clientX);
+            };
+
+            const onTouchMove = (e) => {
+                setTouchEnd(e.targetTouches[0].clientX);
+            };
+
+            const onTouchEnd = () => {
+                if (!touchStart || !touchEnd) return;
+                const distance = touchStart - touchEnd;
+                const isLeftSwipe = distance > minSwipeDistance;
+                const isRightSwipe = distance < -minSwipeDistance;
+
+                if (isLeftSwipe && slides.length > 0) {
+                    goToSlide(slideIndex + 1);
+                }
+                if (isRightSwipe && slides.length > 0) {
+                    goToSlide(slideIndex - 1);
+                }
             };
 
             return (
@@ -2267,7 +2305,12 @@
                                 </button>
                             </>
                         )}
-                        <div className="modal-carousel">
+                        <div
+                            className="modal-carousel"
+                            onTouchStart={onTouchStart}
+                            onTouchMove={onTouchMove}
+                            onTouchEnd={onTouchEnd}
+                        >
                             <div className="carousel-container">
                                 {slides.map((media, index) => (
                                     <div className={`carousel-slide ${index === slideIndex ? "active" : ""}`} key={index}>
