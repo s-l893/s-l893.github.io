@@ -2108,14 +2108,26 @@
             if (resumeViewLink) {
                 resumeViewLink.href = RESUME_LINK;
             }
+
+            // Also set the floating nav resume link
+            const floatingNavResumeLink = document.getElementById('floating-nav-resume');
+            if (floatingNavResumeLink) {
+                floatingNavResumeLink.href = RESUME_LINK;
+            }
         }
 
         // Initialize resume links when DOM is ready
+        function runResumeLinksInit() {
+            initializeResumeLinks();
+            // Retry after a short delay to catch any elements that might be created later
+            setTimeout(initializeResumeLinks, 100);
+        }
+
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeResumeLinks);
+            document.addEventListener('DOMContentLoaded', runResumeLinksInit);
         } else {
             // DOM is already loaded, run immediately
-            initializeResumeLinks();
+            runResumeLinksInit();
         }
     </script>
 
@@ -2920,12 +2932,7 @@
             const floatingNav = document.querySelector('.floating-nav');
             if (!floatingNav) return;
 
-            // Set resume link from variable
-            const resumeLink = document.getElementById('floating-nav-resume');
-            if (resumeLink) {
-                resumeLink.href = RESUME_LINK;
-            }
-
+            // Resume link is set by initializeResumeLinks() in the regular script tag
             const navLinks = floatingNav.querySelectorAll('a');
             let fadeTimeout;
             let isHovering = false;
