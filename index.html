@@ -961,7 +961,7 @@
 
         @media (max-width: 768px) {
             .modal-close {
-                top: 30px;
+                top: 25px;
                 right: 25px;
                 width: 40px;
                 height: 40px;
@@ -1478,11 +1478,22 @@
                 z-index: 1200;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
                 width: calc(100% - 24px);
+                pointer-events: none;
             }
 
             .nav-menu.open {
                 display: flex;
+                pointer-events: auto;
             }
+
+            .nav-menu a {
+                pointer-events: auto;
+                touch-action: manipulation;
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.1);
+                padding: 0.5rem 0;
+                display: block;
+            }
+
 
             .greeting-text {
                 font-size: 2.2rem;
@@ -2622,14 +2633,30 @@
             }, { passive: false });
 
             navMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
+                const closeMenu = () => {
                     navToggle.classList.remove('open');
                     navMenu.classList.remove('open');
-                });
-                link.addEventListener('touchend', () => {
-                    navToggle.classList.remove('open');
-                    navMenu.classList.remove('open');
-                });
+                };
+
+                // Use click for better compatibility
+                link.addEventListener('click', (e) => {
+                    // Don't prevent default - let the link work normally
+                    closeMenu();
+                }, { passive: true });
+
+                // Also handle touch for immediate feedback
+                link.addEventListener('touchstart', (e) => {
+                    // Add visual feedback
+                    link.style.opacity = '0.7';
+                }, { passive: true });
+
+                link.addEventListener('touchend', (e) => {
+                    link.style.opacity = '';
+                    // Small delay to ensure click event fires
+                    setTimeout(() => {
+                        closeMenu();
+                    }, 100);
+                }, { passive: true });
             });
         }
 
