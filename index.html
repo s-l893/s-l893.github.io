@@ -904,7 +904,7 @@
             color: var(--white);
             font-size: 2rem;
             cursor: pointer;
-            z-index: 2010;
+            z-index: 2020;
             padding: 8px;
             border-radius: 50%;
             width: 45px;
@@ -960,24 +960,51 @@
         }
 
         @media (max-width: 768px) {
-            .project-nav {
-                position: static;
-                transform: none;
-                width: 100%;
-                margin: 0.25rem 0;
-                padding: 12px;
-                font-size: 0.95rem;
-                text-align: center;
+            .modal-close {
+                top: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.75rem;
+                z-index: 2020;
             }
 
-            .project-nav-prev,
-            .project-nav-next {
-                left: auto;
+            .project-nav {
+                position: fixed;
+                bottom: 20px;
+                transform: none;
+                width: auto;
+                min-width: 80px;
+                margin: 0;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                text-align: center;
+                z-index: 2010;
+            }
+
+            .project-nav-prev {
+                left: 20px;
                 right: auto;
+            }
+
+            .project-nav-next {
+                right: 20px;
+                left: auto;
             }
 
             .modal-content {
                 gap: 0.5rem;
+                max-height: 95vh;
+                display: flex;
+                flex-direction: column;
+                overflow: hidden;
+            }
+
+            .modal-info {
+                max-height: calc(95vh - 350px);
+                padding-bottom: 4rem;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
             }
         }
 
@@ -1073,6 +1100,7 @@
             padding: 2rem;
             overflow-y: auto;
             max-height: 80vh;
+            padding-bottom: 3rem;
         }
 
         .modal-project-title {
@@ -1541,6 +1569,8 @@
 
             .modal-carousel {
                 min-height: 300px;
+                max-height: 40vh;
+                flex-shrink: 0;
             }
 
             .projects-grid {
