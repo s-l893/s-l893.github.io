@@ -2088,14 +2088,43 @@
         </a>
     </nav>
 
+    <!-- Resume link variable and initialization - must be in regular script for global access -->
+    <script>
+        const RESUME_LINK = "https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing";
+
+        function initializeResumeLinks() {
+            // Set all resume links to use the RESUME_LINK variable
+            const navResumeLink = document.getElementById('nav-resume-link');
+            if (navResumeLink) {
+                navResumeLink.href = RESUME_LINK;
+            }
+
+            const resumeDownloadLink = document.getElementById('resume-download-link');
+            if (resumeDownloadLink) {
+                resumeDownloadLink.href = RESUME_LINK;
+            }
+
+            const resumeViewLink = document.getElementById('resume-view-link');
+            if (resumeViewLink) {
+                resumeViewLink.href = RESUME_LINK;
+            }
+        }
+
+        // Initialize resume links when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeResumeLinks);
+        } else {
+            // DOM is already loaded, run immediately
+            initializeResumeLinks();
+        }
+    </script>
+
     <!-- React + ReactDOM and Babel for JSX transformation -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
-        // Resume link variable
-        const RESUME_LINK = "https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing";
 
         const projectData = {
             macropad: {
@@ -2678,26 +2707,9 @@
             initializeTechStackAnimations();
             initializeMobileNav();
             initializeFloatingNav();
-            initializeResumeLinks();
+            // initializeResumeLinks is called separately above
         });
 
-        function initializeResumeLinks() {
-            // Set all resume links to use the RESUME_LINK variable
-            const navResumeLink = document.getElementById('nav-resume-link');
-            if (navResumeLink) {
-                navResumeLink.href = RESUME_LINK;
-            }
-
-            const resumeDownloadLink = document.getElementById('resume-download-link');
-            if (resumeDownloadLink) {
-                resumeDownloadLink.href = RESUME_LINK;
-            }
-
-            const resumeViewLink = document.getElementById('resume-view-link');
-            if (resumeViewLink) {
-                resumeViewLink.href = RESUME_LINK;
-            }
-        }
 
         function initializeMobileNav() {
             const navToggle = document.querySelector('.nav-toggle');
