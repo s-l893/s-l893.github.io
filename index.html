@@ -1011,11 +1011,20 @@
             height: 100%;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+
+        .carousel-slides-wrapper {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
         }
 
         .carousel-slide {
-            display: none;
+            min-width: 100%;
             width: 100%;
             height: 100%;
             background: transparent;
@@ -1028,10 +1037,8 @@
             font-size: 1.2rem;
             text-align: center;
             padding: 20px;
-        }
-
-        .carousel-slide.active {
             display: flex;
+            flex-shrink: 0;
         }
 
         .carousel-nav {
@@ -2312,11 +2319,18 @@
                             onTouchEnd={onTouchEnd}
                         >
                             <div className="carousel-container">
-                                {slides.map((media, index) => (
-                                    <div className={`carousel-slide ${index === slideIndex ? "active" : ""}`} key={index}>
-                                        <MediaSlide media={media} projectTitle={project.title} />
-                                    </div>
-                                ))}
+                                <div
+                                    className="carousel-slides-wrapper"
+                                    style={{
+                                        transform: `translateX(-${slideIndex * 100}%)`
+                                    }}
+                                >
+                                    {slides.map((media, index) => (
+                                        <div className="carousel-slide" key={index}>
+                                            <MediaSlide media={media} projectTitle={project.title} />
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                             {slides.length > 1 && (
                                 <>
