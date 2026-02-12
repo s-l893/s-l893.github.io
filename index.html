@@ -1644,7 +1644,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#current-projects">Current Projects</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href={RESUME_LINK} target="_blank" rel="noopener noreferrer">Resume</a></li>
+                <li><a href="#" id="nav-resume-link" target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -2002,10 +2002,10 @@
                     Download my resume to learn more about my experience, skills, and achievements.
                 </p>
                 <div class="resume-links">
-                    <a href={RESUME_LINK} class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href="#" id="resume-download-link" class="resume-link" target="_blank" rel="noopener noreferrer">
                         📄 Download Resume (PDF)
                     </a>
-                    <a href={RESUME_LINK} class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href="#" id="resume-view-link" class="resume-link" target="_blank" rel="noopener noreferrer">
                         📋 View Online Resume
                     </a>
                 </div>
@@ -2678,7 +2678,26 @@
             initializeTechStackAnimations();
             initializeMobileNav();
             initializeFloatingNav();
+            initializeResumeLinks();
         });
+
+        function initializeResumeLinks() {
+            // Set all resume links to use the RESUME_LINK variable
+            const navResumeLink = document.getElementById('nav-resume-link');
+            if (navResumeLink) {
+                navResumeLink.href = RESUME_LINK;
+            }
+
+            const resumeDownloadLink = document.getElementById('resume-download-link');
+            if (resumeDownloadLink) {
+                resumeDownloadLink.href = RESUME_LINK;
+            }
+
+            const resumeViewLink = document.getElementById('resume-view-link');
+            if (resumeViewLink) {
+                resumeViewLink.href = RESUME_LINK;
+            }
+        }
 
         function initializeMobileNav() {
             const navToggle = document.querySelector('.nav-toggle');
