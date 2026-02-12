@@ -36,6 +36,13 @@
         html {
             scroll-behavior: smooth;
             background: var(--page-bg);
+            /* Hide scrollbar space in Firefox */
+            scrollbar-width: none;
+        }
+
+        /* Hide scrollbar in WebKit-based browsers (Chrome, Edge, Safari, etc.) */
+        html::-webkit-scrollbar {
+            display: none;
         }
 
         body {
@@ -117,17 +124,9 @@
 
         .logo img,
         .logo svg {
-            width: auto;
+            width: 40px;
             height: 40px;
-            max-width: 200px;
             object-fit: contain;
-        }
-
-        .logo:has(img) {
-            background: none;
-            -webkit-background-clip: unset;
-            -webkit-text-fill-color: unset;
-            background-clip: unset;
         }
 
         .logo-text {
@@ -1577,9 +1576,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
-                <img src="signature.svg" alt="Sunny Lin" />
-            </div>
+            <div class="logo">Sunny Lin</div>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span class="hamburger"></span>
                 Menu
