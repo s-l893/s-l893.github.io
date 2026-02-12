@@ -1587,6 +1587,16 @@
                 min-height: 300px;
                 max-height: 40vh;
                 flex-shrink: 0;
+                padding: 20px 0 10px 0;
+                overflow: hidden;
+            }
+
+            .carousel-container {
+                padding-top: 0;
+            }
+
+            .carousel-slide {
+                padding: 5px 20px 15px 20px;
             }
 
             .projects-grid {
@@ -1634,8 +1644,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#current-projects">Current Projects</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="https://drive.google.com/file/d/1h2vIoAeSP4r-XF4cjJHxkWBlNxW8fCeq/view?usp=sharing"
-                        target="_blank" rel="noopener noreferrer">Resume</a></li>
+                <li><a href={RESUME_LINK} target="_blank" rel="noopener noreferrer">Resume</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -1993,12 +2002,10 @@
                     Download my resume to learn more about my experience, skills, and achievements.
                 </p>
                 <div class="resume-links">
-                    <a href="https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing"
-                        class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href={RESUME_LINK} class="resume-link" target="_blank" rel="noopener noreferrer">
                         📄 Download Resume (PDF)
                     </a>
-                    <a href="https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing"
-                        class="resume-link" target="_blank" rel="noopener noreferrer">
+                    <a href={RESUME_LINK} class="resume-link" target="_blank" rel="noopener noreferrer">
                         📋 View Online Resume
                     </a>
                 </div>
@@ -2069,8 +2076,7 @@
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
         </a>
-        <a href="https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing" aria-label="Resume"
-            target="_blank" rel="noopener noreferrer">
+        <a href="#" id="floating-nav-resume" aria-label="Resume" target="_blank" rel="noopener noreferrer">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -2088,6 +2094,9 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
     <script type="text/babel">
+        // Resume link variable
+        const RESUME_LINK = "https://drive.google.com/file/d/13ddWcbboxY3GtEuBSL0sqK_ddV7sasqi/view?usp=sharing";
+
         const projectData = {
             macropad: {
                 title: "3x3 Macropad",
@@ -2879,6 +2888,12 @@
         function initializeFloatingNav() {
             const floatingNav = document.querySelector('.floating-nav');
             if (!floatingNav) return;
+
+            // Set resume link from variable
+            const resumeLink = document.getElementById('floating-nav-resume');
+            if (resumeLink) {
+                resumeLink.href = RESUME_LINK;
+            }
 
             const navLinks = floatingNav.querySelectorAll('a');
             let fadeTimeout;
